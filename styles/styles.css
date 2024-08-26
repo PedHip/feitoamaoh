@@ -93,7 +93,7 @@ header {
 }
 
 #produtosProntos {
-    padding: 6rem 1rem;
+    padding: 4rem 1rem;
 }
 
 .titleProdutos {
@@ -155,7 +155,7 @@ header {
 
 #produtosEspeciais {
     background-color: var(--section);
-    padding: 6rem 0;
+    padding: 4rem 0;
 }
 
 .titleProdutosE {
