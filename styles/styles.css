@@ -1,0 +1,629 @@
+:root {
+    --background-color: #FFFFFF;
+    --section: #FF3333;
+    --details: #ba1a1a;
+    --footer: #494949;
+    --footer2: #373737;
+    --feedback: #E3E3E3;
+    --bttnHeader: #a6a4a4;
+
+}
+
+P {
+    margin: 0 !important;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+ul{
+    padding: 0 !important;
+}
+
+img{
+    max-width: 100%;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: var(--background-color);
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+header {
+    display: none;
+}
+
+#heroSection {
+    background: linear-gradient(to bottom, #FF3333, #ba1a1a);
+    padding: 2.5rem 1rem;
+    height: 100svh;
+}
+
+#heroSection h1,
+#action h1 {
+    font-size: 1.4rem;
+    color: var(--background-color);
+}
+
+#heroSection h1 {
+    text-align: end;
+}
+
+#bannerH{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding-bottom: 3rem;
+}
+
+#textoHero p {
+    font-size: 1rem;
+    color: var(--background-color);
+    font-weight: lighter;
+}
+
+.bttnHero {
+    margin-top: 1rem;
+    width: 11rem;
+    height: 2.5rem;
+    font-size: 1.2rem;
+    color: var(--background-color);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.11), rgba(0, 0, 0, 0.11));
+    border: var(--background-color);
+    border-radius: .2rem;
+    font-weight: lighter;
+}
+
+#produtosProntos,
+#produtosEspeciais {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#produtosProntos {
+    padding: 4rem 1rem;
+}
+
+.titleProdutos {
+    margin-bottom: 2.5rem;
+}
+
+.titleProdutos,
+.titleProdutosE p {
+    font-weight: lighter;
+    margin-top: .5rem;
+}
+
+.cardProdutos {
+    width: 17.2rem;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+}
+
+.cards img{
+    height: 20rem;
+    object-fit: contain;
+}
+
+.cardImg {
+    height: 100%;
+}
+
+.cardText,
+.cardText2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
+    font-size: 1rem;
+    border-style: none;
+}
+
+.cardText {
+    background-color: var(--section);
+    color: var(--background-color);
+}
+
+.titleProdutosE {
+    padding: 0;
+}
+
+.cardText2 {
+    background-color: var(--details);
+    color: var(--background-color);
+}
+
+#produtosEspeciais {
+    background-color: var(--section);
+    padding: 4rem 0;
+}
+
+.titleProdutosE {
+    margin-bottom: 2.5rem;
+}
+
+.feedback {
+    padding: 4rem 1rem;
+    display: none;
+    /*display: flex;*/
+    flex-direction: column;
+}
+
+.titleFeedback {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.titleFeedback p {
+    font-weight: lighter;
+    margin-top: .5rem;
+}
+
+.comments {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.unitComments {
+    background-color: var(--feedback);
+    padding: 2rem;
+    border-radius: .5rem;
+    display: flex;
+    height: 8rem;
+    gap: 2rem;
+}
+
+.feedbackImg {
+    background-color: var(--details);
+    width: 5.5rem;
+    height: 4rem;
+    border-radius: 99rem;
+
+}
+
+.feedbackContent {
+    text-align: end;
+    display: flex;
+    flex-direction: column;
+}
+
+.feedbackContent h3 {
+    font-size: 1rem;
+}
+
+.feedbackContent p {
+    font-size: .8rem;
+    font-weight: lighter;
+    font-style: italic;
+}
+
+#action {
+    background: linear-gradient(to bottom, #FF3333, #ba1a1a);
+    padding: 2rem 1rem;
+    height: 100svh;
+    color: var(--background-color);
+}
+
+#actionP {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: flex-end;
+    height: 20rem;
+    text-align: end;
+}
+
+#actionP p {
+    font-weight: lighter;
+    font-size: 1rem;
+}
+
+.branco {
+    height: 4rem;
+}
+
+#socialContato {
+    background-color: var(--footer);
+    padding: 4rem 2rem;
+    color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+#socialContato h3 {
+    margin-bottom: 1rem;
+}
+
+#socialContato a {
+    text-decoration: none;
+    color: var(--background-color);
+    font-weight: lighter;
+    display: flex;
+    flex-direction: column;
+}
+
+#footerDireitos {
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--footer2);
+    color: var(--background-color);
+    font-size: 1rem;
+    margin-bottom: 3rem;
+}
+
+.navMobile{
+    height: 3rem;
+    background-color: var(--footer);
+    padding: 1rem 2rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 9999;
+}
+
+.navMobile > ul{
+    display: flex;
+    justify-content: space-between;
+}
+
+.navMobileLink{
+    list-style: none;
+}
+
+.navMobileLink img{
+    height: 1.5rem;
+}
+
+input{
+    display: none;
+}
+
+@media screen and (min-width: 768px) {
+    header {
+        padding: 0 12rem;
+        display: flex;
+        gap: 5.5rem;
+        height: 4.5rem;
+        background-color: var(--background-color);
+        font-weight: 500;
+        font-size: 1.2rem;
+        color: var(--footer2);
+        align-items: center;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        right: 0;
+        left: 0;
+        position: fixed;
+        z-index: 999;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+    }
+
+    header nav ul{
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .navMobile{
+        display: none;
+    }
+
+    #logo img{
+        width: 3.5rem;
+        width: 3rem;
+    }
+    
+
+    .perfilBttn{
+        height: 3rem;
+        width: 3rem;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+    }
+
+    .perfilBttn img{
+        height: 2rem;
+    }
+    
+    nav ul{
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        gap: 5rem;
+    }
+    
+    .bttnHeader{
+        padding: 1.5rem 2.5rem;
+        background-color: transparent;
+        color:  var(--footer2);
+        font-weight: 700;
+        border: none;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+    }
+
+    a{
+        text-decoration: none !important;
+        color: unset !important;
+    }
+
+    .bttnHeader:hover{
+        color: var(--details);
+    }
+
+    .searchBar{
+        height: 1.3rem;
+
+    }
+
+    #linha{
+        height: 1rem;
+    }
+
+    #heroSection{
+        background: linear-gradient(to top, #FFFFFF, #FFFFFF);
+        color: var(--background-color);
+        gap: 30rem;
+        padding: 7rem 10rem 0;
+    }
+    
+    #bannerH{
+        display: flex;
+        flex-direction: row-reverse;
+        color: var(--background-color);
+        height: 50rem;
+        padding: 4rem;
+        background-image: url(../imagens/website/urso.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 1rem;
+    }
+    
+    #heroSection h1{
+        font-size: 2.5rem;
+        text-align: end;
+        font-weight: 700;
+        margin-top: 2rem;
+    }
+    
+    #textoHero{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        align-self: flex-end;
+    }
+
+    #textoHero p{
+        font-size: 1.5rem;
+    }
+
+    .bttnHero{
+        width: 15rem;
+        height: 3.5rem;
+        -webkit-transition: all 200ms ease-in-out;
+        -ms-transition: all 200ms ease-in-out;
+        -moz-transition: all 200ms ease-in-out;
+         transition: all 200ms ease-in-out;
+    }
+    #produtosProntos{
+        background-color: var(--background-color);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    section+section{
+        padding-bottom: 4rem;
+    }
+
+    .titleProdutos{
+        text-align: center;
+        line-height: 3rem;
+        }
+    
+    .titleProdutos h2{
+        font-size: 2rem
+    }
+    
+    .titleProdutos p{
+        font-size: 1.2rem;
+    }
+    
+    .cardSection{
+        display: flex;
+        justify-content: center;
+    }
+    
+    .cardProdutos{
+        display: grid;
+        width: 100%;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        justify-content: center;
+    }
+    
+    .cards{
+        display: flex;
+        flex-direction: column;
+        width: 20rem;
+        background-color: unset !important;
+        border: none !important;
+        -webkit-transition: all 200ms ease-in-out;
+        -ms-transition: all 200ms ease-in-out;
+        -moz-transition: all 200ms ease-in-out;
+         transition: all 200ms ease-in-out;
+    }
+    
+    .cardImg{
+        border-radius: 8px 8px 0 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .cards img{
+        height: 22rem;
+        object-fit: contain;
+    }
+
+    .cardText, .cardText2{
+        font-size: 1rem;
+        font-weight: lighter;
+        border-style: none;
+        border-radius: 0 0 8px 8px;
+
+    }
+
+    .cardText{
+        background-color: var(--section);
+        color: var(--background-color);
+    }
+
+    #produtosEspeciais{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 14rem;
+    }
+
+    .titleProdutosE{
+        margin-bottom: 6rem;
+    }
+
+    .feedback{
+        /*display: flex;*/
+        display: none;
+        align-items: center;
+        justify-content: center;
+        height: 55rem;
+        padding: 3rem 0;
+        gap: 2rem;
+    }
+
+    .feedbackImg{
+        height: 35%;
+        width: 14%;
+    }
+
+    .feedbackContent h3{
+        font-size: 1.3rem;
+        letter-spacing: .5rem;
+        color: var(--details);
+        opacity: 70%;
+    }
+
+    .feedbackContent p{
+        line-height: 2.5rem;
+    }
+
+    .comments{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .unitComments{
+        height: 30rem;
+        width: 64%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 4rem;
+    }
+
+    .unitComments h3, .unitComments p{
+        text-align: center;
+    }
+
+    .unitComments p{
+        width: 80%;
+        align-self: center;
+    }
+
+    #action{
+        height: 45rem;
+        padding: 6rem 12rem;
+        margin-bottom: 14rem;
+        background-image: url(../imagens/website/action.jpg);
+        background-size: cover;
+        background-position: center;
+}
+
+    #action h1{
+        width: 50%;
+        font-size: 3rem;
+        font-weight: 700;
+    }
+    
+    #actionP{
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+    }
+    
+    #action p{
+        margin-bottom: 1rem;
+        font-size: 1.7rem;
+    }
+
+    #socialContato{
+        display: flex;
+        flex-direction: row;
+        gap: 4rem;
+        padding: 6rem 0 6rem 12rem;
+        text-decoration: none;
+        line-height: 2rem;
+    }
+    
+    #footerDireitos{
+        height: 6rem;
+        margin-bottom: 0;
+    }
+
+    .cards:hover, .bttnHero:hover{
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+        z-index: 2;
+       
+        -webkit-transform: scale(1.1);
+        
+        -ms-transform: scale(1.1);   
+        
+        -moz-transform: scale(1.1);
+       
+        transform: scale(1.1);
+    }
+    input{
+        display: block;
+    }
+}
