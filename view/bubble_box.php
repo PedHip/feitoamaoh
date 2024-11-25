@@ -37,21 +37,7 @@
                         <p>a bubble é um produto que contem diversos bagulhos dentro dela, a um preço muito caro</p>
                     </div>
                 </div>
-                <div id="apresentacaoBttn">
-                    <a href="bubble_acrilico.php">
-                        <button class="bttnBubble">
-                            <span>bubbles</span>
-                            <img src="../imagens/website/Forward.png" alt="">
-                        </button>
-                    </a>
 
-                    <a href="bubble_acrilico.php">
-                        <button class="bttnBubble">
-                            <span>bubbles Acrílico</span>
-                            <img src="../imagens/website/Forward.png" alt="">
-                        </button>
-                    </a>
-                </div>
             </section>
             <section id="bubblesDisp">
                 <div id="bubblesDispText">
