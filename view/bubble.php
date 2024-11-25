@@ -38,7 +38,7 @@
                     </div>
                 </div>
                 <div id="apresentacaoBttn">
-                    <a href="../view/bubble_acrilico.php">
+                    <a class="btn" href="../view/bubble_acrilico.php">
                         
                             <span>bubbles acrílico</span>
                             <img src="../imagens/website/Forward.png" alt="">
