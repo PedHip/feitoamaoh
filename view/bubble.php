@@ -38,14 +38,14 @@
                     </div>
                 </div>
                 <div id="apresentacaoBttn">
-                    <a href="bubble_acrilico.php">
+                    <a href="../view/bubble_acrilico.php">
                         
                             <span>bubbles acrílico</span>
                             <img src="../imagens/website/Forward.png" alt="">
                         
                     </a>
 
-                    <a href="bubble_box.php">
+                    <a href="../view/bubble_box.php">
                         
                             <span>bubbles na box</span>
                             <img src="../imagens/website/Forward.png" alt="">
