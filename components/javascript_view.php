@@ -186,6 +186,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 success: function (response) {
                     if (response.status === 'success') {
                         $('#mensagem').html('<div style="color:green;">' + response.message + '</div>');
+                        setTimeout(function () {
+                        window.location.href = ''; 
+                    }, 500);
                     } else {
                         $('#mensagem').html('<div style="color:red;">' + response.message + '</div>');
                     }
@@ -242,6 +245,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 },
                 error: function () {
                     $('#mensagem').html('<div style="color:red;">Erro ao realizar cadastro.</div>');
+            setTimeout(function () {
+                        window.location.href = ''; 
+                    }, 500);
                 }
             });
         });
