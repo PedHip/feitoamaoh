@@ -79,30 +79,43 @@ if (isset($_SESSION['nome'])) {
         });
     });
 
-   // Botões de login e cadastro
-    document.addEventListener("DOMContentLoaded", function () {
-        const loginModal = document.getElementById("loginModal");
-        const cadastroModal = document.getElementById("cadastroModal");
+  // Botões de login e cadastro
+document.addEventListener("DOMContentLoaded", function () {
+    const loginModal = document.getElementById("loginModal");
+    const cadastroModal = document.getElementById("cadastroModal");
 
-        const linkLogin = document.querySelectorAll("#linkLogin, #linkLoginMobile");
-        const linkCadastro = document.querySelectorAll("#linkCadastro, #linkCadastroMobile");
+    const linkLogin = document.querySelectorAll("#linkLogin, #linkLoginMobile");
+    const linkCadastro = document.querySelectorAll("#linkCadastro, #linkCadastroMobile");
 
-        if (loginModal && cadastroModal) {
-            linkLogin.forEach(button => {
-                button.addEventListener("click", function () {
-                    const modal = new bootstrap.Modal(loginModal);
-                    modal.show();
-                });
+    if (loginModal && cadastroModal) {
+        // Instâncias dos modais
+        const modalLogin = new bootstrap.Modal(loginModal);
+        const modalCadastro = new bootstrap.Modal(cadastroModal);
+
+        linkLogin.forEach(button => {
+            button.addEventListener("click", function () {
+                // Fecha o modal de cadastro se estiver aberto
+                if (modalCadastro._isShown) {
+                    modalCadastro.hide();
+                }
+                // Abre o modal de login
+                modalLogin.show();
             });
+        });
 
-            linkCadastro.forEach(button => {
-                button.addEventListener("click", function () {
-                    const modal = new bootstrap.Modal(cadastroModal);
-                    modal.show();
-                });
+        linkCadastro.forEach(button => {
+            button.addEventListener("click", function () {
+                // Fecha o modal de login se estiver aberto
+                if (modalLogin._isShown) {
+                    modalLogin.hide();
+                }
+                // Abre o modal de cadastro
+                modalCadastro.show();
             });
-        }
-    });
+        });
+    }
+});
+
 
 
     $(document).ready(function () {
