@@ -38,12 +38,12 @@
                     </div>
                 </div>
                 <div id="apresentacaoBttn">
-                    <a href="bubble.php">
+                    <a href="../view/bubble.php">
                         <button class="bttnBubble">
                         <span>bubbles</span>
                         <img src="../imagens/website/Forward.png" alt="">
                     </button></a>
-                    <a href="bubble_box.php"><button class="bttnBubble">
+                    <a href="../view/bubble_box.php"><button class="bttnBubble">
                         <span>bubbles na box</span>
                         <img src="../imagens/website/Forward.png" alt="">
                     </button></a>
