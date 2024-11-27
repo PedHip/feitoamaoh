@@ -2,9 +2,16 @@
 
     .secaoregistros{
         padding: 30px !important;
-        margin: 20px !important;
-        display: grid;
-        row-gap: 1rem; 
+    }
+
+    .h1r{
+        margin-bottom: 20px;
+    }
+
+    .selectcontainer{
+        display: inline;
+        width: 200px;
+        
     }
 
     .desc {
