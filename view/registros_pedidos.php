@@ -63,9 +63,7 @@ $usuarios = $usuario->listarUsuarios();
     
             <nav aria-label="Page navigation">
                 <ul class="pagination" id="pagination">
-                    <li>
-                        
-                    </li>
+
                 </ul>
             </nav>
         </div>
