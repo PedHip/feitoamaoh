@@ -36,7 +36,7 @@ $usuarios = $usuario->listarUsuarios();
     include '../components/javascript_view.php';
     include '../components/logincadastro_modal.php';
     ?>
-    <main>
+    <main class="mainr">
         <div class="secaoregistros">
             <h1 class="h1r" >Registros de Pedidos</h1>
     
