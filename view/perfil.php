@@ -21,7 +21,7 @@
     include '../components/logincadastro_modal.php';
     ?>
 	<main>
-		<div class="container">
+		<div class="secaoregistros">
 			<h2 class="text-center h1r mt-8">Carrinho de Compras</h2>
 	
 			<!-- Botões de Selecionar Todos e Desmarcar Todos -->
@@ -53,7 +53,7 @@
 			<!-- Contêiner para mensagens de sucesso ou erro -->
 			<div id="message-container" class="mt-3"></div>
 		</div>
-		<div class="container mt-5">
+		<div class="secaoregistros">
 			<h2 class="text-center h1r">Meus Pedidos</h2>
 			<div id="pedido-lista"></div>
 		</div>
