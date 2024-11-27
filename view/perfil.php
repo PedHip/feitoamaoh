@@ -371,11 +371,11 @@
 									$('#pedido-lista').append(`
                             <div class="card mb-3">
                                 <div class="card-body">
-                                    <h2 class="card-title">Pedido ID${pedido.id_pedido}</h5>
+                                    <p class="card-title">Pedido ID${pedido.id_pedido}</p>
                                     <p><span>Status:</span> ${pedido.status}</p>
                                     <p><span>Total:</span> R$ ${parseFloat(pedido.preco_total).toFixed(2)}</p>
                                     <div class="produtos">
-                                        <h2>Produtos:</h2>
+                                        <p>Produtos:</p>
                                         <ul class="list-group">
                                             ${pedido.produtos.map(function(produto) {
                                                 return `
