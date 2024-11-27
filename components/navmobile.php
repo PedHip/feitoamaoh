@@ -17,11 +17,11 @@
 				</div>
 
 				<div class="dropdownbuttonsMobile" id="linkLoginMobile" >
-					<a href="../view/login.php">Login</a>
+					<a>Login</a>
 				</div>
 
 				<div class="dropdownbuttonsMobile" id="linkCadastroMobile" >
-					<a href="../view/cadastro.php">Cadastro</a>
+					<a>Cadastro</a>
 				</div>
 
 				<div class="dropdownbuttonsMobile" id="linkProdMobile" >
