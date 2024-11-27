@@ -81,16 +81,30 @@ if (isset($_SESSION['nome'])) {
 
    document.addEventListener("DOMContentLoaded", function () {
   // Botão para abrir o Modal Login
-  const openModalLoginButton = document.getElementById("openModalLoginButton");
+  const openModalLoginButton = document.getElementById("linkLogin");
   openModalLoginButton.addEventListener("click", function () {
     const loginModal = new bootstrap.Modal(document.getElementById("loginModal"));
     loginModal.show();
   });
 
   // Botão para abrir o Modal Cadastro
-  const openModalCadastroButton = document.getElementById("openModalCadastroButton");
+  const openModalCadastroButton = document.getElementById("linkCadastro");
   openModalCadastroButton.addEventListener("click", function () {
     const cadastroModal = new bootstrap.Modal(document.getElementById("cadastroModal"));
+    cadastroModal.show();
+  });
+
+       // Botão para abrir o Modal Login
+  const openModalLoginButton = document.getElementById("linkLoginMobile");
+  openModalLoginButton.addEventListener("click", function () {
+    const loginModal = new bootstrap.Modal(document.getElementById("loginModalMobile"));
+    loginModal.show();
+  });
+
+  // Botão para abrir o Modal Cadastro
+  const openModalCadastroButton = document.getElementById("linkCadastroMobile");
+  openModalCadastroButton.addEventListener("click", function () {
+    const cadastroModal = new bootstrap.Modal(document.getElementById("cadastroModalMobile"));
     cadastroModal.show();
   });
 
