@@ -9,7 +9,7 @@
     }
 
     .containerselect{
-        display: inline !important;
+        display: flex !important;
         width: 200px !important;
     
     }
