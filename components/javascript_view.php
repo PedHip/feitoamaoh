@@ -79,36 +79,31 @@ if (isset($_SESSION['nome'])) {
         });
     });
 
-   document.addEventListener("DOMContentLoaded", function () {
-  // Botão para abrir o Modal Login
-  const openModalLoginButton = document.getElementById("linkLogin");
-  openModalLoginButton.addEventListener("click", function () {
-    const loginModal = new bootstrap.Modal(document.getElementById("loginModal"));
-    loginModal.show();
-  });
+   // Botões de login e cadastro
+    document.addEventListener("DOMContentLoaded", function () {
+        const loginModal = document.getElementById("loginModal");
+        const cadastroModal = document.getElementById("cadastroModal");
 
-  // Botão para abrir o Modal Cadastro
-  const openModalCadastroButton = document.getElementById("linkCadastro");
-  openModalCadastroButton.addEventListener("click", function () {
-    const cadastroModal = new bootstrap.Modal(document.getElementById("cadastroModal"));
-    cadastroModal.show();
-  });
+        const linkLogin = document.querySelectorAll("#linkLogin, #linkLoginMobile");
+        const linkCadastro = document.querySelectorAll("#linkCadastro, #linkCadastroMobile");
 
-       // Botão para abrir o Modal Login
-  const openModalLoginButton = document.getElementById("linkLoginMobile");
-  openModalLoginButton.addEventListener("click", function () {
-    const loginModal = new bootstrap.Modal(document.getElementById("loginModalMobile"));
-    loginModal.show();
-  });
+        if (loginModal && cadastroModal) {
+            linkLogin.forEach(button => {
+                button.addEventListener("click", function () {
+                    const modal = new bootstrap.Modal(loginModal);
+                    modal.show();
+                });
+            });
 
-  // Botão para abrir o Modal Cadastro
-  const openModalCadastroButton = document.getElementById("linkCadastroMobile");
-  openModalCadastroButton.addEventListener("click", function () {
-    const cadastroModal = new bootstrap.Modal(document.getElementById("cadastroModalMobile"));
-    cadastroModal.show();
-  });
+            linkCadastro.forEach(button => {
+                button.addEventListener("click", function () {
+                    const modal = new bootstrap.Modal(cadastroModal);
+                    modal.show();
+                });
+            });
+        }
+    });
 
-});
 
     $(document).ready(function () {
         // Simulação de chamada AJAX para verificar o estado do usuário
