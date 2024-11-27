@@ -38,7 +38,7 @@ $usuarios = $usuario->listarUsuarios();
     ?>
     <main>
         <div class="secaoregistros">
-            <h1>Registros de Pedidos</h1>
+            <h1 class="h1r" >Registros de Pedidos</h1>
     
             <input type="text" id="campo-pesquisa" class="form-control2" placeholder="Pesquisar pedidos...">
     
