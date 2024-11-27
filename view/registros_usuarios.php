@@ -72,11 +72,11 @@ $usuarios = $usuario->listarUsuarios();
             </nav>
         </div>
     </main>
-</body>
-    <?php
+   <?php
     include '../components/footer.php';
     include '../components/navmobile.php';
     ?>
+</body>
 
     <script>
         $(document).ready(function() {
