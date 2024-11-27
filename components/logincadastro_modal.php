@@ -1,8 +1,8 @@
-
+<link rel="stylesheet" href="../styles/prodCad.css">
 
 <!-- Modal Login -->
 <div class="modal" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-    <link rel="stylesheet" href="../styles/prodCad.css">
+
     <div class="modal-dialog">
         <div class="modal-content">
             <main>
@@ -37,7 +37,7 @@
 
 <!-- Modal Cadastro -->
 <div class="modal" id="cadastroModal" tabindex="-1" aria-labelledby="cadastroModalLabel" aria-hidden="true">
-    <link rel="stylesheet" href="../styles/prodCad.css">
+
     <div class="modal-dialog">
         <div class="modal-content">
             <main>
