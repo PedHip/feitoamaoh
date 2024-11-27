@@ -369,7 +369,7 @@
 								pedidos.forEach(function(pedido) {
 									// Exibir os pedidos
 									$('#pedido-lista').append(`
-                            <div class="card p-5 mb-3">
+                            <div class="card p-1 mb-3">
                                 <div class="card-body">
                                     <h4 class="card-title mb-1">Pedido ID${pedido.id_pedido}</h4>
                                     <h4 class="mb-2">Status: ${pedido.status}</h4>
