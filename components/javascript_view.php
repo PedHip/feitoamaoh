@@ -186,9 +186,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 success: function (response) {
                     if (response.status === 'success') {
                         $('#mensagem').html('<div style="color:green;">' + response.message + '</div>');
-                        setTimeout(function () {
-                            window.location.href = 'index.php';
-                        }, 1000);
                     } else {
                         $('#mensagem').html('<div style="color:red;">' + response.message + '</div>');
                     }
@@ -241,10 +238,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 dataType: 'json',
                 success: function (response) {
                     $('#mensagem').html(response.message);
-                    if (response.status === 'success') {
-                        setTimeout(function () {
-                            window.location.href = 'login.php';
-                        }, 1000);
                     }
                 },
                 error: function () {
