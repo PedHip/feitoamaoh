@@ -1,6 +1,8 @@
 
 
-
+    secao{
+        padding: 40px;
+    }
 
     .desc {
         height: 100px !important;
