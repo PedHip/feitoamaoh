@@ -40,7 +40,7 @@
 					<!-- O resumo dos itens selecionados será exibido aqui -->
 				</div>
 				<div id="total-summary" class="mt-3">
-					<strong>Total: R$ 0,00</strong>
+					<span>Total: R$ 0,00</span>
 				</div>
 			</div>
 	
@@ -158,7 +158,7 @@
                                 <div class="d-flex align-items-center">
                                     <img src="${item.imagem}" alt="${item.nome}" class="img-resumo">
                                     <div class="ml-3 resumo-info">
-                                        <strong>${item.nome}</strong> <br> Quantidade: ${item.quantidade} <br> Valor: R$ ${item.valor_total.toFixed(2)}
+                                        <span>${item.nome}</span> <br> Quantidade: ${item.quantidade} <br> Valor: R$ ${item.valor_total.toFixed(2)}
                                     </div>
                                 </div>
                             </div>
@@ -168,7 +168,7 @@
 					});
 
 					// Atualizar o total
-					$('#total-summary').html(`<strong>Total: R$ ${total.toFixed(2)}</strong>`);
+					$('#total-summary').html(`<span>Total: R$ ${total.toFixed(2)}</span>`);
 
 					// Exibir os botões e o resumo
 					$('#summary-container').show();
@@ -177,7 +177,7 @@
 				} else {
 					// Caso não haja itens selecionados
 					summaryContainer.html('<div class="alert alert-warning">Nenhum item selecionado.</div>');
-					$('#total-summary').html('<strong>Total: R$ 0,00</strong>');
+					$('#total-summary').html('<span>Total: R$ 0,00</span>');
 
 					// Esconde os botões e o resumo
 					$('#summary-container').hide();
@@ -371,18 +371,18 @@
 									$('#pedido-lista').append(`
                             <div class="card mb-3">
                                 <div class="card-body">
-                                    <h5 class="card-title">Pedido ID${pedido.id_pedido}</h5>
-                                    <p><strong>Status:</strong> ${pedido.status}</p>
-                                    <p><strong>Total:</strong> R$ ${parseFloat(pedido.preco_total).toFixed(2)}</p>
+                                    <h2 class="card-title">Pedido ID${pedido.id_pedido}</h5>
+                                    <p><span>Status:</span> ${pedido.status}</p>
+                                    <p><span>Total:</span> R$ ${parseFloat(pedido.preco_total).toFixed(2)}</p>
                                     <div class="produtos">
-                                        <h6>Produtos:</h6>
+                                        <h2>Produtos:</h2>
                                         <ul class="list-group">
                                             ${pedido.produtos.map(function(produto) {
                                                 return `
                                                     <li class="list-group-item d-flex align-items-center">
                                                         <img src="${produto.img_prod}" alt="${produto.nome_prod}" class="img-resumo">
                                                         <div class="ml-3">
-                                                            <strong>${produto.nome_prod}</strong><br>
+                                                            <span>${produto.nome_prod}</span><br>
                                                             ${produto.desc_prod}<br>
                                                             R$ ${parseFloat(produto.preco_prod).toFixed(2)}
                                                         </div>
