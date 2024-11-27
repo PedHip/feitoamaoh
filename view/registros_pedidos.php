@@ -31,7 +31,6 @@ $usuarios = $usuario->listarUsuarios();
 </head>
 
 <body>
-
     <?php
     include '../components/header.php';
     include '../components/javascript_view.php';
@@ -69,7 +68,14 @@ $usuarios = $usuario->listarUsuarios();
             </nav>
         </div>
     
-        <div class="modal fade" id="modalDescricao" tabindex="-1" aria-labelledby="modalDescricaoLabel" aria-hidden="true">
+    </main>
+    <?php
+    include '../components/footer.php';
+    include '../components/navmobile.php';
+    ?>
+</body>
+
+ <div class="modal fade" id="modalDescricao" tabindex="-1" aria-labelledby="modalDescricaoLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -85,8 +91,6 @@ $usuarios = $usuario->listarUsuarios();
                 </div>
             </div>
         </div>
-    </main>
-
 
     <script>
         $(document).ready(function() {
@@ -280,10 +284,6 @@ $usuarios = $usuario->listarUsuarios();
             });
         });
     </script>
-    <?php
-    include '../components/footer.php';
-    include '../components/navmobile.php';
-    ?>
-</body>
+
 
 </html>
