@@ -1,3 +1,13 @@
+:root {
+  --background-color: #ffffff;
+  --section: #ff3333;
+  --details: #ba1a1a;
+  --footer: #494949;
+  --footer2: #373737;
+  --feedback: #e3e3e3;
+  --bttnHeader: #a6a4a4;
+}
+
 /* Estilo geral da página */
 body {
     font-family: 'Arial', sans-serif;
