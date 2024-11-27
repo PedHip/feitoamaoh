@@ -371,9 +371,9 @@
 									$('#pedido-lista').append(`
                             <div class="card mb-4">
                                 <div class="card-body">
-                                    <h4 class="card-title">Pedido ID${pedido.id_pedido}</h4>
-                                    <h4>Status: ${pedido.status}</h4>
-                                    <h4>Total: R$ ${parseFloat(pedido.preco_total).toFixed(2)}</h4>
+                                    <h4 class="card-title mb-1">Pedido ID${pedido.id_pedido}</h4>
+                                    <h4 class="mb-1">Status: ${pedido.status}</h4>
+                                    <h4 class="mb-1 ">Total: R$ ${parseFloat(pedido.preco_total).toFixed(2)}</h4>
                                     <div class="produtos">
                                         <h4 class="mb-3">Produtos:</h4>
                                         <ul class="list-group">
@@ -383,8 +383,8 @@
                                                         <img src="${produto.img_prod}" alt="${produto.nome_prod}" class="img-resumo">
                                                         <div class="ml-3">
                                                             <h4>${produto.nome_prod}</h4><br>
-                                                            <h4>${produto.desc_prod}</h4><br>
-                                                           <h4> R$ ${parseFloat(produto.preco_prod).toFixed(2)}</h4>
+                                                            ${produto.desc_prod}<br>
+                                                            R$ ${parseFloat(produto.preco_prod).toFixed(2)}
                                                         </div>
                                                     </li>
                                                 `;
