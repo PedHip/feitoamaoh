@@ -1,16 +1,3 @@
-<?php
-session_start();
-
-// Verifica se o usuário está logado. Se não, redireciona para login
-if (!isset($_SESSION['email'])) {
-	header("Location: login.php");
-	exit();
-}
-
-if (isset($_SESSION['nome'])) {
-	$nome_usuario = $_SESSION['nome'];
-}
-?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
