@@ -174,30 +174,28 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    $(document).ready(function () {
-        $('#formLogin').on('submit', function (event) {
-            event.preventDefault();
+   $(document).ready(function () {
+    $('#formLogin').on('submit', function (event) {
+        event.preventDefault();
 
-            $.ajax({
-                url: '../controllers/login.php',
-                type: 'POST',
-                data: $(this).serialize(),
-                dataType: 'json',
-                success: function (response) {
-                    if (response.status === 'success') {
-                        $('#mensagem').html('<div style="color:green;">' + response.message + '</div>');
-                        setTimeout(function () {
-                        window.location.href = ''; 
-                    }, 500);
-                    } else {
-                        $('#mensagem').html('<div style="color:red;">' + response.message + '</div>');
-                    }
-                },
-                error: function () {
-                    $('#mensagem').html('<div style="color:red;">Erro ao realizar login.</div>');
+        $.ajax({
+            url: '../controllers/login.php',
+            type: 'POST',
+            data: $(this).serialize(),
+            dataType: 'json',
+            success: function (response) {
+                if (response.status === 'success') {
+                    $('#mensagem').html('<div style="color:green;">' + response.message + '</div>');
+                } else {
+                    $('#mensagem').html('<div style="color:red;">' + response.message + '</div>');
                 }
-            });
+            },
+            error: function () {
+                $('#mensagem').html('<div style="color:red;">Erro ao realizar login. Tente novamente.</div>');
+            }
         });
+    });
+});
 
         $('#lembrarSenha').on('click', function (event) {
             event.preventDefault();
@@ -227,29 +225,27 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         // Processamento do formulário
-        $('#formCadastro').on('submit', function (event) {
-            event.preventDefault();
+     $('#formCadastro').on('submit', function (event) {
+    event.preventDefault();
 
-            if ($('#emailError').is(':visible')) {
-                return;
-            }
+    if ($('#emailError').is(':visible')) {
+        return;
+    }
 
-            $.ajax({
-                url: '../services/cadastrar.php',
-                type: 'POST',
-                data: $(this).serialize(),
-                dataType: 'json',
-                success: function (response) {
-                    $('#mensagem').html(response.message);
-                    }
-                },
-                error: function () {
-                    $('#mensagem').html('<div style="color:red;">Erro ao realizar cadastro.</div>');
-            setTimeout(function () {
-                        window.location.href = ''; 
-                    }, 500);
-                }
-            });
+    $.ajax({
+        url: '../services/cadastrar.php',
+        type: 'POST',
+        data: $(this).serialize(),
+        dataType: 'json',
+        success: function (response) {
+            $('#mensagem').html(response.message);
+        },
+        error: function () {
+            $('#mensagem').html('<div style="color:red;">Erro ao realizar cadastro.</div>');
+        }
+    });
+});
+
         });
     });
 </script>
