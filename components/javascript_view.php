@@ -157,12 +157,15 @@ if (isset($_SESSION['nome'])) {
                 data: $(this).serialize(),
                 dataType: 'json',
                 success: function (response) {
-                    if (response.status === 'success') {
-                        $('#mensagem').html('<div style="color:green;">' + response.message + '</div>');
-                    } else {
-                        $('#mensagem').html('<div style="color:red;">' + response.message + '</div>');
-                    }
-                },
+            if (response.status === 'success') {
+                $('#mensagem').html('<div style="color:green;">' + response.message + '</div>');
+                setTimeout(function () {
+                    location.reload(); // Recarrega a página
+                }, 500);
+            } else {
+                $('#mensagem').html('<div style="color:red;">' + response.message + '</div>');
+            }
+        },
                 error: function () {
                     $('#mensagem').html('<div style="color:red;">Erro ao realizar login. Tente novamente.</div>');
                 }
