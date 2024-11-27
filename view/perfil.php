@@ -25,8 +25,12 @@ if (isset($_SESSION['nome'])) {
 </head>
 
 <body>
-	<div class="mt-5 ml-5 mb-5 mr-5">
-		<div id="mensagemnome"></div>
+
+   <?php
+    include '../components/header.php';
+    include '../components/javascript_view.php';
+    include '../components/logincadastro_modal.php';
+    ?>
 	</div>
 	<div class="container mt-5">
 		<h2 class="text-center">Carrinho de Compras</h2>
@@ -62,7 +66,10 @@ if (isset($_SESSION['nome'])) {
 		<h2 class="text-center">Meus Pedidos</h2>
 		<div id="pedido-lista"></div>
 	</div>
-
+	<?php
+	    include '../components/footer.php';
+	    include '../components/navmobile.php';
+	?>
 	<script>
 		// Passa o nome do usuário para uma variável do JavaScript
 		var nomeUsuario = "<?php echo $nome_usuario; ?>";
