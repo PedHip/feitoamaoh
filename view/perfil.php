@@ -9,6 +9,7 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="../styles/perfil.css">
 	<link rel="stylesheet" href="../styles/styles.css">
+	<link rel="stylesheet" href="../styles/backend.css">
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 
