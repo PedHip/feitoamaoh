@@ -374,8 +374,7 @@
                                     <h4 class="card-title mb-1">Pedido ID${pedido.id_pedido}</h4>
                                     <h4 class="mb-1">Status: ${pedido.status}</h4>
                                     <h4 class="mb-1 ">Total: R$ ${parseFloat(pedido.preco_total).toFixed(2)}</h4>
-                                    <div class="produtos">
-                                        <h4 class="mb-3">Produtos:</h4>
+                                    <div class="produtos m-3">
                                         <ul class="list-group">
                                             ${pedido.produtos.map(function(produto) {
                                                 return `
