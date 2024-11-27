@@ -246,7 +246,7 @@ $usuarios = $usuario->listarUsuarios();
 
                 // Botão Anterior
                 if (paginaAtual > 1) {
-                    paginationDiv.append('<button class="pagina active" data-pagina="' + (paginaAtual - 1) + '">Anterior</button> ');
+                    paginationDiv.append('<li><button class="pagina " data-pagina="' + (paginaAtual - 1) + '">Anterior</button></li> ');
                 }
 
                 // Determina o intervalo de páginas a serem exibidas
@@ -255,15 +255,15 @@ $usuarios = $usuario->listarUsuarios();
 
                 for (var i = inicio; i <= fim; i++) {
                     if (i === paginaAtual) {
-                        paginationDiv.append('<button class="pagina active" data-pagina="' + i + '">' + i + '</button> '); // Página atual com classe "active"
+                        paginationDiv.append('<li><button class="pagina " data-pagina="' + i + '">' + i + '</button></li> '); // Página atual com classe "active"
                     } else {
-                        paginationDiv.append('<button class="pagina active" data-pagina="' + i + '">' + i + '</button> ');
+                        paginationDiv.append('<li><button class="pagina " data-pagina="' + i + '">' + i + '</button></li>');
                     }
                 }
 
                 // Botão Próximo
                 if (paginaAtual < totalPaginas) {
-                    paginationDiv.append('<button class="pagina active " data-pagina="' + (paginaAtual + 1) + '">Próximo</button>');
+                    paginationDiv.append('<li><button class="pagina  " data-pagina="' + (paginaAtual + 1) + '">Próximo</button></li>');
                 }
             }
 
