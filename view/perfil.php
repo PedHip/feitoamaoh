@@ -369,11 +369,11 @@
 								pedidos.forEach(function(pedido) {
 									// Exibir os pedidos
 									$('#pedido-lista').append(`
-                            <div class="card mb-3">
+                            <div class="card mb-4">
                                 <div class="card-body">
                                     <p class="card-title">Pedido ID${pedido.id_pedido}</p>
-                                    <p><span>Status:</span> ${pedido.status}</p>
-                                    <p><span>Total:</span> R$ ${parseFloat(pedido.preco_total).toFixed(2)}</p>
+                                    <p>Status: ${pedido.status}</p>
+                                    <p>Total: R$ ${parseFloat(pedido.preco_total).toFixed(2)}</p>
                                     <div class="produtos">
                                         <p>Produtos:</p>
                                         <ul class="list-group">
@@ -382,9 +382,9 @@
                                                     <li class="list-group-item d-flex align-items-center">
                                                         <img src="${produto.img_prod}" alt="${produto.nome_prod}" class="img-resumo">
                                                         <div class="ml-3">
-                                                            <span>${produto.nome_prod}</span><br>
-                                                            ${produto.desc_prod}<br>
-                                                            R$ ${parseFloat(produto.preco_prod).toFixed(2)}
+                                                            <p>${produto.nome_prod}</p><br>
+                                                            <p>${produto.desc_prod}</p><br>
+                                                           <p> R$ ${parseFloat(produto.preco_prod).toFixed(2)}</p>
                                                         </div>
                                                     </li>
                                                 `;
