@@ -257,13 +257,13 @@ $usuarios = $usuario->listarUsuarios();
                     if (i === paginaAtual) {
                         paginationDiv.append('<button class="pagina active" data-pagina="' + i + '">' + i + '</button> '); // Página atual com classe "active"
                     } else {
-                        paginationDiv.append('<button class="pagina" data-pagina="' + i + '">' + i + '</button> ');
+                        paginationDiv.append('<button class="pagina active" data-pagina="' + i + '">' + i + '</button> ');
                     }
                 }
 
                 // Botão Próximo
                 if (paginaAtual < totalPaginas) {
-                    paginationDiv.append('<button class="pagina" data-pagina="' + (paginaAtual + 1) + '">Próximo</button>');
+                    paginationDiv.append('<button class="pagina active " data-pagina="' + (paginaAtual + 1) + '">Próximo</button>');
                 }
             }
 
