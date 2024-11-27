@@ -117,6 +117,7 @@ if (isset($_SESSION['nome'])) {
 					}
 				});
 			});
+		});
 
         $.ajax({
             url: '../controllers/verificar_usuario.php',
