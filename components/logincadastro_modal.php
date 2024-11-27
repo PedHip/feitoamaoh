@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../styles/prodCad.css">
+<link rel="stylesheet" href="../styles/styles.css">
 
 <!-- Modal Login -->
 <div class="modal" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
