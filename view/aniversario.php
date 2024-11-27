@@ -25,8 +25,6 @@
 <body>
     <?php
     include '../components/header.php';
-    ?>
-    <?php
     include '../components/javascript_view.php';
     ?>
     
@@ -74,7 +72,10 @@
         </div>
 
     </div>
-
+    <?php
+    include '../components/footer.php';
+    include '../components/navMobile.php';
+    ?>
     <script>
         $(document).ready(function() {
 
@@ -380,10 +381,7 @@
         });
     </script>
 
-    <?php
-    include '../components/footer.php';
-    include '../components/navMobile.php';
-    ?>
+ 
 </body>
 
 </html>
