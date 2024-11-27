@@ -22,21 +22,6 @@ if (isset($_SESSION['nome'])) {
         });
     });
 
-    document.addEventListener("DOMContentLoaded", function () {
-        // Seleciona o elemento pelo ID genérico
-        const triggerElement = document.getElementById("openModalButton");
-
-        // Adiciona o evento de clique ao elemento
-        triggerElement.addEventListener("click", function () {
-            // Seleciona o modal pelo ID
-            const modalElement = document.getElementById("genericModal");
-            // Cria uma instância do modal usando Bootstrap
-            const modal = new bootstrap.Modal(modalElement);
-            // Abre o modal
-            modal.show();
-        });
-    });
-
     // Fechar o dropdown se clicar fora dele
     window.onclick = function (event) {
         if (!event.target.matches('#mensagemnome') && !event.target.matches('.dropdown-content') && !event.target.matches('.dropdown-content a')) {
@@ -93,6 +78,23 @@ if (isset($_SESSION['nome'])) {
             });
         });
     });
+
+   document.addEventListener("DOMContentLoaded", function () {
+  // Botão para abrir o Modal Login
+  const openModalLoginButton = document.getElementById("openModalLoginButton");
+  openModalLoginButton.addEventListener("click", function () {
+    const loginModal = new bootstrap.Modal(document.getElementById("loginModal"));
+    loginModal.show();
+  });
+
+  // Botão para abrir o Modal Cadastro
+  const openModalCadastroButton = document.getElementById("openModalCadastroButton");
+  openModalCadastroButton.addEventListener("click", function () {
+    const cadastroModal = new bootstrap.Modal(document.getElementById("cadastroModal"));
+    cadastroModal.show();
+  });
+
+});
 
     $(document).ready(function () {
         // Simulação de chamada AJAX para verificar o estado do usuário
