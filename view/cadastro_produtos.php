@@ -38,59 +38,65 @@ $usuarios = $usuario->listarUsuarios();
     include '../components/javascript_view.php';
     include '../components/logincadastro_modal.php';
     ?>
-    <div class="secao mb-4">
-        <h1>Cadastro de Produtos</h1>
-        <form id="cadastroProduto" enctype="multipart/form-data">
-            <input type="text" class="form-control2" id="nome_prod" name="nome_prod" placeholder="Nome do Produto" required>
-            <textarea class="form-control2 desc" id="desc_prod" name="desc_prod" placeholder="Descrição" required></textarea>
-            <input type="number" class="form-control2" id="preco_prod" name="preco_prod" step="0.01" placeholder="Preço" required>
-            <input type="file" class="form-control2" id="img_prod" name="img_prod" required>
-            <select class="form-control2" id="tipo_prod" name="tipo_prod" required>
-                <option value="" disabled selected>Tipo de Produto</option>
-                <option value="bubble_bubble">Bubble</option>
-                <option value="bubble_box">Bubble na Box</option>
-                <option value="bubble_acrilico">Bubble Acrílico</option>
-                <option value="box_luxo">Box de Luxo</option>
-                <option value="natal">Natal</option>
-                <option value="dia_das_maes">Dia das Mães</option>
-                <option value="caneca">Caneca</option>
-                <option value="aniversario">Aniversario</option>
-            </select><br>
-            <button type="submit" class="btn cadastro">Cadastrar Produto</button>
-        </form>
-    </div>
-
-    <div class="secao">
-        <h1>Listagem de Produtos</h1>
-
-        <input type="text" id="search" class="form-control2" placeholder="Pesquisar">
-
-        <div class="table-container">
-            <table id="produtosTable">
-                <thead>
-                    <tr>
-                        <th>ID Atual</th>
-                        <th>ID Novo</th>
-                        <th>Nome</th>
-                        <th>Descrição</th>
-                        <th>Preço</th>
-                        <th>Imagem</th>
-                        <th>Tipo</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Dados serão inseridos aqui via AJAX -->
-                </tbody>
-            </table>
+    <main>
+        <div class="secaoregistros mb-4">
+            <h1>Cadastro de Produtos</h1>
+            <form id="cadastroProduto" enctype="multipart/form-data">
+                <input type="text" class="form-control2" id="nome_prod" name="nome_prod" placeholder="Nome do Produto" required>
+                <textarea class="form-control2 desc" id="desc_prod" name="desc_prod" placeholder="Descrição" required></textarea>
+                <input type="number" class="form-control2" id="preco_prod" name="preco_prod" step="0.01" placeholder="Preço" required>
+                <input type="file" class="form-control2" id="img_prod" name="img_prod" required>
+                <select class="form-control2" id="tipo_prod" name="tipo_prod" required>
+                    <option value="" disabled selected>Tipo de Produto</option>
+                    <option value="bubble_bubble">Bubble</option>
+                    <option value="bubble_box">Bubble na Box</option>
+                    <option value="bubble_acrilico">Bubble Acrílico</option>
+                    <option value="box_luxo">Box de Luxo</option>
+                    <option value="natal">Natal</option>
+                    <option value="dia_das_maes">Dia das Mães</option>
+                    <option value="caneca">Caneca</option>
+                    <option value="aniversario">Aniversario</option>
+                </select><br>
+                <button type="submit" class="btn cadastro">Cadastrar Produto</button>
+            </form>
         </div>
-
-        <div aria-label="Page navigation">
-            <ul class="pagination" id="paginacao">
-                <!-- Paginação será inserida aqui -->
-            </ul>
+    
+        <div class="secaoregistros">
+            <h1>Listagem de Produtos</h1>
+    
+            <input type="text" id="search" class="form-control2" placeholder="Pesquisar">
+    
+            <div class="table-container">
+                <table id="produtosTable">
+                    <thead>
+                        <tr>
+                            <th>ID Atual</th>
+                            <th>ID Novo</th>
+                            <th>Nome</th>
+                            <th>Descrição</th>
+                            <th>Preço</th>
+                            <th>Imagem</th>
+                            <th>Tipo</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Dados serão inseridos aqui via AJAX -->
+                    </tbody>
+                </table>
+            </div>
+    
+            <div aria-label="Page navigation">
+                <ul class="pagination" id="paginacao">
+                    <!-- Paginação será inserida aqui -->
+                </ul>
+            </div>
         </div>
-    </div>
+    </main>
+    <?php
+    include '../components/footer.php';
+    include '../components/navmobile.php';
+    ?>
 </body>
 
 <!-- Modal Bootstrap para edição de descrição -->
@@ -342,10 +348,6 @@ $usuarios = $usuario->listarUsuarios();
         listarProdutos(); // Inicializa a lista ao carregar a página
     });
 </script>
-      <?php
-    include '../components/footer.php';
-    include '../components/navmobile.php';
-    ?>
-</body>
+
 
 </html>
