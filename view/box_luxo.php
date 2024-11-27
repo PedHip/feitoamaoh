@@ -24,9 +24,10 @@
 </head>
 
 <body>
-    <?php
+   <?php
     include '../components/header.php';
     include '../components/javascript_view.php';
+    include '../components/logincadastro_modal.php';
     ?>
     <main>
         <section id="headerMobileBox"></section>
