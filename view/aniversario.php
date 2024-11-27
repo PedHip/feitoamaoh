@@ -24,7 +24,7 @@
 
 <body>
     <?php
-    include '../components/navmobile.php';
+    include '../components/header.php';
     include '../components/javascript_view.php';
     ?>
     
@@ -74,7 +74,7 @@
     </div>
     <?php
     include '../components/footer.php';
-    include '../components/navMobile.php';
+    include '../components/navmobile.php';
     ?>
     <script>
         $(document).ready(function() {
