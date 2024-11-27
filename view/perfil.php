@@ -32,41 +32,42 @@ if (isset($_SESSION['nome'])) {
     include '../components/javascript_view.php';
     include '../components/logincadastro_modal.php';
     ?>
-	</div>
-	<div class="container mt-5">
-		<h2 class="text-center">Carrinho de Compras</h2>
-
-		<!-- Botões de Selecionar Todos e Desmarcar Todos -->
-		<button id="selectAllButton" class="btn btn-primary mb-4">Selecionar Todos</button>
-		<button id="deselectAllButton" class="btn btn-secondary mb-4 ml-3">Desmarcar Todos</button>
-
-		<!-- Lista de produtos -->
-		<div id="product-list"></div>
-
-		<!-- Resumo do Pedido -->
-		<div id="summary-container" class="mt-5" style="display: none;">
-			<h4>Itens Selecionados</h4>
-			<div id="selected-items-summary" class="mt-3">
-				<!-- O resumo dos itens selecionados será exibido aqui -->
+	<main>
+		<div class="container mt-5">
+			<h2 class="text-center">Carrinho de Compras</h2>
+	
+			<!-- Botões de Selecionar Todos e Desmarcar Todos -->
+			<button id="selectAllButton" class="btn btn-primary mb-4">Selecionar Todos</button>
+			<button id="deselectAllButton" class="btn btn-secondary mb-4 ml-3">Desmarcar Todos</button>
+	
+			<!-- Lista de produtos -->
+			<div id="product-list"></div>
+	
+			<!-- Resumo do Pedido -->
+			<div id="summary-container" class="mt-5" style="display: none;">
+				<h4>Itens Selecionados</h4>
+				<div id="selected-items-summary" class="mt-3">
+					<!-- O resumo dos itens selecionados será exibido aqui -->
+				</div>
+				<div id="total-summary" class="mt-3">
+					<strong>Total: R$ 0,00</strong>
+				</div>
 			</div>
-			<div id="total-summary" class="mt-3">
-				<strong>Total: R$ 0,00</strong>
-			</div>
+	
+			<!-- Botão para enviar pedido -->
+			<button id="sendOrderButton" class="btn btn-success mt-4" style="display: none;">Enviar Pedido</button>
+	
+			<!-- Botão para remover produtos selecionados -->
+			<button id="removeSelectedButton" class="btn btn-danger mt-4 ml-3" style="display: none;">Remover do Carrinho</button>
+	
+			<!-- Contêiner para mensagens de sucesso ou erro -->
+			<div id="message-container" class="mt-3"></div>
 		</div>
-
-		<!-- Botão para enviar pedido -->
-		<button id="sendOrderButton" class="btn btn-success mt-4" style="display: none;">Enviar Pedido</button>
-
-		<!-- Botão para remover produtos selecionados -->
-		<button id="removeSelectedButton" class="btn btn-danger mt-4 ml-3" style="display: none;">Remover do Carrinho</button>
-
-		<!-- Contêiner para mensagens de sucesso ou erro -->
-		<div id="message-container" class="mt-3"></div>
-	</div>
-	<div class="container mt-5">
-		<h2 class="text-center">Meus Pedidos</h2>
-		<div id="pedido-lista"></div>
-	</div>
+		<div class="container mt-5">
+			<h2 class="text-center">Meus Pedidos</h2>
+			<div id="pedido-lista"></div>
+		</div>
+	</main>
 	<?php
 	    include '../components/footer.php';
 	    include '../components/navmobile.php';
