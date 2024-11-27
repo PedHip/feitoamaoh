@@ -38,7 +38,7 @@ $usuarios = $usuario->listarUsuarios();
     include '../components/javascript_view.php';
     include '../components/logincadastro_modal.php';
     ?>
-    <main>
+    <main class="mainr">
         <div class="secaoregistros mb-4">
             <h1 class="h1r">Cadastro de Produtos</h1>
             <form id="cadastroProduto" enctype="multipart/form-data">
