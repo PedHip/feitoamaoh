@@ -32,8 +32,8 @@
                 </div>
                 <div id="dropdownContent" class="dropdown-content">
                     <a class="dropdownbuttons" id="linkPerfil" href="../view/perfil.php">Perfil</a>
-                    <a class="dropdownbuttons" id="linkLogin" href="../view/login.php" >Login</a>
-                    <a class="dropdownbuttons" id="linkCadastro" href="../view/cadastro.php" >Cadastro</a>
+                    <a class="dropdownbuttons" id="linkLogin"  >Login</a>
+                    <a class="dropdownbuttons" id="linkCadastro"  >Cadastro</a>
                     <a class="dropdownbuttons" href="../view/cadastro_produtos.php" id="linkProd">Produtos</a>              
                     <a class="dropdownbuttons" href="../view/registros_usuarios.php" id="linkUser">Usuarios</a>
                     <a class="dropdownbuttons" href="../view/registros_pedidos.php" id="linkPedidos">Pedidos</a>
