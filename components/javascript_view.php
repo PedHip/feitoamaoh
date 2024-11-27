@@ -95,6 +95,29 @@ if (isset($_SESSION['nome'])) {
             });
         }
 
+        $(document).ready(function() {
+			// Verificação de email ao sair do campo
+			$('#email').on('blur', function() {
+				const email = $(this).val();
+				$.ajax({
+					url: '../controllers/verificar_email.php',
+					method: 'POST',
+					data: {
+						email: email
+					},
+					success: function(response) {
+						if (response.exists) {
+							$('#emailError').show();
+						} else {
+							$('#emailError').hide();
+						}
+					},
+					error: function() {
+						$('#mensagem').html('<div style="color:red;">Erro ao verificar email.</div>');
+					}
+				});
+			});
+
         $.ajax({
             url: '../controllers/verificar_usuario.php',
             method: 'GET',
