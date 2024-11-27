@@ -388,7 +388,7 @@
 
     <?php
     include '../components/footer.php';
-    include '../components/navMobile.php';
+    include '../components/navmobile.php';
     ?>
 </body>
 
