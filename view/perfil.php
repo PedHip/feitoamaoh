@@ -21,8 +21,8 @@
     include '../components/logincadastro_modal.php';
     ?>
 	<main>
-		<div class="container mt-10">
-			<h2 class="text-center h1r">Carrinho de Compras</h2>
+		<div class="container">
+			<h2 class="text-center h1r mt-8">Carrinho de Compras</h2>
 	
 			<!-- Botões de Selecionar Todos e Desmarcar Todos -->
 			<div class="containerselect">
