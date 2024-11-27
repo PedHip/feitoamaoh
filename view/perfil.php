@@ -72,6 +72,7 @@ if (isset($_SESSION['nome'])) {
 	    include '../components/footer.php';
 	    include '../components/navmobile.php';
 	?>
+</body>
 	<script>
 		// Passa o nome do usuário para uma variável do JavaScript
 		var nomeUsuario = "<?php echo $nome_usuario; ?>";
@@ -428,7 +429,5 @@ if (isset($_SESSION['nome'])) {
 			listarPedidos();
 		});
 	</script>
-
-</body>
 
 </html>
