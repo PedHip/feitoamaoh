@@ -3,6 +3,8 @@
     .secaoregistros{
         padding: 30px !important;
         margin: 20px !important;
+        display: grid;
+        row-gap: 1rem; 
     }
 
     .desc {
