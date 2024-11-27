@@ -1,6 +1,12 @@
 
 
-<!-- Estrutura do modal do Bootstrap -->
-<div class="modal fade" id="genericModal" tabindex="-1" aria-labelledby="genericModalLabel" aria-hidden="true">
+<!-- Modal Login -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
 
 </div>
+
+<!-- Modal Cadastro -->
+<div class="modal fade" id="cadastroModal" tabindex="-1" aria-labelledby="cadastroModalLabel" aria-hidden="true">
+ 
+</div>
+
