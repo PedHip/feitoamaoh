@@ -371,20 +371,20 @@
 									$('#pedido-lista').append(`
                             <div class="card mb-4">
                                 <div class="card-body">
-                                    <p class="card-title">Pedido ID${pedido.id_pedido}</p>
-                                    <p>Status: ${pedido.status}</p>
-                                    <p>Total: R$ ${parseFloat(pedido.preco_total).toFixed(2)}</p>
+                                    <h4 class="card-title">Pedido ID${pedido.id_pedido}</h4>
+                                    <h4>Status: ${pedido.status}</h4>
+                                    <h4>Total: R$ ${parseFloat(pedido.preco_total).toFixed(2)}</h4>
                                     <div class="produtos">
-                                        <p>Produtos:</p>
+                                        <h4 class="mb-3">Produtos:</h4>
                                         <ul class="list-group">
                                             ${pedido.produtos.map(function(produto) {
                                                 return `
                                                     <li class="list-group-item d-flex align-items-center">
                                                         <img src="${produto.img_prod}" alt="${produto.nome_prod}" class="img-resumo">
                                                         <div class="ml-3">
-                                                            <p>${produto.nome_prod}</p><br>
-                                                            <p>${produto.desc_prod}</p><br>
-                                                           <p> R$ ${parseFloat(produto.preco_prod).toFixed(2)}</p>
+                                                            <h4>${produto.nome_prod}</h4><br>
+                                                            <h4>${produto.desc_prod}</h4><br>
+                                                           <h4> R$ ${parseFloat(produto.preco_prod).toFixed(2)}</h4>
                                                         </div>
                                                     </li>
                                                 `;
