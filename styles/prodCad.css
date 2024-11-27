@@ -114,6 +114,21 @@ nav ul{
     padding-left: 0;
 }
 
+/* Modal */
+.modal-dialog {
+    max-width: 100% !important;
+    width: auto !important;
+    margin: 1.75rem auto !important;
+    /* Ajusta a largura do modal automaticamente */
+}
+
+.modal-content {
+    border-radius: 8px !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+    background-color: white !important;
+}
+
+
 @media screen and (min-width: 768px){
     main{
         background-color: var(--feedback);
