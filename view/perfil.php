@@ -34,11 +34,13 @@ if (isset($_SESSION['nome'])) {
     ?>
 	<main>
 		<div class="container mt-5">
-			<h2 class="text-center">Carrinho de Compras</h2>
+			<h2 class="text-center h1r">Carrinho de Compras</h2>
 	
 			<!-- Botões de Selecionar Todos e Desmarcar Todos -->
-			<button id="selectAllButton" class="btn btn-primary mb-4">Selecionar Todos</button>
-			<button id="deselectAllButton" class="btn btn-secondary mb-4 ml-3">Desmarcar Todos</button>
+			<div class="containerselect">
+				<button id="selectAllButton" class="btn btn-primary mb-4">Selecionar Todos</button>
+				<button id="deselectAllButton" class="btn btn-secondary mb-4 ml-3">Desmarcar Todos</button>
+			</div>
 	
 			<!-- Lista de produtos -->
 			<div id="product-list"></div>
@@ -64,7 +66,7 @@ if (isset($_SESSION['nome'])) {
 			<div id="message-container" class="mt-3"></div>
 		</div>
 		<div class="container mt-5">
-			<h2 class="text-center">Meus Pedidos</h2>
+			<h2 class="text-center h1r">Meus Pedidos</h2>
 			<div id="pedido-lista"></div>
 		</div>
 	</main>
