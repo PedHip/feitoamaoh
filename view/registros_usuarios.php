@@ -72,6 +72,7 @@ $usuarios = $usuario->listarUsuarios();
             </nav>
         </div>
     </main>
+</body>
     <?php
     include '../components/footer.php';
     include '../components/navmobile.php';
@@ -263,6 +264,5 @@ $usuarios = $usuario->listarUsuarios();
             listarUsuarios();
         });
     </script>
-</body>
 
 </html>
