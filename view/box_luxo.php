@@ -26,6 +26,7 @@
 <body>
     <?php
     include '../components/header.php';
+    include '../components/javascript_view.php';
     ?>
     <main>
         <section id="headerMobileBox"></section>
