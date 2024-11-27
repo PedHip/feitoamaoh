@@ -38,19 +38,15 @@
                     </div>
                 </div>
                 <div id="apresentacaoBttn">
-                    <a class="btn" href="../view/bubble_acrilico.php">
-                        
-                            <span>bubbles acrílico</span>
-                            <img src="../imagens/website/Forward.png" alt="">
-                        
-                    </a>
-
-                    <a href="../view/bubble_box.php">
-                        
-                            <span>bubbles na box</span>
-                            <img src="../imagens/website/Forward.png" alt="">
-                        
-                    </a>
+                    <a href="../view/bubble_acrilico.php">
+                        <button class="bttnBubble">
+                        <span>bubbles</span>
+                        <img src="../imagens/website/Forward.png" alt="">
+                    </button></a>
+                    <a href="../view/bubble_box.php"><button class="bttnBubble">
+                        <span>bubbles na box</span>
+                        <img src="../imagens/website/Forward.png" alt="">
+                    </button></a>
                 </div>
             </section>
             <section id="bubblesDisp">
