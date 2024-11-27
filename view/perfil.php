@@ -395,7 +395,7 @@
 								$('#pedido-lista').append('<div class="alert alert-warning">Nenhum pedido encontrado.</div>');
 							}
 						} else {
-							$('#pedido-lista').append('<div class="alert alert-danger">' + response.message + '</div>');
+							$('#pedido-lista').append('<div class="alert alert-warning">' + response.message + '</div>');
 						}
 					},
 					error: function(jqXHR) {
