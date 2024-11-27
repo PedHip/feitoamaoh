@@ -1,6 +1,8 @@
 
 
-
+    .secaoregistros{
+        padding: 30px !important;
+    }
 
     .desc {
         height: 100px !important;
