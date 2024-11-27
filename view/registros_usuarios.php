@@ -37,8 +37,8 @@ $usuarios = $usuario->listarUsuarios();
     include '../components/javascript_view.php';
     include '../components/logincadastro_modal.php';
     ?>
-    <main>
-        <div class="secao">
+    <div>
+        <div class="secaoregistros">
         <h1>Registros de Usuários</h1>
 
         <div class="mb-3">
@@ -71,7 +71,7 @@ $usuarios = $usuario->listarUsuarios();
             </ul>
         </nav>
     </div>
-    </main>
+    </div>
     <?php
     include '../components/footer.php';
     include '../components/navmobile.php';
