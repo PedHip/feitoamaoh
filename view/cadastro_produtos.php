@@ -40,7 +40,7 @@ $usuarios = $usuario->listarUsuarios();
     ?>
     <main>
         <div class="secaoregistros mb-4">
-            <h1>Cadastro de Produtos</h1>
+            <h1 class="h1r">Cadastro de Produtos</h1>
             <form id="cadastroProduto" enctype="multipart/form-data">
                 <input type="text" class="form-control2" id="nome_prod" name="nome_prod" placeholder="Nome do Produto" required>
                 <textarea class="form-control2 desc" id="desc_prod" name="desc_prod" placeholder="Descrição" required></textarea>
@@ -62,7 +62,7 @@ $usuarios = $usuario->listarUsuarios();
         </div>
     
         <div class="secaoregistros">
-            <h1>Listagem de Produtos</h1>
+            <h1 class="h1r">Listagem de Produtos</h1>
     
             <input type="text" id="search" class="form-control2" placeholder="Pesquisar">
     
