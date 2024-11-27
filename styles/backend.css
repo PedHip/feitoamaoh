@@ -5,13 +5,13 @@
     }
 
     .h1r{
-        margin-bottom: 20px;
+        margin-bottom: 40px !important;
     }
 
-    .selectcontainer{
-        display: inline;
-        width: 200px;
-        
+    .containerselect{
+        display: inline !important;
+        width: 200px !important;
+    
     }
 
     .desc {
