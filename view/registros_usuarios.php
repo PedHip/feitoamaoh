@@ -37,41 +37,41 @@ $usuarios = $usuario->listarUsuarios();
     include '../components/javascript_view.php';
     include '../components/logincadastro_modal.php';
     ?>
-    <div>
+    <main>
         <div class="secaoregistros">
-        <h1>Registros de Usuários</h1>
-
-        <div class="mb-3">
-            <input type="text" id="search" class="form-control2" placeholder="Pesquisar">
+            <h1>Registros de Usuários</h1>
+    
+            <div class="mb-3">
+                <input type="text" id="search" class="form-control2" placeholder="Pesquisar">
+            </div>
+    
+            <div class="table-container">
+                <table class="table" id="usuariosTable">
+                    <thead>
+                        <tr>
+                            <th>ID Atual</th>
+                            <th>ID Novo</th>
+                            <th>Tipo</th>
+                            <th>Nome</th>
+                            <th>Telefone</th>
+                            <th>Email</th>
+                            <th>Nova Senha</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Dados serão inseridos aqui via AJAX -->
+                    </tbody>
+                </table>
+            </div>
+    
+            <nav aria-label="Page navigation">
+                <ul class="pagination" id="paginacao">
+                    <!-- Paginação será inserida aqui -->
+                </ul>
+            </nav>
         </div>
-
-        <div class="table-container">
-            <table class="table" id="usuariosTable">
-                <thead>
-                    <tr>
-                        <th>ID Atual</th>
-                        <th>ID Novo</th>
-                        <th>Tipo</th>
-                        <th>Nome</th>
-                        <th>Telefone</th>
-                        <th>Email</th>
-                        <th>Nova Senha</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Dados serão inseridos aqui via AJAX -->
-                </tbody>
-            </table>
-        </div>
-
-        <nav aria-label="Page navigation">
-            <ul class="pagination" id="paginacao">
-                <!-- Paginação será inserida aqui -->
-            </ul>
-        </nav>
-    </div>
-    </div>
+    </main>
     <?php
     include '../components/footer.php';
     include '../components/navmobile.php';
