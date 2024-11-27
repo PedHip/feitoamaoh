@@ -23,13 +23,6 @@ body {
     padding: 20px;
 }
 
-/* Título da página */
-h2 {
-    font-size: 2rem;
-    margin-bottom: 30px;
-    color: #333;
-    text-transform: uppercase;
-}
 
 /* Container dos produtos */
 #product-list {
