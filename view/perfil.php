@@ -64,11 +64,6 @@
 	?>
 </body>
 	<script>
-		// Passa o nome do usuário para uma variável do JavaScript
-		var nomeUsuario = "<?php echo $nome_usuario; ?>";
-
-		// Exibe a mensagem de boas-vindas no elemento com id "mensagem"
-		document.getElementById("mensagemnome").innerHTML = "Perfil de " + nomeUsuario;
 
 		$(document).ready(function() {
 			// Função para buscar os pedidos do usuário logado
