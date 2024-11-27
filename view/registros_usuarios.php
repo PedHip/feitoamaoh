@@ -31,6 +31,12 @@ $usuarios = $usuario->listarUsuarios();
 </head>
 
 <body>
+
+    <?php
+    include '../components/header.php';
+    include '../components/javascript_view.php';
+    include '../components/logincadastro_modal.php';
+    ?>
     <div class="secao">
         <h1>Registros de Usuários</h1>
 
@@ -64,6 +70,10 @@ $usuarios = $usuario->listarUsuarios();
             </ul>
         </nav>
     </div>
+    <?php
+    include '../components/footer.php';
+    include '../components/navmobile.php';
+    ?>
 
     <script>
         $(document).ready(function() {
