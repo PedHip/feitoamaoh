@@ -63,7 +63,9 @@ $usuarios = $usuario->listarUsuarios();
     
             <nav aria-label="Page navigation">
                 <ul class="pagination" id="pagination">
-                    <!-- Navegação de páginas será gerada aqui -->
+                    <li>
+                        
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -255,9 +257,9 @@ $usuarios = $usuario->listarUsuarios();
 
                 for (var i = inicio; i <= fim; i++) {
                     if (i === paginaAtual) {
-                        paginationDiv.append('<button class="pagina active" data-pagina="' + i + '">' + i + '</button> '); // Página atual com classe "active"
+                        paginationDiv.append('<button class="pagina" data-pagina="' + i + '">' + i + '</button> '); // Página atual com classe "active"
                     } else {
-                        paginationDiv.append('<button class="pagina active" data-pagina="' + i + '">' + i + '</button> ');
+                        paginationDiv.append('<button class="pagina" data-pagina="' + i + '">' + i + '</button> ');
                     }
                 }
 
