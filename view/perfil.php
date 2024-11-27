@@ -44,11 +44,15 @@
 				</div>
 			</div>
 	
+			<div class="containerselect">
 			<!-- Botão para enviar pedido -->
 			<button id="sendOrderButton" class="btn btn-success mt-4" style="display: none;">Enviar Pedido</button>
 	
 			<!-- Botão para remover produtos selecionados -->
 			<button id="removeSelectedButton" class="btn btn-danger mt-4 ml-3" style="display: none;">Remover do Carrinho</button>
+			</div>
+			
+
 	
 			<!-- Contêiner para mensagens de sucesso ou erro -->
 			<div id="message-container" class="mt-3"></div>
@@ -376,7 +380,7 @@
                                             ${pedido.produtos.map(function(produto) {
                                                 return `
                                                     <li class="list-group-item d-flex align-items-center">
-                                                        <img src="${produto.img_prod}" alt="${produto.nome_prod}" class="img-thumbnail" style="width: 50px; height: 50px;">
+                                                        <img src="${produto.img_prod}" alt="${produto.nome_prod}" class="img-resumo">
                                                         <div class="ml-3">
                                                             <strong>${produto.nome_prod}</strong><br>
                                                             ${produto.desc_prod}<br>
