@@ -26,6 +26,9 @@
     <?php
     include '../components/header.php';
     ?>
+    <?php
+    include '../components/javascript_view.php';
+    ?>
     
     <main>
         <section id="headerMobileAniv"></section>
