@@ -39,7 +39,7 @@ $usuarios = $usuario->listarUsuarios();
     ?>
     <main>
         <div class="secaoregistros">
-            <h1>Registros de Usuários</h1>
+            <h1 class="h1r">Registros de Usuários</h1>
     
             <div class="mb-3">
                 <input type="text" id="search" class="form-control2" placeholder="Pesquisar">
