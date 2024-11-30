@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Box de Luxo</title>
+    <title>Natal</title>
     <link rel="shortcut icon" type="imagex/png" href="../src/imagens/website/balloon.png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../src/styles/pedir.css">
@@ -29,66 +29,57 @@
     include '../module/javascript_view.php';
     ?>
     <main>
-        <section id="headerMobileBox"></section>
+        <section id="headerMobileMaes"></section>
         <div class="padding">
             <section id="apresentacao">
                 <div id="bannerAp">
                     <div id="apresentacaoText">
-                        <h1>Box de Luxo</h1>
-                        <p>
-                            Nossa box de luxo proporciona uma experiência
-                            culinária sofisticada, recheada com delícias
-                            gourmet e apresentada com elegância. Perfeita
-                            tanto para indulgência pessoal quanto para
-                            presentear alguém especial, ela transforma
-                            qualquer ocasião em um momento inesquecível com
-                            seus sabores exclusivos e requinte.
-                        </p>
+                        <h1>Natal</h1>
+                        <p>No Natal, presentear com nossos produtos personalizados é uma forma encantadora de expressar carinho. Nossas boxes de
+                            luxo e canecas personalizadas criam experiências únicas, enquanto nossas bexigas personalizadas, as bubbles,
+                            adicionam um toque divertido e festivo à celebração. Juntos, esses itens transformam o Natal em uma ocasião
+                            memorável e cheia de alegria.</p>
                     </div>
                 </div>
             </section>
             <section id="bubblesDisp">
                 <div id="bubblesDispText">
-                    <h2>Box disponíveis</h2>
-                    <p>Box disponíveis para compra</p>
+                    <h2>Presentes incríveis</h2>
+                    <p>para construir lembranças inesquecíveis</p>
                 </div>
                 <div id="boxVitrine">
-                    <div class="displayVitrine" id="canecaProductsContainer">
-                        <div class="card-container" id="boxLuxoProductsContainer">
-                            <!-- Os produtos serão inseridos aqui via AJAX -->
-                        </div>
+                    <div class="displayVitrine" id="natalProductsContainer">
                     </div>
                 </div>
             </section>
+            <div class="resumopedido" id="resumopedido">
+                <div class="summary-container mt-4" id="summaryContainer">
+                    <h3>Resumo do Pedido</h3>
+                    <div class="summary-list">
+                        <!-- Resumo dos itens selecionados será inserido aqui -->
+                    </div>
+                    <div class="summary-total mt-2">
+                        <strong>Total: R$ <span id="totalPrice">0.00</span></strong>
+                    </div>
+                </div>
+                <div class="">
+                    <button id="sendButton" class="btn btn-primary">Enviar</button>
+                    <button id="addToCartButton" class="btn btn-primary">Adicionar ao Carrinho</button>
+                    <div id="messageContainer"></div>
+                </div>
 
+            </div>
     </main>
-
-    <div class="resumopedido" id="resumopedido">
-        <div class="summary-container mt-4" id="summaryContainer">
-            <h3>Resumo do Pedido</h3>
-            <div class="summary-list">
-                <!-- Resumo dos itens selecionados será inserido aqui -->
-            </div>
-            <div class="summary-total mt-2">
-                <strong>Total: R$ <span id="totalPrice">0.00</span></strong>
-            </div>
-        </div>
-        <div class="">
-            <button id="sendButton" class="btn btn-primary">Enviar</button>
-            <button id="addToCartButton" class="btn btn-primary">Adicionar ao Carrinho</button>
-            <div id="messageContainer"></div>
-        </div>
-    </div>
 
     <script>
         $(document).ready(function() {
-            // Função para listar os produtos do tipo "box_luxo"
-            function listarProdutosBoxLuxo() {
+            // Função para listar os produtos do tipo "natal"
+            function listarProdutosNatal() {
                 $.ajax({
                     url: '../controllers/listar_produtos.php',
                     type: 'GET',
                     data: {
-                        term: 'box_luxo' // Alteração para o termo "box_luxo"
+                        term: 'box_luxo'
                     },
                     dataType: 'json',
                     success: function(response) {
@@ -104,10 +95,10 @@
                 });
             }
 
-            listarProdutosBoxLuxo(); // Chama a função ao carregar a página
+            listarProdutosNatal(); // Chama a função ao carregar a página
 
             function atualizarCards(produtos) {
-                const container = $("#boxLuxoProductsContainer");
+                const container = $("#natalProductsContainer");
                 container.empty();
 
                 produtos.forEach(p => {
@@ -168,6 +159,7 @@
                 });
             }
 
+
             // Função para atualizar o resumo dos produtos selecionados
             function atualizarResumo() {
                 const summaryList = $('#summaryContainer .summary-list');
@@ -178,7 +170,7 @@
                 // Itera sobre os produtos selecionados e atualiza a lista de resumo
                 $('.product-card.selected').each(function() {
                     const imgSrc = $(this).find('img').attr('src');
-                    const nomeProduto = $(this).find('class="nome_prod"').text();
+                    const nomeProduto = $(this).find('.nome_prod').text();
                     const quantidade = parseInt($(this).find('.quantity').text());
                     const precoUnitario = parseFloat($(this).data('preco'));
                     const precoProduto = precoUnitario * quantidade;
@@ -186,11 +178,11 @@
 
                     const resumoItem = `
             <div class="summary-item d-flex align-items-center mb-2">
-                <div>
                 <img src="${imgSrc}" alt="${nomeProduto}" class="img-sumary mr-2" style="width: 5rem; height: 5rem;">
-                    <h3>${nomeProduto}<h3><br>
+                <div>
+                    <strong>${nomeProduto}</strong><br>
                     Quantidade: ${quantidade}<br>
-                    <p>R$ ${precoProduto.toFixed(2)}</p>
+                    Preço: R$ ${precoProduto.toFixed(2)}
                 </div>
             </div>
         `;
@@ -206,10 +198,16 @@
                 } else {
                     $('#resumopedido').hide(); // Esconde o resumo do pedido
                 }
+
+
             }
 
             // Certifique-se de esconder o resumo do pedido inicialmente
             $('#resumopedido').hide();
+
+
+
+
 
             // Atualize a função de clique para selecionar/deselecionar produtos para chamar atualizarResumo()
             $('.product-card').on('click', function() {
@@ -248,12 +246,14 @@
                 }
             });
 
+
             // Função para atualizar o preço total com base na quantidade selecionada
             function atualizarPrecoTotal(card, quantidade) {
                 const precoUnitario = parseFloat(card.data('preco'));
                 const precoTotal = precoUnitario * quantidade;
                 card.find('.price-value').text(precoTotal.toFixed(2));
             }
+
 
             $('#sendButton').on('click', function() {
                 const selectedProducts = [];
@@ -382,6 +382,8 @@
                 }
             });
 
+
+
         });
     </script>
 
@@ -389,6 +391,7 @@
     include '../module/footer.php';
     include '../module/navmobile.php';
     ?>
+
 </body>
 
 </html>
