@@ -49,7 +49,7 @@
 			<button id="sendOrderButton" class="btn btn-success mt-4" style="display: none;">Enviar Pedido</button>
 	
 			<!-- Botão para remover produtos selecionados -->
-			<button id="removeSelectedButton" class="btn btn-danger mt-4 ml-3" style="display: none;">Remover do Carrinho</button>
+			<button id="removeSelectedButton" class="btn btn-danger mt-4 ml-3" style="display: none;">Remover</button>
 			</div>
 			
 
