@@ -135,7 +135,9 @@ body {
   background-color: #f8e71c;
   color: #6f6f1f;
 }
-
+.card-body {
+  font-weight: 300 !important;
+}
 .alert-danger {
   background-color: var(--section);
   color: white;
@@ -162,6 +164,7 @@ body {
 
   .containerselect{
     width: 200px !important;
+    text-align: center;
   }
 
   .product-card {
@@ -195,6 +198,9 @@ body {
     width: 100%;
     flex-direction: column;
   }
+  .card-body {
+  font-weight: 300 !important;
+}
 
   .product-name,
   .product-description,
