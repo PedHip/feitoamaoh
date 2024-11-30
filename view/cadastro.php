@@ -43,10 +43,11 @@
 						<input class="input" type="password" id="senha" name="senha" placeholder="senha" required>
 					</div>
 					<span id="emailError" style="color:red; display:none;">Este email já está em uso.</span>
-					<div id="mensagem"></div>
+					
 					<div id="dataDivBttn">
 						<button class="dataBttn" type="submit">criar conta</button>
 					</div>
+					<div id="mensagem"></div>
 				</form>
 			</div>
 		</section>
