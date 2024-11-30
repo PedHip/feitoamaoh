@@ -156,7 +156,7 @@ body {
 #deselectAllButton,
 #sendOrderButton,
 #removeSelectedButton{
-  width: 200px !important; /* Largura dos botões em telas maiores */
+  width: 230px !important; /* Largura dos botões em telas maiores */
   margin: 5px; /* Espaço entre os botões */
 }
 
@@ -174,7 +174,7 @@ body {
   #deselectAllButton,
   #removeSelectedButton,
   #sendOrderButton{
-    width: 130px !important; /* Ajusta a largura dos botões */
+    width: 150px !important; /* Ajusta a largura dos botões */
     margin: 5px; /* Adiciona espaçamento entre os botões */
   }
   
