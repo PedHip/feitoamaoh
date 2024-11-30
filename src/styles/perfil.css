@@ -33,7 +33,8 @@ body {
 }
   .containerselect{
         display: flex !important;
-        width: 400px !important;
+        width: fit-content
+          !important;
     
     }
 
@@ -153,6 +154,10 @@ body {
   margin-bottom: 15px;
 }
 
+.selectAllButton, deselectAllButton {
+  width: 150px !important;
+}
+
 /* Responsividade */
 
 /* Para telas médias (tablets e telas menores) */
@@ -162,8 +167,13 @@ body {
     align-items: center;
   }
 
+
+  .selectAllButton, deselectAllButton {
+  width: 90px !important;
+}
+  
   .containerselect{
-    width: 200px !important;
+    width: fit-content !important;
     display: flex !important;
     justify-content: center !important;
   }
