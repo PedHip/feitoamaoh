@@ -154,6 +154,10 @@ body {
     align-items: center;
   }
 
+  .containerselect{
+    width: 100px;
+  }
+
   .product-card {
     width: 90%;
     flex-direction: column;
