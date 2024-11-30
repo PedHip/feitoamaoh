@@ -118,9 +118,12 @@ nav ul{
         margin-bottom: 1rem !important;
         padding: 1rem !important;
     }
-.data p h1{
-    justify: center;
-}
+
+    .data p,
+    .data h1 {
+        text-align: center;
+    }
+    
 
 
 
