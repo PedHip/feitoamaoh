@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bubbles</title>
+    <title>Natal</title>
     <link rel="shortcut icon" type="imagex/png" href="../src/imagens/website/balloon.png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../src/styles/pedir.css">
@@ -29,38 +29,29 @@
     include '../module/javascript_view.php';
     ?>
     <main>
-        <section id="headerMobileCaneca"></section>
+        <section id="headerMobileMaes"></section>
         <div class="padding">
             <section id="apresentacao">
                 <div id="bannerAp">
                     <div id="apresentacaoText">
-                        <h1>Bubbles</h1>
-                        <p>a bubble é um produto que contem diversos bagulhos dentro dela, a um preço muito caro</p>
+                        <h1>Natal</h1>
+                        <p>No Natal, presentear com nossos produtos personalizados é uma forma encantadora de expressar carinho. Nossas boxes de
+                            luxo e canecas personalizadas criam experiências únicas, enquanto nossas bexigas personalizadas, as bubbles,
+                            adicionam um toque divertido e festivo à celebração. Juntos, esses itens transformam o Natal em uma ocasião
+                            memorável e cheia de alegria.</p>
                     </div>
-                </div>
-                <div id="apresentacaoBttn">
-                    <a href="../view/bubble.php">
-                        <button class="bttnBubble">
-                        <span>bubbles</span>
-                        <img src="../src/imagens/website/Forward.png" alt="">
-                    </button></a>
-                    <a href="../view/bubble_box.php"><button class="bttnBubble">
-                        <span>bubbles na box</span>
-                        <img src="../src/imagens/website/Forward.png" alt="">
-                    </button></a>
                 </div>
             </section>
             <section id="bubblesDisp">
                 <div id="bubblesDispText">
-                    <h2>Bubbles disponíveis</h2>
-                    <p>Bubbles disponíveis para compra</p>
+                    <h2>Presentes incríveis</h2>
+                    <p>para construir lembranças inesquecíveis</p>
                 </div>
                 <div id="boxVitrine">
-                    <div class="displayVitrine" id="bubbleAcrilicoProductsContainer">
+                    <div class="displayVitrine" id="natalProductsContainer">
                     </div>
                 </div>
             </section>
-
             <div class="resumopedido" id="resumopedido">
                 <div class="summary-container mt-4" id="summaryContainer">
                     <h3>Resumo do Pedido</h3>
@@ -82,13 +73,13 @@
 
     <script>
         $(document).ready(function() {
-            // Função para listar os produtos do tipo "bubble_acrilico"
-            function listarProdutosBubbleAcrilico() {
+            // Função para listar os produtos do tipo "natal"
+            function listarProdutosNatal() {
                 $.ajax({
                     url: '../controllers/listar_produtos.php',
                     type: 'GET',
                     data: {
-                        term: 'bubble_acrilico' // Alteração para o termo "bubble_acrilico"
+                        term: 'bubble_acrilico'
                     },
                     dataType: 'json',
                     success: function(response) {
@@ -104,10 +95,10 @@
                 });
             }
 
-            listarProdutosBubbleAcrilico(); // Chama a função ao carregar a página
+            listarProdutosNatal(); // Chama a função ao carregar a página
 
             function atualizarCards(produtos) {
-                const container = $("#bubbleAcrilicoProductsContainer");
+                const container = $("#natalProductsContainer");
                 container.empty();
 
                 produtos.forEach(p => {
@@ -168,6 +159,7 @@
                 });
             }
 
+
             // Função para atualizar o resumo dos produtos selecionados
             function atualizarResumo() {
                 const summaryList = $('#summaryContainer .summary-list');
@@ -186,11 +178,11 @@
 
                     const resumoItem = `
             <div class="summary-item d-flex align-items-center mb-2">
-                <div>
                 <img src="${imgSrc}" alt="${nomeProduto}" class="img-sumary mr-2" style="width: 5rem; height: 5rem;">
-                    <h3>${nomeProduto}<h3><br>
+                <div>
+                    <strong>${nomeProduto}</strong><br>
                     Quantidade: ${quantidade}<br>
-                    <p>R$ ${precoProduto.toFixed(2)}</p>
+                    Preço: R$ ${precoProduto.toFixed(2)}
                 </div>
             </div>
         `;
@@ -206,10 +198,16 @@
                 } else {
                     $('#resumopedido').hide(); // Esconde o resumo do pedido
                 }
+
+
             }
 
             // Certifique-se de esconder o resumo do pedido inicialmente
             $('#resumopedido').hide();
+
+
+
+
 
             // Atualize a função de clique para selecionar/deselecionar produtos para chamar atualizarResumo()
             $('.product-card').on('click', function() {
@@ -248,6 +246,7 @@
                 }
             });
 
+
             // Função para atualizar o preço total com base na quantidade selecionada
             function atualizarPrecoTotal(card, quantidade) {
                 const precoUnitario = parseFloat(card.data('preco'));
@@ -255,132 +254,135 @@
                 card.find('.price-value').text(precoTotal.toFixed(2));
             }
 
+
             $('#sendButton').on('click', function() {
-    const selectedProducts = [];
-    $('.product-card.selected').each(function() {
-        const productId = $(this).data('id');
-        const productName = $(this).find('.nome_prod').text();
-        const productDesc = $(this).find('.desc_prod').attr('title');
-        const quantity = parseInt($(this).find('.quantity').text());
+                const selectedProducts = [];
+                $('.product-card.selected').each(function() {
+                    const productId = $(this).data('id');
+                    const productName = $(this).find('.nome_prod').text();
+                    const productDesc = $(this).find('.desc_prod').attr('title');
+                    const quantity = parseInt($(this).find('.quantity').text());
 
-        // Adiciona as informações do produto ao array
-        selectedProducts.push({
-            id: productId,
-            nome: productName,
-            descricao: productDesc,
-            quantidade: quantity
-        });
-    });
+                    // Adiciona as informações do produto ao array
+                    selectedProducts.push({
+                        id: productId,
+                        nome: productName,
+                        descricao: productDesc,
+                        quantidade: quantity
+                    });
+                });
 
-    console.log('Produtos selecionados:', selectedProducts); // Log para depuração
+                console.log('Produtos selecionados:', selectedProducts); // Log para depuração
 
-    if (selectedProducts.length > 0) {
-        $.ajax({
-            url: '../controllers/enviar_pedidos.php',
-            type: 'POST',
-            data: {
-                produtos: JSON.stringify(selectedProducts) // Envia os produtos como JSON
-            },
-            dataType: 'json',
-            success: function(response) {
-                console.log('Resposta do servidor:', response); // Log da resposta do servidor
-                const alertClass = response.status === 'success' ? 'alert-success' : 'alert-danger';
-                $('#messageContainer').html(`
+                if (selectedProducts.length > 0) {
+                    $.ajax({
+                        url: '../controllers/enviar_pedidos.php',
+                        type: 'POST',
+                        data: {
+                            produtos: JSON.stringify(selectedProducts) // Envia os produtos como JSON
+                        },
+                        dataType: 'json',
+                        success: function(response) {
+                            console.log('Resposta do servidor:', response); // Log da resposta do servidor
+                            const alertClass = response.status === 'success' ? 'alert-success' : 'alert-danger';
+                            $('#messageContainer').html(`
                     <div class="alert ${alertClass}" role="alert">
                         ${response.message}
                     </div>
                 `);
-            },
-            error: function(jqXHR) {
-                try {
-                    const response = JSON.parse(jqXHR.responseText); // Tenta analisar a resposta como JSON
-                    $('#messageContainer').html(`
+                        },
+                        error: function(jqXHR) {
+                            try {
+                                const response = JSON.parse(jqXHR.responseText); // Tenta analisar a resposta como JSON
+                                $('#messageContainer').html(`
                         <div class="alert alert-danger" role="alert">
                             ${response.message}
                         </div>
                     `); // Exibe a mensagem de erro do servidor
-                } catch (e) {
-                    $('#messageContainer').html(`
+                            } catch (e) {
+                                $('#messageContainer').html(`
                         <div class="alert alert-danger" role="alert">
                             <strong>Erro desconhecido!</strong> Por favor, tente novamente.
                         </div>
                     `); // Exibe mensagem padrão se não for JSON
-                }
-            }
-        });
-    } else {
-        $('#messageContainer').html(`
+                            }
+                        }
+                    });
+                } else {
+                    $('#messageContainer').html(`
             <div class="alert alert-warning" role="alert">
                 <strong>Atenção!</strong> Nenhum produto selecionado.
             </div>
         `);
-    }
-});
+                }
+            });
 
 
-$('#addToCartButton').on('click', function() {
-    const selectedProducts = [];
+            $('#addToCartButton').on('click', function() {
+                const selectedProducts = [];
 
-    // Percorre os produtos selecionados
-    $('.product-card.selected').each(function() {
-        const productId = $(this).data('id');
-        const quantity = parseInt($(this).find('.quantity').text());
-        const productName = $(this).find('.nome_prod').text();
-        const productDesc = $(this).find('.desc_prod').attr('title');
-        const price = parseFloat($(this).data('preco')) * quantity;
+                // Percorre os produtos selecionados
+                $('.product-card.selected').each(function() {
+                    const productId = $(this).data('id');
+                    const quantity = parseInt($(this).find('.quantity').text());
+                    const productName = $(this).find('.nome_prod').text();
+                    const productDesc = $(this).find('.desc_prod').attr('title');
+                    const price = parseFloat($(this).data('preco')) * quantity;
 
-        selectedProducts.push({
-            id: productId,
-            nome: productName,
-            descricao: productDesc,
-            quantidade: quantity,
-            valor_total: price
-        });
-    });
+                    selectedProducts.push({
+                        id: productId,
+                        nome: productName,
+                        descricao: productDesc,
+                        quantidade: quantity,
+                        valor_total: price
+                    });
+                });
 
-    // Verifica se há produtos selecionados
-    if (selectedProducts.length > 0) {
-        $.ajax({
-            url: '../controllers/adicionar_carrinho.php',
-            type: 'POST',
-            data: {
-                produtos: selectedProducts
-            },
-            dataType: 'json',
-            success: function(response) {
-                console.log('Resposta do servidor:', response);
-                const alertClass = response.status === 'success' ? 'alert-success' : 'alert-danger';
-                $('#messageContainer').html(`
+                // Verifica se há produtos selecionados
+                if (selectedProducts.length > 0) {
+                    $.ajax({
+                        url: '../controllers/adicionar_carrinho.php',
+                        type: 'POST',
+                        data: {
+                            produtos: selectedProducts
+                        },
+                        dataType: 'json',
+                        success: function(response) {
+                            console.log('Resposta do servidor:', response);
+                            const alertClass = response.status === 'success' ? 'alert-success' : 'alert-danger';
+                            $('#messageContainer').html(`
                     <div class="alert ${alertClass}" role="alert">
                         ${response.message}
                     </div>
                 `);
-            },
-            error: function(jqXHR) {
-                try {
-                    const response = JSON.parse(jqXHR.responseText); // Tenta analisar a resposta como JSON
-                    $('#messageContainer').html(`
+                        },
+                        error: function(jqXHR) {
+                            try {
+                                const response = JSON.parse(jqXHR.responseText); // Tenta analisar a resposta como JSON
+                                $('#messageContainer').html(`
                         <div class="alert alert-danger" role="alert">
                              ${response.message}
                         </div>
                     `); // Exibe a mensagem de erro
-                } catch (e) {
-                    $('#messageContainer').html(`
+                            } catch (e) {
+                                $('#messageContainer').html(`
                         <div class="alert alert-danger" role="alert">
                             <strong>Erro desconhecido. Por favor, tente novamente.</strong>
                         </div>
                     `); // Exibe mensagem padrão se não for JSON
-                }
-            }
-        });
-    } else {
-        $('#messageContainer').html(`
+                            }
+                        }
+                    });
+                } else {
+                    $('#messageContainer').html(`
             <div class="alert alert-warning" role="alert">
                 <strong>Atenção!</strong> Nenhum produto selecionado para o carrinho.
             </div>
         `);
-    }
-});
+                }
+            });
+
+
 
         });
     </script>
