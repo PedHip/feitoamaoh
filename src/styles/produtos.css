@@ -38,7 +38,7 @@ img {
 }
 
 #headerMobileCaneca{
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url(../src/imagens/website/caneca\ personalizada\ e\ mini\ panetone.jpg);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url(../imagens/website/caneca\ personalizada\ e\ mini\ panetone.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: contain;
@@ -46,7 +46,7 @@ img {
 }
 
 #headerMobileBox{
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url(../src/imagens/website/BOX\ LUXO\ CACAU\ SHOW.jpg);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url(../imagens/website/BOX\ LUXO\ CACAU\ SHOW.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: contain;
@@ -54,7 +54,7 @@ img {
 }
 
 #headerMobileBubbles{
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url(../src/imagens/website/BUBBLE\ MÉDIO\ DE\ MESA.jpg);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url(../imagens/website/BUBBLE\ MÉDIO\ DE\ MESA.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: contain;
@@ -63,7 +63,7 @@ img {
 }
 
 #headerMobileMaes{
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url(../src/imagens/website/diadasmaes.jpg);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url(../imagens/website/diadasmaes.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: contain;
@@ -71,7 +71,7 @@ img {
 }
 
 #headerMobileNatal{
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url(../src/imagens/website/natalFAM.jpg);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url(../imagens/website/natalFAM.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: contain;
@@ -79,7 +79,7 @@ img {
 }
 
 #headerMobileAniv{
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url(../src/imagens/website/anivFAM.jpg);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url(../imagens/website/anivFAM.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: contain;
@@ -87,7 +87,7 @@ img {
 }
 
 #headerMobileBBox{
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url(../src/imagens/website/BUBBLE\ PELUCIA\ AZUL.jpg);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url(../imagens/website/BUBBLE\ PELUCIA\ AZUL.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: contain;
@@ -95,7 +95,7 @@ img {
 }
 
 #headerMobileBAc{
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url(../src/imagens/website/BOX\ BUBBLE\ ACRILIC.jpg);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url(../imagens/website/BOX\ BUBBLE\ ACRILIC.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: contain;
