@@ -31,11 +31,7 @@ body {
   gap: 20px;
   justify-content: space-evenly;
 }
-  .containerselect{
-        display: flex !important;
-        width: fit-content!important;
-    
-    }
+
 
 /* Estilo do card do produto */
 .product-card {
@@ -153,8 +149,10 @@ body {
   margin-bottom: 15px;
 }
 
-.selectAllButton, deselectAllButton {
-  width: 200px !important;
+.selectAllButton, 
+.deselectAllButton {
+  width: 150px !important; /* Largura dos botões em telas maiores */
+  margin: 5px; /* Espaço entre os botões */
 }
 
 /* Responsividade */
