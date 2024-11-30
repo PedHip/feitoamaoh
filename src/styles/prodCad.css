@@ -79,13 +79,7 @@ h1{
     padding: .2rem 1.5rem;
 }
 
-#display{
-    display: none;
-}
 
-.login{
-    display: none;
-}
 
 .navMobile {
     height: 4rem;
