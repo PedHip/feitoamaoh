@@ -63,7 +63,7 @@ header {
       rgba(0, 0, 0, 0.596),
       rgba(0, 0, 0, 0.701)
     ),
-    url(../imagens/website/hsMobile.jpg);
+    url('../imagens/website/hsMobile.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -409,7 +409,7 @@ input {
   }
 
   #bannerH {
-    background-image: url(../imagens/website/urso.png);
+    background-image: url('../imagens/website/urso.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -569,7 +569,7 @@ input {
     height: 45rem;
     padding: 6rem 12rem;
     margin-bottom: 14rem;
-    background-image: url(../imagens/website/action.jpg);
+    background-image: url('../imagens/website/action.jpg');
     background-size: cover;
     background-position: center;
   }
