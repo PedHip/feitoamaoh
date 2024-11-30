@@ -191,7 +191,7 @@ nav ul{
 
     .cadastre p{
         font-size: 1.2rem;
-        margin-bottom: 1rem;
+        margin-bottom: 1rem !important;
     }
 
     .cadastreBttn{
