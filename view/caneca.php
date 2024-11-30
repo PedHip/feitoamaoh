@@ -108,7 +108,7 @@
             <div class="product-card" data-id="${p.id_prod}" data-preco="${p.preco_prod}">
                 <div class='imgVitrine'><img src="${p.img_prod}" alt="Imagem do Produto"></div>
                 <div class="product-info">
-                    <h5>${p.nome_prod}</h5>
+                    <h5 class="nome_prod">${p.nome_prod}</h5>
                     <div class="desc_prod" title="${p.desc_prod}"><h5>${p.desc_prod}</h5></div>
 
                     <div class="price">R$ <span class="price-value">${p.preco_prod}</span></div>
@@ -172,7 +172,7 @@
                 // Itera sobre os produtos selecionados e atualiza a lista de resumo
                 $('.product-card.selected').each(function() {
                     const imgSrc = $(this).find('img').attr('src');
-                    const nomeProduto = $(this).find('h5').text();
+                    const nomeProduto = $(this).find('.nome_prod').text();
                     const quantidade = parseInt($(this).find('.quantity').text());
                     const precoUnitario = parseFloat($(this).data('preco'));
                     const precoProduto = precoUnitario * quantidade;
@@ -260,7 +260,7 @@
                 const selectedProducts = [];
                 $('.product-card.selected').each(function() {
                     const productId = $(this).data('id');
-                    const productName = $(this).find('h5').text();
+                    const productName = $(this).find('.nome_prod').text();
                     const productDesc = $(this).find('.desc_prod').attr('title');
                     const quantity = parseInt($(this).find('.quantity').text());
 
@@ -326,7 +326,7 @@
                 $('.product-card.selected').each(function() {
                     const productId = $(this).data('id');
                     const quantity = parseInt($(this).find('.quantity').text());
-                    const productName = $(this).find('h5').text();
+                    const productName = $(this).find('.nome_prod').text();
                     const productDesc = $(this).find('.desc_prod').attr('title');
                     const price = parseFloat($(this).data('preco')) * quantity;
 
