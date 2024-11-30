@@ -149,9 +149,9 @@ body {
   margin-bottom: 15px;
 }
 
-.selectAllButton, 
-.deselectAllButton {
-  width: 150px !important; /* Largura dos botões em telas maiores */
+#selectAllButton, 
+#deselectAllButton {
+  width: 200px !important; /* Largura dos botões em telas maiores */
   margin: 5px; /* Espaço entre os botões */
 }
 
@@ -165,9 +165,9 @@ body {
   }
 
 
-  .selectAllButton, 
-  .deselectAllButton {
-    width: 90px !important; /* Ajusta a largura dos botões */
+  #selectAllButton, 
+  #deselectAllButton {
+    width: 100px !important; /* Ajusta a largura dos botões */
     margin: 5px; /* Adiciona espaçamento entre os botões */
   }
   
