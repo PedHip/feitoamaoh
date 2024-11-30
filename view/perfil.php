@@ -382,8 +382,8 @@
                                                         <img src="${produto.img_prod}" alt="${produto.nome_prod}" class="img-resumo">
                                                         <div class="ml-3">
                                                             <h4>${produto.nome_prod}</h4><br>
-                                                            ${produto.desc_prod}<br>
-                                                            R$ ${parseFloat(produto.preco_prod).toFixed(2)}
+                                                            <h4>${produto.desc_prod}</h4><br>
+                                                            <h4>R$ ${parseFloat(produto.preco_prod).toFixed(2)}</h4>
                                                         </div>
                                                     </li>
                                                 `;
