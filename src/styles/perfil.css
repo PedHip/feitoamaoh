@@ -167,7 +167,7 @@ body {
 
   #selectAllButton, 
   #deselectAllButton {
-    width: 100px !important; /* Ajusta a largura dos botões */
+    width: 130px !important; /* Ajusta a largura dos botões */
     margin: 5px; /* Adiciona espaçamento entre os botões */
   }
   
