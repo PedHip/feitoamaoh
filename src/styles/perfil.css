@@ -178,44 +178,52 @@ body {
     align-items: center !important;
     margin-top: 10px;
   }
-
-  .product-card {
-    width: 90%;
-    flex-direction: column;
+.product-card {
+    width: 100%;
+    flex-direction: column; /* Organiza os itens em coluna */
+    align-items: center; /* Centraliza os itens */
   }
 
   .product-image {
-    width: 100%;
-    height: 200px;
+    width: 100%; /* Imagem ocupa toda a largura */
+    height: 200px; /* Ajuste maior para tablets */
   }
 
   .product-details {
-    width: 100%;
+    width: 100%; /* Detalhes ocupam toda a largura */
+    text-align: center; /* Centraliza o texto dos detalhes */
+    padding: 15px; /* Ajuste de padding para tablets */
   }
 
   .product-info {
-    width: 100%;
-    text-align: left;
-    padding-right: 0;
+    width: 100%; /* Infos ocupam toda a largura */
+    text-align: center; /* Centraliza o texto */
+    margin-top: 10px; /* Espaçamento entre os detalhes e as infos */
+    padding-right: 0; /* Remove o padding à direita */
   }
-}
-
 /* Para telas muito pequenas (celulares em retrato) */
 @media (max-width: 480px) {
   .product-card {
     width: 100%;
-    flex-direction: column;
+    flex-direction: column; /* Organiza os itens em coluna */
+    align-items: center; /* Centraliza os itens */
   }
 
-  .product-name,
-  .product-description,
-  .product-quantity,
-  .product-info {
-    font-size: 1rem;
+  .product-image {
+    width: 100%; /* Imagem ocupa toda a largura */
+    height: 150px; /* Ajusta a altura */
+  }
+
+  .product-details {
+    width: 100%; /* Detalhes ocupam toda a largura */
+    text-align: center; /* Centraliza o texto dos detalhes */
+    padding: 10px; /* Ajusta o padding */
   }
 
   .product-info {
-    text-align: left;
-    padding-right: 0;
+    width: 100%; /* Infos ocupam toda a largura */
+    text-align: center; /* Centraliza o texto */
+    margin-top: 10px; /* Espaçamento entre os detalhes e as infos */
+    padding-right: 0; /* Remove o padding à direita */
   }
 }
