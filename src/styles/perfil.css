@@ -9,7 +9,7 @@
 }
 
 .card-body {
-    font-weight: 300 !important; /* Ajustando o peso da fonte */
+  font-weight: 300 !important; /* Ajustando o peso da fonte */
 }
 
 /* Estilo geral da página */
@@ -87,7 +87,6 @@ body {
   font-size: 1.1rem;
   font-weight: bold;
   margin-bottom: 10px;
-  height: auto;
 }
 
 .product-description {
@@ -96,7 +95,6 @@ body {
   color: #555;
   margin-bottom: 15px;
   line-height: 1.4;
-  height: 90px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -151,9 +149,9 @@ body {
 #selectAllButton, 
 #deselectAllButton,
 #removeSelectedButton,
-#sendOrderButton{
-  width: 230px !important; /* Largura dos botões em telas maiores */
-  margin: 5px; /* Espaço entre os botões */
+#sendOrderButton {
+  width: 230px !important;
+  margin: 5px;
   background-color: var(--section) !important;
 }
 
@@ -171,59 +169,62 @@ body {
     width: 150px !important;
   }
   
-  .containerselect {
-    width: 100% !important;
-    display: flex !important;
-    justify-content: space-evenly !important;
-    align-items: center !important;
-    margin-top: 10px;
-  }
-.product-card {
+  .product-card {
     width: 100%;
-    flex-direction: column; /* Organiza os itens em coluna */
-    align-items: center; /* Centraliza os itens */
+    flex-direction: column;
+    align-items: center;
+    height: auto;
   }
 
   .product-image {
-    width: 100%; /* Imagem ocupa toda a largura */
-    height: 200px; /* Ajuste maior para tablets */
+    width: 100%;
+    height: 200px;
+    margin-bottom: 10px;
   }
 
   .product-details {
-    width: 100%; /* Detalhes ocupam toda a largura */
-    text-align: center; /* Centraliza o texto dos detalhes */
-    padding: 15px; /* Ajuste de padding para tablets */
+    width: 100%;
+    text-align: center;
+    padding: 10px;
   }
 
   .product-info {
-    width: 100%; /* Infos ocupam toda a largura */
-    text-align: center; /* Centraliza o texto */
-    margin-top: 10px; /* Espaçamento entre os detalhes e as infos */
-    padding-right: 0; /* Remove o padding à direita */
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+    padding-right: 0;
+    border-top: 1px solid var(--bttnHeader);
+    padding-top: 10px;
   }
+}
+
 /* Para telas muito pequenas (celulares em retrato) */
 @media (max-width: 480px) {
   .product-card {
     width: 100%;
-    flex-direction: column; /* Organiza os itens em coluna */
-    align-items: center; /* Centraliza os itens */
+    flex-direction: column;
+    align-items: center;
+    height: auto;
   }
 
   .product-image {
-    width: 100%; /* Imagem ocupa toda a largura */
-    height: 150px; /* Ajusta a altura */
+    width: 100%;
+    height: 150px;
+    margin-bottom: 10px;
   }
 
   .product-details {
-    width: 100%; /* Detalhes ocupam toda a largura */
-    text-align: center; /* Centraliza o texto dos detalhes */
-    padding: 10px; /* Ajusta o padding */
+    width: 100%;
+    text-align: center;
+    padding: 10px;
   }
 
   .product-info {
-    width: 100%; /* Infos ocupam toda a largura */
-    text-align: center; /* Centraliza o texto */
-    margin-top: 10px; /* Espaçamento entre os detalhes e as infos */
-    padding-right: 0; /* Remove o padding à direita */
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+    padding-right: 0;
+    border-top: 1px solid var(--bttnHeader);
+    padding-top: 10px;
   }
 }
