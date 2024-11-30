@@ -186,7 +186,7 @@ body {
 }
 
 .card-body {
-  font-weight: normal !important;
+  font-weight: 300 !important;
 }
 
 /* Para telas muito pequenas (celulares em retrato) */
