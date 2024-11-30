@@ -219,9 +219,9 @@ body {
   }
 
   .product-image {
-    width: 100%;
-    height: 300px !important;
-    margin-bottom: 10px;
+    width: 50%; /* Aumenta a largura da imagem */
+    height: 150px; /* Ajuste a altura para que a imagem não fique tão pequena */
+    margin-bottom: 10px; /* Garantir um espaçamento adequado */
   }
 
   .product-details {
@@ -265,9 +265,9 @@ body {
   }
 
   .product-image {
-    width: 100%;
-    height: 200px !important;
-    margin-bottom: 10px;
+    width: 60%; /* Aumenta a largura da imagem ainda mais em telas menores */
+    height: 180px; /* Ajuste a altura para que a imagem tenha um tamanho visível */
+    margin-bottom: 10px; /* Garantir espaçamento adequado entre imagem e texto */
   }
   
 
