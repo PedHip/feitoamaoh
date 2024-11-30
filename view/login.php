@@ -26,14 +26,14 @@
         <section id="card">
             <div class="cadastre">
                 <h1>Cadastre-se</h1>
-                <p>Não tem uma conta? Faça um cadastro para que possa realizar os seus pedidos</p>
+                <p class="pLogin" >Não tem uma conta? Faça um cadastro para que possa realizar os seus pedidos</p>
                 <a href="cadastro.php"><button type="submit" class="cadastreBttn">criar conta</button></a>
             </div>
             <form id="formLogin">
             <div class="data">
                 <div id="display">
                     <h1>Bem-vindo de volta!</h1>
-                    <p>Faça login no nosso site para voltar a fazer seus pedidos</p>
+                    <p class="pLogin" >Faça login no nosso site para voltar a fazer seus pedidos</p>
                 </div>
                 <div id="dataDivInput">
                     <input class="input" type="email" id="email" name="email" placeholder="email" required>
