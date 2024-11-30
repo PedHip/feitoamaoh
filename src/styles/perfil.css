@@ -47,7 +47,6 @@ body {
   transition: transform 0.3s ease-in-out;
   overflow: hidden;
   height: 200px;
-  max-height: 300px; /* Altura máxima */
   font-weight: 400 !important;
 }
 
@@ -97,10 +96,6 @@ body {
   margin-bottom: 15px;
   line-height: 1.4;
   font-weight: 400; /* Peso mais leve */
-  overflow-wrap: break-word; /* Quebra palavras automaticamente */
-  word-break: break-word; /* Suporte adicional para palavras longas */
-  max-height: 100px; /* Altura máxima */
-  overflow-y: auto; /* Rolagem vertical */
 }
 
 .product-quantity {
@@ -141,8 +136,8 @@ body {
 }
 
 .img-resumo {
-  width: 120px; /* Aumento do tamanho da imagem */
-  height: 120px; /* Aumento do tamanho da imagem */
+  width: 100px;
+  height: 100px;
   border-radius: 10px;
 }
 
@@ -159,39 +154,6 @@ body {
   background-color: var(--section) !important;
 }
 
-/* Estilo do resumo dos pedidos */
-.list-group-item {
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  margin-bottom: 10px;
-}
-
-.list-group-item div {
-  margin-left: 15px;
-  width: 100%; /* Garante que o texto ocupe a largura disponível */
-  overflow-wrap: break-word; /* Quebra palavras automaticamente */
-  word-break: break-word; /* Quebra palavras longas */
-  max-height: 150px; /* Altura máxima */
-  overflow-y: auto; /* Rolagem vertical somente quando necessário */
-}
-
-.list-group-item h4 {
-  margin: 0;
-  font-size: 1rem;
-  font-weight: normal; /* Fonte mais leve */
-}
-
-.list-group-item p {
-  margin: 5px 0;
-  font-size: 0.9rem;
-  color: #555;
-  line-height: 1.4;
-  font-weight: 300; /* Fonte mais fina */
-}
-
 /* Para telas médias (tablets e telas menores) */
 @media (max-width: 768px) {
   #product-list {
@@ -201,7 +163,6 @@ body {
 
   .product-description {
     text-align: center !important;
-    max-height: 80px; /* Ajuste para telas menores */
   }
 
   #selectAllButton, 
@@ -219,9 +180,9 @@ body {
   }
 
   .product-image {
-    width: 100%; /* Aumenta a largura da imagem */
-    height: 300px; /* Ajuste a altura para que a imagem não fique tão pequena */
-    margin-bottom: 10px; /* Garantir um espaçamento adequado */
+    width: 100%;
+    height: 300px;
+    margin-bottom: 10px;
   }
 
   .product-details {
@@ -237,21 +198,6 @@ body {
     padding-right: 0;
     border-top: 1px solid var(--bttnHeader);
     padding-top: 10px;
-  }
-
-  .list-group-item {
-    flex-direction: column; /* Alinha os itens em coluna */
-    text-align: center;
-  }
-
-  .img-resumo {
-    margin-bottom: 10px; /* Espaço entre a imagem e o texto */
-  }
-
-  .list-group-item div {
-    margin-left: 0;
-    text-align: center;
-    max-height: 100px; /* Ajuste para telas menores */
   }
 }
 
@@ -265,11 +211,10 @@ body {
   }
 
   .product-image {
-    width: 100%; /* Aumenta a largura da imagem ainda mais em telas menores */
-    height: 250px; /* Ajuste a altura para que a imagem tenha um tamanho visível */
-    margin-bottom: 10px; /* Garantir espaçamento adequado entre imagem e texto */
+    width: 100%;
+    height: 200px;
+    margin-bottom: 10px;
   }
-  
 
   .product-details {
     width: 100%;
@@ -284,9 +229,5 @@ body {
     padding-right: 0;
     border-top: 1px solid var(--bttnHeader);
     padding-top: 10px;
-  }
-
-  .list-group-item div {
-    max-height: 80px; /* Ajuste para telas muito pequenas */
   }
 }
