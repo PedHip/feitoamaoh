@@ -141,8 +141,8 @@ body {
 }
 
 .img-resumo {
-  width: 100px;
-  height: 100px;
+  width: 120px; /* Aumento do tamanho da imagem */
+  height: 120px; /* Aumento do tamanho da imagem */
   border-radius: 10px;
 }
 
@@ -181,7 +181,7 @@ body {
 .list-group-item h4 {
   margin: 0;
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: normal; /* Fonte mais leve */
 }
 
 .list-group-item p {
@@ -189,6 +189,7 @@ body {
   font-size: 0.9rem;
   color: #555;
   line-height: 1.4;
+  font-weight: 300; /* Fonte mais fina */
 }
 
 /* Para telas médias (tablets e telas menores) */
