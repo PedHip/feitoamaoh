@@ -169,13 +169,12 @@ body {
   #removeSelectedButton,
   #sendOrderButton {
     width: 150px !important;
-    margin: 5px;
   }
   
   .containerselect {
     width: 100% !important;
     display: flex !important;
-    justify-content: center !important;
+    justify-content: space-evenly !important;
     align-items: center !important;
     margin-top: 10px;
   }
