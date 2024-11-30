@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bubbles</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRlNk1t2C8qC0ZPmvZGzTVL1BlxS4P4H8C6i9d6EJ" crossorigin="anonymous">
+    <title>Natal</title>
     <link rel="shortcut icon" type="imagex/png" href="../src/imagens/website/balloon.png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../src/styles/pedir.css">
     <link rel="stylesheet" href="../src/styles/produtos.css">
     <link rel="stylesheet" href="../src/styles/index.css">
     <link rel="stylesheet" href="../src/styles/styles.css">
-    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
@@ -25,21 +24,21 @@
 </head>
 
 <body>
-    <?php
+   <?php
     include '../module/header.php';
     include '../module/javascript_view.php';
     ?>
-    
     <main>
-        <section id="headerMobileAniv"></section>
+        <section id="headerMobileMaes"></section>
         <div class="padding">
             <section id="apresentacao">
                 <div id="bannerAp">
                     <div id="apresentacaoText">
-                        <h1>Aniversários</h1>
-                        <p>Presentear aniversariantes com nossos produtos personalizados é uma forma especial de
-                            celebrar. Nossas boxes de luxo, canecas personalizadas e bexigas festivas criam uma
-                            experiência memorável, seja para surpreender alguém especial ou para se mimar.</p>
+                        <h1>Natal</h1>
+                        <p>No Natal, presentear com nossos produtos personalizados é uma forma encantadora de expressar carinho. Nossas boxes de
+                            luxo e canecas personalizadas criam experiências únicas, enquanto nossas bexigas personalizadas, as bubbles,
+                            adicionam um toque divertido e festivo à celebração. Juntos, esses itens transformam o Natal em uma ocasião
+                            memorável e cheia de alegria.</p>
                     </div>
                 </div>
             </section>
@@ -49,39 +48,33 @@
                     <p>para construir lembranças inesquecíveis</p>
                 </div>
                 <div id="boxVitrine">
-                    <div class="displayVitrine" id="canecaProductsContainer">
-                        <div class="card-container" id="AniversarioProductsContainer">
-                            <!-- Os produtos serão inseridos aqui via AJAX -->
-                        </div>
+                    <div class="displayVitrine" id="natalProductsContainer">
                     </div>
                 </div>
             </section>
-    </main>
-    <div class="resumopedido" id="resumopedido">
-        <div class="summary-container mt-4" id="summaryContainer">
-            <h3>Resumo do Pedido</h3>
-            <div class="summary-list">
-                <!-- Resumo dos itens selecionados será inserido aqui -->
-            </div>
-            <div class="summary-total mt-2">
-                <strong>Total: R$ <span id="totalPrice">0.00</span></strong>
-            </div>
-        </div>
-        <div class="">
-            <button id="sendButton" class="btn btn-primary">Enviar</button>
-            <button id="addToCartButton" class="btn btn-primary">Adicionar ao Carrinho</button>
-            <div id="messageContainer"></div>
-        </div>
+            <div class="resumopedido" id="resumopedido">
+                <div class="summary-container mt-4" id="summaryContainer">
+                    <h3>Resumo do Pedido</h3>
+                    <div class="summary-list">
+                        <!-- Resumo dos itens selecionados será inserido aqui -->
+                    </div>
+                    <div class="summary-total mt-2">
+                        <strong>Total: R$ <span id="totalPrice">0.00</span></strong>
+                    </div>
+                </div>
+                <div class="">
+                    <button id="sendButton" class="btn btn-primary">Enviar</button>
+                    <button id="addToCartButton" class="btn btn-primary">Adicionar ao Carrinho</button>
+                    <div id="messageContainer"></div>
+                </div>
 
-    </div>
-    <?php
-    include '../module/footer.php';
-    include '../module/navmobile.php';
-    ?>
+            </div>
+    </main>
+
     <script>
         $(document).ready(function() {
-
-            function listarProdutosAniversario() {
+            // Função para listar os produtos do tipo "natal"
+            function listarProdutosNatal() {
                 $.ajax({
                     url: '../controllers/listar_produtos.php',
                     type: 'GET',
@@ -102,10 +95,10 @@
                 });
             }
 
-            listarProdutosAniversario(); // Chama a função ao carregar a página
+            listarProdutosNatal(); // Chama a função ao carregar a página
 
             function atualizarCards(produtos) {
-                const container = $("#AniversarioProductsContainer");
+                const container = $("#natalProductsContainer");
                 container.empty();
 
                 produtos.forEach(p => {
@@ -166,6 +159,7 @@
                 });
             }
 
+
             // Função para atualizar o resumo dos produtos selecionados
             function atualizarResumo() {
                 const summaryList = $('#summaryContainer .summary-list');
@@ -184,11 +178,11 @@
 
                     const resumoItem = `
             <div class="summary-item d-flex align-items-center mb-2">
-                <div>
                 <img src="${imgSrc}" alt="${nomeProduto}" class="img-sumary mr-2" style="width: 5rem; height: 5rem;">
-                    <h3>${nomeProduto}<h3><br>
+                <div>
+                    <strong>${nomeProduto}</strong><br>
                     Quantidade: ${quantidade}<br>
-                    <p>R$ ${precoProduto.toFixed(2)}</p>
+                    Preço: R$ ${precoProduto.toFixed(2)}
                 </div>
             </div>
         `;
@@ -204,10 +198,16 @@
                 } else {
                     $('#resumopedido').hide(); // Esconde o resumo do pedido
                 }
+
+
             }
 
             // Certifique-se de esconder o resumo do pedido inicialmente
             $('#resumopedido').hide();
+
+
+
+
 
             // Atualize a função de clique para selecionar/deselecionar produtos para chamar atualizarResumo()
             $('.product-card').on('click', function() {
@@ -246,12 +246,14 @@
                 }
             });
 
+
             // Função para atualizar o preço total com base na quantidade selecionada
             function atualizarPrecoTotal(card, quantidade) {
                 const precoUnitario = parseFloat(card.data('preco'));
                 const precoTotal = precoUnitario * quantidade;
                 card.find('.price-value').text(precoTotal.toFixed(2));
             }
+
 
             $('#sendButton').on('click', function() {
                 const selectedProducts = [];
@@ -380,10 +382,16 @@
                 }
             });
 
+
+
         });
     </script>
 
- 
+    <?php
+    include '../module/footer.php';
+    include '../module/navmobile.php';
+    ?>
+
 </body>
 
 </html>
