@@ -33,8 +33,7 @@ body {
 }
   .containerselect{
         display: flex !important;
-        width: fit-content
-          !important;
+        width: fit-content!important;
     
     }
 
@@ -155,7 +154,7 @@ body {
 }
 
 .selectAllButton, deselectAllButton {
-  width: 150px !important;
+  width: 200px !important;
 }
 
 /* Responsividade */
@@ -168,15 +167,20 @@ body {
   }
 
 
-  .selectAllButton, deselectAllButton {
-  width: 90px !important;
-}
-  
-  .containerselect{
-    width: fit-content !important;
-    display: flex !important;
-    justify-content: center !important;
+  .selectAllButton, 
+  .deselectAllButton {
+    width: 90px !important; /* Ajusta a largura dos botões */
+    margin: 5px; /* Adiciona espaçamento entre os botões */
   }
+  
+  .containerselect {
+    width: 100% !important; /* Ocupa a largura total para centralização */
+    display: flex !important;
+    justify-content: center !important; /* Centraliza os itens horizontalmente */
+    align-items: center !important; /* Centraliza verticalmente, se necessário */
+    margin-top: 10px; /* Espaçamento superior */
+  }
+}
 
   .product-card {
     width: 90%;
