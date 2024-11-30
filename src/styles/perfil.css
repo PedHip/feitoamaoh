@@ -164,8 +164,8 @@ body {
 
   .containerselect{
     width: 200px !important;
-    display: flex;
-    text-aling: center;
+    display: flex !important;
+    text-aling: center !important;
   }
 
   .product-card {
