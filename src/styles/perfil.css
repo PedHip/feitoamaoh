@@ -8,6 +8,9 @@
   --bttnHeader: #a6a4a4;
 }
 
+.card-body {
+    font-weight: 300; /* Isso torna o texto mais fino */
+}
 
 /* Estilo geral da página */
 body {
