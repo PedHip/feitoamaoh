@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dia das Mães</title>
+    <title>Natal</title>
     <link rel="shortcut icon" type="imagex/png" href="../src/imagens/website/balloon.png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../src/styles/pedir.css">
@@ -34,8 +34,11 @@
             <section id="apresentacao">
                 <div id="bannerAp">
                     <div id="apresentacaoText">
-                        <h1>Dia das Mães</h1>
-                        <p>Presentear com nossos produtos no Dia das Mães é uma forma especial de expressar amor e apreciação. Nossas boxes de luxo e canecas personalizadas oferecem uma experiência única e memorável, transformando a celebração em um momento inesquecível de prazer e carinho.</p>
+                        <h1>Natal</h1>
+                        <p>No Natal, presentear com nossos produtos personalizados é uma forma encantadora de expressar carinho. Nossas boxes de
+                            luxo e canecas personalizadas criam experiências únicas, enquanto nossas bexigas personalizadas, as bubbles,
+                            adicionam um toque divertido e festivo à celebração. Juntos, esses itens transformam o Natal em uma ocasião
+                            memorável e cheia de alegria.</p>
                     </div>
                 </div>
             </section>
@@ -45,7 +48,7 @@
                     <p>para construir lembranças inesquecíveis</p>
                 </div>
                 <div id="boxVitrine">
-                    <div class="displayVitrine" id="diaDasMaesProductsContainer">
+                    <div class="displayVitrine" id="natalProductsContainer">
                     </div>
                 </div>
             </section>
@@ -70,8 +73,8 @@
 
     <script>
         $(document).ready(function() {
-            // Função para listar os produtos do tipo "dia_das_maes"
-            function listarProdutosDiaDasMaes() {
+            // Função para listar os produtos do tipo "natal"
+            function listarProdutosNatal() {
                 $.ajax({
                     url: '../controllers/listar_produtos.php',
                     type: 'GET',
@@ -92,10 +95,10 @@
                 });
             }
 
-            listarProdutosDiaDasMaes(); // Chama a função ao carregar a página
+            listarProdutosNatal(); // Chama a função ao carregar a página
 
             function atualizarCards(produtos) {
-                const container = $("#diaDasMaesProductsContainer");
+                const container = $("#natalProductsContainer");
                 container.empty();
 
                 produtos.forEach(p => {
@@ -175,11 +178,11 @@
 
                     const resumoItem = `
             <div class="summary-item d-flex align-items-center mb-2">
-                <div>
                 <img src="${imgSrc}" alt="${nomeProduto}" class="img-sumary mr-2" style="width: 5rem; height: 5rem;">
-                    <h3>${nomeProduto}<h3><br>
+                <div>
+                    <strong>${nomeProduto}</strong><br>
                     Quantidade: ${quantidade}<br>
-                    <p>R$ ${precoProduto.toFixed(2)}</p>
+                    Preço: R$ ${precoProduto.toFixed(2)}
                 </div>
             </div>
         `;
@@ -250,6 +253,7 @@
                 const precoTotal = precoUnitario * quantidade;
                 card.find('.price-value').text(precoTotal.toFixed(2));
             }
+
 
             $('#sendButton').on('click', function() {
                 const selectedProducts = [];
@@ -387,7 +391,6 @@
     include '../module/footer.php';
     include '../module/navmobile.php';
     ?>
-
 
 </body>
 
