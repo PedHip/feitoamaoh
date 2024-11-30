@@ -175,7 +175,7 @@ body {
   overflow-wrap: break-word; /* Quebra palavras automaticamente */
   word-break: break-word; /* Quebra palavras longas */
   max-height: 150px; /* Altura máxima */
-  overflow-y: auto; /* Rolagem vertical */
+  overflow-y: auto; /* Rolagem vertical somente quando necessário */
 }
 
 .list-group-item h4 {
