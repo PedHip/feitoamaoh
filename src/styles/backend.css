@@ -240,5 +240,13 @@
         text-transform: capitalize;
     }
 
-    /* Responsividade para telas menores */
+    @media screen and (min-width: 768px){
+     .form-control2 {
+        width: 100% !important;
+        padding: 10px !important;
+        border: 1px solid #ccc !important;
+        border-radius: 5px !important;
+        margin-bottom: 1rem !important;
+    }
+    }
 
