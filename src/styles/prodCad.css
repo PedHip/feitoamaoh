@@ -50,7 +50,7 @@ h1{
     border-width: 1px;
     border-radius: 8px;
     padding: 0 .8rem;
-    font-weight: lighter;
+    
 }
 
 #dataDivBttn{
@@ -149,7 +149,7 @@ nav ul{
         flex-direction: row-reverse;
         border-radius: 15px;
         overflow: hidden;
-        width: 90%;
+        width: 100%;
     }
 
     .dataBttn{
@@ -191,6 +191,7 @@ nav ul{
 
     .cadastre p{
         font-size: 1.2rem;
+        margin-bottom: 1rem;
     }
 
     .cadastreBttn{
