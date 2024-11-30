@@ -257,7 +257,7 @@
                 const selectedProducts = [];
                 $('.product-card.selected').each(function() {
                     const productId = $(this).data('id');
-                    const productName = $(this).find('h5').text();
+                    const productName = $(this).find('.nome_prod').text();
                     const productDesc = $(this).find('.desc_prod').attr('title');
                     const quantity = parseInt($(this).find('.quantity').text());
 
@@ -323,7 +323,7 @@
                 $('.product-card.selected').each(function() {
                     const productId = $(this).data('id');
                     const quantity = parseInt($(this).find('.quantity').text());
-                    const productName = $(this).find('h5').text();
+                    const productName = $(this).find('.nome_prod').text();
                     const productDesc = $(this).find('.desc_prod').attr('title');
                     const price = parseFloat($(this).data('preco')) * quantity;
 
