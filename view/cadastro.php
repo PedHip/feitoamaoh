@@ -94,7 +94,7 @@
 					data: $(this).serialize(),
 					dataType: 'json', // Adicione esta linha para esperar uma resposta JSON
 					success: function(response) {
-						$('#mensagem').html(response.message); // Mostra a mensagem de retorno
+						$('#mensagem').html('<div style="color:green;">Usuario cadastrado com sucesso!.</div>');
 						if (response.status === 'success') {
 							setTimeout(function() {
 								window.location.href = 'login.php'; // Redireciona após 2 segundos
