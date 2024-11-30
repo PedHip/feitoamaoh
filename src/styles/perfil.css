@@ -47,6 +47,7 @@ body {
   transition: transform 0.3s ease-in-out;
   overflow: hidden;
   height: 200px;
+  max-height: 300px; /* Altura máxima */
   font-weight: 400 !important;
 }
 
@@ -98,6 +99,8 @@ body {
   font-weight: 400; /* Peso mais leve */
   overflow-wrap: break-word; /* Quebra palavras automaticamente */
   word-break: break-word; /* Suporte adicional para palavras longas */
+  max-height: 100px; /* Altura máxima */
+  overflow-y: auto; /* Rolagem vertical */
 }
 
 .product-quantity {
@@ -171,6 +174,8 @@ body {
   width: 100%; /* Garante que o texto ocupe a largura disponível */
   overflow-wrap: break-word; /* Quebra palavras automaticamente */
   word-break: break-word; /* Quebra palavras longas */
+  max-height: 150px; /* Altura máxima */
+  overflow-y: auto; /* Rolagem vertical */
 }
 
 .list-group-item h4 {
@@ -195,6 +200,7 @@ body {
 
   .product-description {
     text-align: center !important;
+    max-height: 80px; /* Ajuste para telas menores */
   }
 
   #selectAllButton, 
@@ -244,6 +250,7 @@ body {
   .list-group-item div {
     margin-left: 0;
     text-align: center;
+    max-height: 100px; /* Ajuste para telas menores */
   }
 }
 
@@ -275,5 +282,9 @@ body {
     padding-right: 0;
     border-top: 1px solid var(--bttnHeader);
     padding-top: 10px;
+  }
+
+  .list-group-item div {
+    max-height: 80px; /* Ajuste para telas muito pequenas */
   }
 }
