@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bubbles</title>
+    <title>Natal</title>
     <link rel="shortcut icon" type="imagex/png" href="../src/imagens/website/balloon.png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../src/styles/pedir.css">
@@ -29,38 +29,29 @@
     include '../module/javascript_view.php';
     ?>
     <main>
-        <section id="headerMobileCaneca"></section>
+        <section id="headerMobileMaes"></section>
         <div class="padding">
             <section id="apresentacao">
                 <div id="bannerAp">
                     <div id="apresentacaoText">
-                        <h1>Bubbles</h1>
-                        <p>a bubble é um produto que contem diversos bagulhos dentro dela, a um preço muito caro</p>
+                        <h1>Natal</h1>
+                        <p>No Natal, presentear com nossos produtos personalizados é uma forma encantadora de expressar carinho. Nossas boxes de
+                            luxo e canecas personalizadas criam experiências únicas, enquanto nossas bexigas personalizadas, as bubbles,
+                            adicionam um toque divertido e festivo à celebração. Juntos, esses itens transformam o Natal em uma ocasião
+                            memorável e cheia de alegria.</p>
                     </div>
-                </div>
-                <div id="apresentacaoBttn">
-                    <a href="../view/bubble_acrilico.php">
-                        <button class="bttnBubble">
-                        <span>bubbles</span>
-                        <img src="../src/imagens/website/Forward.png" alt="">
-                    </button></a>
-                    <a href="../view/bubble_box.php"><button class="bttnBubble">
-                        <span>bubbles na box</span>
-                        <img src="../src/imagens/website/Forward.png" alt="">
-                    </button></a>
                 </div>
             </section>
             <section id="bubblesDisp">
                 <div id="bubblesDispText">
-                    <h2>Bubbles disponíveis</h2>
-                    <p>Bubbles disponíveis para compra</p>
+                    <h2>Presentes incríveis</h2>
+                    <p>para construir lembranças inesquecíveis</p>
                 </div>
                 <div id="boxVitrine">
-                    <div class="displayVitrine" id="bubbleProductsContainer">
+                    <div class="displayVitrine" id="natalProductsContainer">
                     </div>
                 </div>
             </section>
-
             <div class="resumopedido" id="resumopedido">
                 <div class="summary-container mt-4" id="summaryContainer">
                     <h3>Resumo do Pedido</h3>
@@ -82,8 +73,8 @@
 
     <script>
         $(document).ready(function() {
-            // Função para listar os produtos do tipo "bubble"
-            function listarProdutosBubble() {
+            // Função para listar os produtos do tipo "natal"
+            function listarProdutosNatal() {
                 $.ajax({
                     url: '../controllers/listar_produtos.php',
                     type: 'GET',
@@ -104,10 +95,10 @@
                 });
             }
 
-            listarProdutosBubble(); // Chama a função ao carregar a página
+            listarProdutosNatal(); // Chama a função ao carregar a página
 
             function atualizarCards(produtos) {
-                const container = $("#bubbleProductsContainer");
+                const container = $("#natalProductsContainer");
                 container.empty();
 
                 produtos.forEach(p => {
@@ -187,11 +178,11 @@
 
                     const resumoItem = `
             <div class="summary-item d-flex align-items-center mb-2">
-                <div>
                 <img src="${imgSrc}" alt="${nomeProduto}" class="img-sumary mr-2" style="width: 5rem; height: 5rem;">
-                    <h3>${nomeProduto}<h3><br>
+                <div>
+                    <strong>${nomeProduto}</strong><br>
                     Quantidade: ${quantidade}<br>
-                    <p>R$ ${precoProduto.toFixed(2)}</p>
+                    Preço: R$ ${precoProduto.toFixed(2)}
                 </div>
             </div>
         `;
@@ -268,7 +259,7 @@
                 const selectedProducts = [];
                 $('.product-card.selected').each(function() {
                     const productId = $(this).data('id');
-                    const productName = $(this).find('h5').text();
+                    const productName = $(this).find('.nome_prod').text();
                     const productDesc = $(this).find('.desc_prod').attr('title');
                     const quantity = parseInt($(this).find('.quantity').text());
 
