@@ -152,7 +152,7 @@ body {
 #deselectAllButton,
 #removeSelectedButton,
 #sendOrderButton{
-  width: 200px !important; /* Largura dos botões em telas maiores */
+  width: 230px !important; /* Largura dos botões em telas maiores */
   margin: 5px; /* Espaço entre os botões */
   background-color: var(--section) !important;
 }
