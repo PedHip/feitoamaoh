@@ -52,7 +52,7 @@
 		</section>
 	</main>
 	<?php
-	include '../module/navMobile.php';
+	include '../module/navmobile.php';
 	?>
 
 	<script>
