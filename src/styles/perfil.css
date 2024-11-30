@@ -37,7 +37,7 @@ body {
 
 /* Estilo do card do produto */
 .product-card {
-  background-color: var(--feedback);
+  background-color: #fefefe;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 100%;
@@ -47,6 +47,7 @@ body {
   transition: transform 0.3s ease-in-out;
   overflow: hidden;
   height: 200px;
+  font-weight: 300 !important;
 }
 
 .product-card:hover {
@@ -55,7 +56,7 @@ body {
 
 .product-card.selected {
   transform: scale(1.01);
-  border: 2px solid var(--details);
+  border: 2px solid var(--section);
 }
 
 /* Estilo da imagem do produto */
@@ -85,7 +86,7 @@ body {
 .product-name {
   font-size: 1.1rem;
   font-weight: bold;
-  color: var(--details);
+  color: var(--section);
   margin-bottom: 10px;
   height: auto;
 }
@@ -103,7 +104,7 @@ body {
 
 .product-quantity {
   font-size: 1rem;
-  color: var(--details);
+  color: var(--section);
   margin-bottom: 10px;
   font-weight: bold;
 }
