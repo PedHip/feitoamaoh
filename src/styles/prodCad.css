@@ -18,6 +18,11 @@
     font-style: normal;
 }
 
+.pLogin{
+padding: 1rem !important!;
+margin-bottom: 1rem !important; 
+}
+
 .padding{
     padding: 0 1.5rem;
 }
