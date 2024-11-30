@@ -156,7 +156,7 @@ body {
 #sendOrderButto{
   width: 200px !important; /* Largura dos botões em telas maiores */
   margin: 5px; /* Espaço entre os botões */
-  background-color: var(--section)
+  background-color: var(--section) !important;
 }
 
 /* Para telas médias (tablets e telas menores) */
