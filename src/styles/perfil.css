@@ -161,6 +161,10 @@ body {
     align-items: center;
   }
 
+  .product-description {
+    text-align: center !important;
+  }
+
   #selectAllButton, 
   #deselectAllButton,
   #removeSelectedButton,
@@ -177,7 +181,7 @@ body {
 
   .product-image {
     width: 100%;
-    height: 250px;
+    height: 350px;
     margin-bottom: 10px;
   }
 
