@@ -9,7 +9,7 @@
 }
 
 .card-body {
-    font-weight: 300;
+    font-weight: 300 !important;
 }
 
 /* Estilo geral da página */
