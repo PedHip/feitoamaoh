@@ -30,6 +30,11 @@ body {
   gap: 20px;
   justify-content: space-evenly;
 }
+  .containerselect{
+        display: flex !important;
+        width: 400px !important;
+    
+    }
 
 /* Estilo do card do produto */
 .product-card {
@@ -155,7 +160,7 @@ body {
   }
 
   .containerselect{
-    width: 100px;
+    width: 200px !important;
   }
 
   .product-card {
