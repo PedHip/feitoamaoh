@@ -335,6 +335,31 @@ header {
     display: none;
   }
 
+  #mensagem {
+    margin-top: 20px;
+    font-size: 0.875rem;
+}
+
+/* Mensagens de sucesso e erro */
+#mensagem div {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#mensagem div[style*="color:gray"] {
+    background-color: #f5f5f5;
+}
+
+#mensagem div[style*="color:red"] {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+#mensagem div[style*="color:green"] {
+    background-color: #d4edda;
+    color: #155724;
+}
+
   h1 {
     font-size: 3rem !important;
   }
