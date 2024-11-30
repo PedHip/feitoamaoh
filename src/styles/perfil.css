@@ -96,6 +96,8 @@ body {
   margin-bottom: 15px;
   line-height: 1.4;
   font-weight: 400; /* Peso mais leve */
+  overflow-wrap: break-word; /* Quebra palavras automaticamente */
+  word-break: break-word; /* Suporte adicional para palavras longas */
 }
 
 .product-quantity {
@@ -154,6 +156,36 @@ body {
   background-color: var(--section) !important;
 }
 
+/* Estilo do resumo dos pedidos */
+.list-group-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.list-group-item div {
+  margin-left: 15px;
+  width: 100%; /* Garante que o texto ocupe a largura disponível */
+  overflow-wrap: break-word; /* Quebra palavras automaticamente */
+  word-break: break-word; /* Quebra palavras longas */
+}
+
+.list-group-item h4 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.list-group-item p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.4;
+}
+
 /* Para telas médias (tablets e telas menores) */
 @media (max-width: 768px) {
   #product-list {
@@ -198,6 +230,20 @@ body {
     padding-right: 0;
     border-top: 1px solid var(--bttnHeader);
     padding-top: 10px;
+  }
+
+  .list-group-item {
+    flex-direction: column; /* Alinha os itens em coluna */
+    text-align: center;
+  }
+
+  .img-resumo {
+    margin-bottom: 10px; /* Espaço entre a imagem e o texto */
+  }
+
+  .list-group-item div {
+    margin-left: 0;
+    text-align: center;
   }
 }
 
