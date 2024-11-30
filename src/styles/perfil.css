@@ -8,6 +8,7 @@
   --bttnHeader: #a6a4a4;
 }
 
+
 /* Estilo geral da página */
 body {
   font-family: 'Arial', sans-serif;
@@ -182,6 +183,10 @@ body {
     text-align: left;
     padding-right: 0;
   }
+}
+
+.card-body {
+  font-weight: normal !important;
 }
 
 /* Para telas muito pequenas (celulares em retrato) */
