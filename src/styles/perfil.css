@@ -9,7 +9,7 @@
 }
 
 .card-body {
-    font-weight: 300 !important;
+    font-weight: 300 !important; /* Ajustando o peso da fonte */
 }
 
 /* Estilo geral da página */
@@ -34,7 +34,6 @@ body {
   gap: 20px;
   justify-content: space-evenly;
 }
-
 
 /* Estilo do card do produto */
 .product-card {
@@ -134,9 +133,7 @@ body {
   background-color: #f8e71c;
   color: #6f6f1f;
 }
-.card-body {
-  font-weight: 300 !important;
-}
+
 .alert-danger {
   background-color: var(--section);
   color: white;
@@ -152,14 +149,6 @@ body {
   margin-bottom: 15px;
 }
 
-#selectAllButton, 
-#deselectAllButton,
-#sendOrderButton,
-#removeSelectedButton{
-  width: 230px !important; /* Largura dos botões em telas maiores */
-  margin: 5px; /* Espaço entre os botões */
-}
-
 /* Responsividade */
 
 /* Para telas médias (tablets e telas menores) */
@@ -169,23 +158,21 @@ body {
     align-items: center;
   }
 
-
   #selectAllButton, 
   #deselectAllButton,
   #removeSelectedButton,
-  #sendOrderButton{
-    width: 150px !important; /* Ajusta a largura dos botões */
-    margin: 5px; /* Adiciona espaçamento entre os botões */
+  #sendOrderButton {
+    width: 150px !important;
+    margin: 5px;
   }
   
   .containerselect {
-    width: 100% !important; /* Ocupa a largura total para centralização */
+    width: 100% !important;
     display: flex !important;
-    justify-content: center !important; /* Centraliza os itens horizontalmente */
-    align-items: center !important; /* Centraliza verticalmente, se necessário */
-    margin-top: 10px; /* Espaçamento superior */
+    justify-content: center !important;
+    align-items: center !important;
+    margin-top: 10px;
   }
-}
 
   .product-card {
     width: 90%;
@@ -208,19 +195,12 @@ body {
   }
 }
 
-.card-body {
-  font-weight: 300 !important;
-}
-
 /* Para telas muito pequenas (celulares em retrato) */
 @media (max-width: 480px) {
   .product-card {
     width: 100%;
     flex-direction: column;
   }
-  .card-body {
-  font-weight: 300 !important;
-}
 
   .product-name,
   .product-description,
