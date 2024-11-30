@@ -179,7 +179,7 @@
                 // Itera sobre os produtos selecionados e atualiza a lista de resumo
                 $('.product-card.selected').each(function() {
                     const imgSrc = $(this).find('img').attr('src');
-                    const nomeProduto = $(this).find('h5').text();
+                    const nomeProduto = $(this).find('.nome_prod').text();
                     const quantidade = parseInt($(this).find('.quantity').text());
                     const precoUnitario = parseFloat($(this).data('preco'));
                     const precoProduto = precoUnitario * quantidade;
