@@ -51,9 +51,10 @@
 			</div>
 		</section>
 	</main>
-	<?php
-	include '../module/navmobile.php';
-	?>
+    <?php
+    include '../module/footer.php';
+    include '../module/navmobile.php';
+    ?>
 
 	<script>
 		$(document).ready(function() {
