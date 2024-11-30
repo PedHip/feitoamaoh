@@ -79,6 +79,14 @@ h1{
     padding: .2rem 1.5rem;
 }
 
+#display{
+    display: none;
+}
+
+.login{
+    display: none;
+}
+
 .navMobile {
     height: 4rem;
     background-color: var(--footer);
@@ -105,6 +113,7 @@ h1{
 nav ul{
     padding-left: 0;
 }
+
 
 
 
@@ -215,153 +224,3 @@ nav ul{
     }
 
 }
-
-
-  
-
-
-  
-  ul {
-    padding: 0 !important;
-    padding-left: 0 !important;
-  }
-  
-  img {
-    max-width: 100%;
-  }
-
- 
-  
-  header {
-    display: none;
-  }
-  
-  #boxnome {
-    display: grid;
-  }
-  
-  #mensagemnome:hover {
-    text-decoration: underline;
-  }
-  
-
-  
-  #nomeSite h2 {
-    padding: 0;
-    margin-top: 0.75rem;
-    font-family: "Style Script", serif !important;
-    font-size: 1.75rem !important;
-    color: #000 !important;
-  }
-
-  
-  
-  input {
-    display: none;
-  }
-  
-
-  @media screen and (min-width: 1200px) {
-    #headerMobile {
-      display: none;
-    }
-  
-    h1 {
-      font-size: 3rem !important;
-    }
-  
-    header {
-      display: block;
-      padding: 0 7.5rem;
-      display: flex;
-      background-color: var(--background-color);
-      font-weight: 500;
-      font-size: 1.2rem;
-      color: var(--footer2);
-      align-items: center;
-      justify-content: space-between;
-      position: sticky;
-      top: 0;
-      right: 0;
-      left: 0;
-      position: fixed;
-      z-index: 999;
-      box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
-        rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
-    }
-  
-    header nav ul {
-      margin: 0 !important;
-      padding: 0 !important;
-    }
-  
-    .my-lg-0 {
-      display: flex;
-      gap: 1rem;
-      padding: 1rem;
-    }
-  
-    .padding {
-      padding: 0;
-    }
-  
-    .navMobile {
-      display: none;
-    }
-  
-    #logo img {
-      width: 3.5rem;
-      width: 3rem;
-    }
-  
-    .perfilBttn {
-      height: 3rem;
-      width: 3rem;
-      border: none;
-      background-color: transparent;
-      cursor: pointer;
-    }
-  
-    .perfilBttn img {
-      height: 2rem;
-    }
-  
-    nav ul {
-      list-style: none;
-      display: flex;
-      flex-direction: row;
-    }
-  
-    .bttnHeader {
-      padding: 1.5rem 2.5rem;
-      background-color: transparent;
-      color: var(--footer2);
-      font-weight: 700;
-      border: none;
-      font-size: 1rem;
-      display: flex;
-      align-items: center;
-    }
-  
-    a {
-      text-decoration: none ;
-      color: unset !important;
-    }
-  
-    .bttnHeader:hover {
-      color: var(--details);
-    }
-  
-    input {
-      display: block;
-    }
-  
-    .dropdown-content {
-        z-index: 1000;
-    }
-  
-    .dropdown {
-      position: relative;
-    }
-  }
-  
