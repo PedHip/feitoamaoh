@@ -58,7 +58,12 @@ header {
 #heroSection {
   color: var(--background-color);
   height: 100svh;
-  background-image: url(../src/imagens/website/hsMobile.JPG);
+    background-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.596),
+      rgba(0, 0, 0, 0.701)
+    ),
+    url(../src/imagens/website/hsMobile.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
