@@ -149,7 +149,11 @@ body {
   margin-bottom: 15px;
 }
 
-/* Responsividade */
+#selectAllButton, 
+#deselectAllButton {
+  width: 200px !important; /* Largura dos botões em telas maiores */
+  margin: 5px; /* Espaço entre os botões */
+}
 
 /* Para telas médias (tablets e telas menores) */
 @media (max-width: 768px) {
