@@ -38,7 +38,7 @@ img {
 }
 
 #headerMobileCaneca{
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url(../imagens/website/caneca\ personalizada\ e\ mini\ panetone.jpg);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url('../imagens/website/caneca\ personalizada\ e\ mini\ panetone.jpg');
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: contain;
