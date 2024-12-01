@@ -78,7 +78,7 @@ class Produto {
 
     public function validarImagem($img_prod) {
     $allowed_types = ['image/jpeg', 'image/png', 'image/gif'];  // Tipos de imagem permitidos
-    $max_size = 20 * 2048 * 2048;  // Limite de 20MB
+    $max_size = 50 * 10000 * 10000;  // Limite de 20MB
 
     // Verifica se a imagem foi enviada e se não há erros
     if (isset($img_prod['error']) && $img_prod['error'] !== UPLOAD_ERR_OK) {
