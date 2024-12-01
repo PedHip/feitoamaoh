@@ -6,230 +6,184 @@
     class Pedido
     {
         private $conn;
-    private $table_name = "pedidos";
+        private $table_name = "pedidos";
 
-    private $id_pedido;
-    private $usuario_pedido;
-    private $usuario_contato;
-    private $produtos;
-    private $preco_total;
-    private $status;
-    private $id_prod;
+        private $id_pedido;
+        private $usuario_pedido;
+        private $usuario_contato;
+        private $produtos;
+        private $preco_total;
+        private $status;
+        private $id_prod;
 
-    public function __construct($db)
-    {
-        $this->conn = $db;
-    }
-
-    // Getters e Setters
-    public function getIdPedido()
-    {
-        return $this->id_pedido;
-    }
-
-    public function setIdPedido($id_pedido)
-    {
-        $this->id_pedido = (int)$id_pedido; // Garantir que o ID é um número inteiro
-    }
-
-    public function getUsuarioPedido()
-    {
-        return $this->usuario_pedido;
-    }
-
-    public function setUsuarioPedido($usuario_pedido)
-    {
-        // Sanitizar e validar dados
-        if (!preg_match("/^[a-zA-Z ]*$/", $usuario_pedido)) {
-            throw new Exception("Nome do usuário inválido. Somente letras e espaços são permitidos.");
-        }
-        $this->usuario_pedido = htmlspecialchars(trim($usuario_pedido));  // Remover espaços e caracteres indesejados
-    }
-
-    public function getUsuarioContato()
-    {
-        return $this->usuario_contato;
-    }
-
-    public function setUsuarioContato($usuario_contato)
-    {
-        // Sanitizar e validar dados
-        if (!filter_var($usuario_contato, FILTER_VALIDATE_EMAIL)) {
-            throw new Exception("Contato inválido. O email não é válido.");
-        }
-        $this->usuario_contato = htmlspecialchars(trim($usuario_contato));  // Limpar caracteres indesejados
-    }
-
-    public function getProdutos()
-    {
-        return $this->produtos;
-    }
-
-    public function setProdutos($produtos)
-    {
-        // Validar que os produtos são um array
-        if (!is_array($produtos) || empty($produtos)) {
-            throw new Exception("Produtos inválidos. A lista de produtos está vazia.");
+        public function __construct($db)
+        {
+            $this->conn = $db;
         }
 
-        // Verificar a validade de cada produto e extrair os IDs
-        $produtosIds = array_map(function ($produto) {
-            if (!isset($produto['id']) || !is_int($produto['id'])) {
-                throw new Exception("ID de produto inválido.");
-            }
-            return (int)$produto['id'];  // Certifica-se que o ID do produto é um inteiro
-        }, $produtos);
-
-        // Verificar se todos os produtos existem no banco
-        foreach ($produtosIds as $produtoId) {
-            $produtoExiste = $this->verificarProdutoExistente($produtoId);
-            if (!$produtoExiste) {
-                throw new Exception("Produto com ID $produtoId não encontrado.");
-            }
+        // Getters e Setters
+        public function getIdPedido()
+        {
+            return $this->id_pedido;
         }
 
-        $this->produtos = $produtosIds;
-        $this->id_prod = implode(" // ", $produtosIds);  // Armazena os IDs dos produtos
-    }
-
-    public function getPrecoTotal()
-    {
-        return $this->preco_total;
-    }
-
-    public function setPrecoTotal($preco_total)
-    {
-        // Verificar se o preço total é um número positivo
-        if (!is_numeric($preco_total) || $preco_total <= 0) {
-            throw new Exception("Preço total inválido.");
+        public function setIdPedido($id_pedido)
+        {
+            $this->id_pedido = $id_pedido;
         }
-        $this->preco_total = $preco_total;
-    }
 
-    public function getStatus()
-    {
-        return $this->status;
-    }
-
-    public function setStatus($status)
-    {
-        // Validar o status
-        $validStatuses = ['pendente', 'processando', 'enviado', 'entregue'];
-        if (!in_array($status, $validStatuses)) {
-            throw new Exception("Status inválido. Use um status válido.");
+        public function getUsuarioPedido()
+        {
+            return $this->usuario_pedido;
         }
-        $this->status = $status;
-    }
 
-    public function getId_prod()
-    {
-        return $this->id_prod;
-    }
+        public function setUsuarioPedido($usuario_pedido)
+        {
+            $this->usuario_pedido = $usuario_pedido;
+        }
 
-    public function setId_prod($produtosSelecionados)
-    {
-        // Validar e processar os IDs dos produtos
-        $produtosIds = array_map(function ($produto) {
-            return (int)$produto['id'];  // Certificar que o ID é um número inteiro
-        }, $produtosSelecionados);
+        public function getUsuarioContato()
+        {
+            return $this->usuario_contato;
+        }
 
-        $this->id_prod = implode(" // ", $produtosIds);
-    }
+        public function setUsuarioContato($usuario_contato)
+        {
+            $this->usuario_contato = $usuario_contato;
+        }
 
-        private function verificarProdutoExistente($produtoId)
-    {
-        $query = "SELECT id_prod FROM produtos WHERE id_prod = :produtoId LIMIT 1";
-        $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(':produtoId', $produtoId, PDO::PARAM_INT);
-        $stmt->execute();
+        public function getProdutos()
+        {
+            return $this->produtos;
+        }
 
-        return $stmt->rowCount() > 0;
-    }
+        public function setProdutos($produtos)
+        {
+            $this->produtos = $produtos;
+        }
+
+        public function getPrecoTotal()
+        {
+            return $this->preco_total;
+        }
+
+        public function setPrecoTotal($preco_total)
+        {
+            $this->preco_total = $preco_total;
+        }
+
+        public function getStatus()
+        {
+            return $this->status;
+        }
+
+        public function setStatus($status)
+        {
+            $this->status = $status;
+        }
+
+        public function getId_prod()
+        {
+            return $this->id_prod;
+        }
+
+        public function setId_prod($produtosSelecionados)
+        {
+            // Extraímos os IDs dos produtos e os armazenamos como uma string separada por "//"
+            $produtosIds = array_map(function ($produto) {
+                return $produto['id'];  // Extrai o ID de cada produto
+            }, $produtosSelecionados);
+
+            // Atribuindo a lista de IDs ao campo id_prod
+            // Garantindo que a string seja limpa de qualquer caracter indesejado
+            $this->id_prod = implode(" // ", $produtosIds);  // Junta todos os IDs com "//"
+        }
 
 
+
+        // Função para cadastrar um novo pedido
         public function cadastrarPedido()
-    {
-        if (empty($this->usuario_pedido) || empty($this->usuario_contato) || empty($this->produtos) || empty($this->preco_total)) {
-            throw new Exception("Campos obrigatórios estão vazios.");
-        }
-
-        try {
-            $query = "INSERT INTO " . $this->table_name . " (usuario_pedido, usuario_contato, produtos, preco_total, id_prod, status)
-                      VALUES (:usuario_pedido, :usuario_contato, :produtos, :preco_total, :id_prod, :status)";
-            $stmt = $this->conn->prepare($query);
-
-            $stmt->bindParam(':usuario_pedido', $this->usuario_pedido);
-            $stmt->bindParam(':usuario_contato', $this->usuario_contato);
-            $stmt->bindParam(':produtos', $this->produtos);
-            $stmt->bindParam(':preco_total', $this->preco_total);
-            $stmt->bindParam(':id_prod', $this->id_prod);
-            $stmt->bindParam(':status', $this->status);
-
-            if ($stmt->execute()) {
-                return true;
-            } else {
-                $errorInfo = $stmt->errorInfo();
-                throw new Exception("Erro ao executar a query: " . $errorInfo[2]);
+        {
+            if (empty($this->usuario_pedido) || empty($this->usuario_contato) || empty($this->produtos) || empty($this->preco_total)) {
+                return false; // Validação simples
             }
-        } catch (Exception $e) {
-            error_log("Erro na execução de cadastrarPedido: " . $e->getMessage());
-            return false;
-        }
-    }
 
+            try {
+                $query = "INSERT INTO " . $this->table_name . " (usuario_pedido, usuario_contato, produtos, preco_total, id_prod) 
+                        VALUES (:usuario_pedido, :usuario_contato, :produtos, :preco_total, :id_prod)";
+
+                $stmt = $this->conn->prepare($query);
+                $stmt->bindParam(':usuario_pedido', $this->usuario_pedido);
+                $stmt->bindParam(':usuario_contato', $this->usuario_contato);
+                $stmt->bindParam(':produtos', $this->produtos);
+                $stmt->bindParam(':preco_total', $this->preco_total);
+                $stmt->bindParam(':id_prod', $this->id_prod); // Adicionando o id_prod na query
+
+                if ($stmt->execute()) {
+                    return true;
+                } else {
+                    // Log do erro ao invés de echo
+                    $errorInfo = $stmt->errorInfo();
+                    error_log("Erro ao executar a query: " . $errorInfo[2]);  // Registra o erro em log
+                    return false;
+                }
+            } catch (Exception $e) {
+                error_log("Erro na execução de cadastrarPedido: " . $e->getMessage());
+                return false;
+            }
+        }
 
         public function registrarPedidoDoCarrinho($nome_usuario, $usuario_contato, $produtos)
-    {
-        // Calcular o preço total do pedido
-        $preco_total = 0;
-        $produtosArray = [];
-        $produtosIds = [];
+        {
+            // Calcular o preço total do pedido
+            $preco_total = 0;
+            $produtosArray = [];
+            $produtosIds = [];
 
-        // Loop pelos produtos para calcular preço total e gerar os dados do pedido
-        foreach ($produtos as $produto) {
-            // Verificar validade dos dados do produto
-            if (!isset($produto['id_prod']) || !isset($produto['valor_unitario']) || !isset($produto['quantidade'])) {
-                throw new Exception("Dados do produto incompletos.");
+            // Loop pelos produtos para montar a string com os dados
+            foreach ($produtos as $produto) {
+                // Monta a string de produto para salvar no banco
+                $produtosArray[] = "Produto: " . $produto['nome'] . " (Descrição: " . $produto['descricao'] . ", Quantidade: " . $produto['quantidade'] . ")";
+                $produtosIds[] = $produto['id_prod'];  // Aqui armazenamos o id_prod
+
+                // Calcula o preço total com base no preço unitário e quantidade
+                $preco_total += $produto['valor_unitario'] * $produto['quantidade'];
             }
 
-            // Monta a string de produto para salvar no banco
-            $produtosArray[] = "Produto: " . $produto['nome'] . " (Descrição: " . $produto['descricao'] . ", Quantidade: " . $produto['quantidade'] . ")";
-            $produtosIds[] = (int)$produto['id_prod'];
+            // Converter os arrays para strings
+            $produtosString = implode(" // ", $produtosArray);
+            $produtosIdsString = implode(" // ", $produtosIds);
 
-            // Calcula o preço total
-            $preco_total += $produto['valor_unitario'] * $produto['quantidade'];
-        }
+            // Preparar a query de inserção no banco de dados
+            $query = "INSERT INTO pedidos (usuario_pedido, usuario_contato, produtos, preco_total, id_prod) 
+                      VALUES (:usuario_pedido, :usuario_contato, :produtos, :preco_total, :id_prod)";
 
-        // Converter os arrays para strings
-        $produtosString = implode(" // ", $produtosArray);
-        $produtosIdsString = implode(" // ", $produtosIds);
+            try {
+                $stmt = $this->conn->prepare($query);
 
-        // Preparar a query de inserção no banco
-        $query = "INSERT INTO pedidos (usuario_pedido, usuario_contato, produtos, preco_total, id_prod, status) 
-                  VALUES (:usuario_pedido, :usuario_contato, :produtos, :preco_total, :id_prod, :status)";
+                // Bind dos parâmetros
+                $stmt->bindParam(':usuario_pedido', $nome_usuario);
+                $stmt->bindParam(':usuario_contato', $usuario_contato);
+                $stmt->bindParam(':produtos', $produtosString);  // Passa a lista de produtos em string
+                $stmt->bindParam(':preco_total', $preco_total);  // Passa o preço total
+                $stmt->bindParam(':id_prod', $produtosIdsString);  // Passa os IDs dos produtos em string
 
-        try {
-            $stmt = $this->conn->prepare($query);
-
-            // Bind dos parâmetros
-            $stmt->bindParam(':usuario_pedido', $nome_usuario);
-            $stmt->bindParam(':usuario_contato', $usuario_contato);
-            $stmt->bindParam(':produtos', $produtosString);
-            $stmt->bindParam(':preco_total', $preco_total);
-            $stmt->bindParam(':id_prod', $produtosIdsString);
-            $stmt->bindParam(':status', $status = 'pendente'); // Status default
-
-            // Executa a query
-            if ($stmt->execute()) {
-                return true;
-            } else {
-                throw new Exception("Erro ao registrar pedido do carrinho.");
+                // Executa a query de inserção
+                if ($stmt->execute()) {
+                    return true;  // Pedido inserido com sucesso
+                } else {
+                    return false;  // Algo deu errado na execução
+                }
+            } catch (Exception $e) {
+                // Em caso de erro, loga o erro e retorna false
+                error_log("Erro ao registrar pedido: " . $e->getMessage());
+                return false;
             }
-        } catch (Exception $e) {
-            error_log("Erro ao registrar pedido do carrinho: " . $e->getMessage());
-            return false;
         }
-    }
+
+
+
+
 
 
         // Função para atualizar o status do pedido
@@ -248,20 +202,20 @@
             }
         }
 
-public function buscarPedidoPorId($id_pedido)
-    {
-        try {
-            $query = "SELECT * FROM " . $this->table_name . " WHERE id_pedido = :id_pedido LIMIT 0,1";
-            $stmt = $this->conn->prepare($query);
-            $stmt->bindParam(':id_pedido', $id_pedido, PDO::PARAM_INT);
-            $stmt->execute();
-
-            return $stmt->fetch(PDO::FETCH_ASSOC);
-        } catch (Exception $e) {
-            error_log("Erro ao buscar pedido: " . $e->getMessage());
-            return null;
+        // Função para buscar pedido por ID
+        public function buscarPedidoPorId($id_pedido)
+        {
+            try {
+                $query = "SELECT * FROM " . $this->table_name . " WHERE id_pedido = :id_pedido";
+                $stmt = $this->conn->prepare($query);
+                $stmt->bindParam(':id_pedido', $id_pedido, PDO::PARAM_INT);
+                $stmt->execute();
+                return $stmt->fetch(PDO::FETCH_ASSOC);
+            } catch (Exception $e) {
+                error_log("Erro ao buscar pedido por ID: " . $e->getMessage());
+                return null;
+            }
         }
-    }
 
         // Função para listar pedidos com paginação
         public function listarPedidos($pagina = 1, $limite = 10)
