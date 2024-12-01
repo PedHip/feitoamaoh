@@ -153,6 +153,32 @@ $usuarios = $usuario->listarUsuarios();
             inputFile.click(); // Aciona o clique no input de arquivo
         });
 
+        // Adicionando validação no upload de imagem
+$(document).on('change', '.img_prod', function() {
+    const inputFile = $(this);
+    const file = inputFile[0].files[0];
+
+    // Verifica se um arquivo foi selecionado
+    if (file) {
+        const fileType = file.type; // Obtém o tipo de arquivo (MIME)
+        const validTypes = ['image/jpeg', 'image/png']; // Tipos válidos de imagem
+
+        // Verifica se o tipo da imagem é válido
+        if (!validTypes.includes(fileType)) {
+            alert("Formato de imagem inválido! Apenas PNG, JPG e JPEG são permitidos.");
+            inputFile.val(''); // Limpa o campo de arquivo para impedir o envio de um arquivo inválido
+        } else {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                // Atualiza a imagem exibida no front-end (se necessário)
+                inputFile.closest('td').find('.img-produto').attr('src', e.target.result);
+            };
+            reader.readAsDataURL(file); // Lê o arquivo como uma URL de dados
+        }
+    }
+});
+
+
         // Adiciona um evento de mudança para o input de arquivo
         $(document).on('change', '.img_prod', function() {
             const inputFile = $(this);
