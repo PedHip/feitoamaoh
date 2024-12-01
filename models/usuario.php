@@ -20,7 +20,7 @@ class Usuario {
     }
 
     public function setNome($nome) {
-        $this->nome = $nome;
+        $this->nome = htmlspecialchars($nome);
     }
 
     public function getTelefone() {
@@ -28,7 +28,7 @@ class Usuario {
     }
 
     public function setTelefone($telefone) {
-        $this->telefone = $telefone;
+        $this->telefone = htmlspecialchars($telefone);
     }
 
     public function getEmail() {
@@ -36,7 +36,7 @@ class Usuario {
     }
 
     public function setEmail($email) {
-        $this->email = $email;
+        $this->email = htmlspecialchars($email);
     }
 
     public function getSenha() {
@@ -48,47 +48,55 @@ class Usuario {
     }
 
     public function cadastrar() {
-    // Verifica se o email já está cadastrado
-    $query = "SELECT COUNT(*) FROM " . $this->table_name . " WHERE email = :email";
-    $stmt = $this->conn->prepare($query);
-    $stmt->bindParam(':email', $this->email);
-    $stmt->execute();
+        // Validação do e-mail
+        if (!filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
+            return json_encode(['status' => 'error', 'message' => 'Email inválido.']);
+        }
 
-    if ($stmt->fetchColumn() > 0) {
-        return json_encode(['status' => 'error', 'message' => 'Email já cadastrado.']);
+        // Verifica se o email já está cadastrado
+        $query = "SELECT COUNT(*) FROM " . $this->table_name . " WHERE email = :email";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':email', $this->email, PDO::PARAM_STR);
+        $stmt->execute();
+
+        if ($stmt->fetchColumn() > 0) {
+            return json_encode(['status' => 'error', 'message' => 'Email já cadastrado.']);
+        }
+
+        // Criptografa a senha antes de salvar
+        $senhaHash = password_hash($this->senha, PASSWORD_DEFAULT);
+
+        // Se não existir, insira o novo usuário
+        $query = "INSERT INTO " . $this->table_name . " (nome, telefone, email, senha) VALUES (:nome, :telefone, :email, :senha)";
+        $stmt = $this->conn->prepare($query);
+
+        // Bind dos parâmetros
+        $stmt->bindParam(':nome', $this->nome, PDO::PARAM_STR);
+        $stmt->bindParam(':telefone', $this->telefone, PDO::PARAM_STR);
+        $stmt->bindParam(':email', $this->email, PDO::PARAM_STR);
+        $stmt->bindParam(':senha', $senhaHash, PDO::PARAM_STR); // Insere a senha criptografada
+
+        // Executa a query
+        if ($stmt->execute()) {
+            return json_encode(['status' => 'success', 'message' => 'Cadastro realizado com sucesso!']);
+        } else {
+            // Captura o erro do banco de dados
+            $errorInfo = $stmt->errorInfo();
+            return json_encode(['status' => 'error', 'message' => 'Erro ao realizar o cadastro: ' . $errorInfo[2]]);
+        }
     }
-
-    // Criptografa a senha antes de salvar
-    $senhaHash = password_hash($this->senha, PASSWORD_DEFAULT);
-
-    // Se não existir, insira o novo usuário
-    $query = "INSERT INTO " . $this->table_name . " (nome, telefone, email, senha) VALUES (:nome, :telefone, :email, :senha)";
-    $stmt = $this->conn->prepare($query);
-
-    // Bind dos parâmetros
-    $stmt->bindParam(':nome', $this->nome);
-    $stmt->bindParam(':telefone', $this->telefone);
-    $stmt->bindParam(':email', $this->email);
-    $stmt->bindParam(':senha', $senhaHash); // Insere a senha criptografada
-
-    // Executa a query
-    if ($stmt->execute()) {
-        return json_encode(['status' => 'success', 'message' => 'Cadastro realizado com sucesso!']);
-    } else {
-        // Captura o erro do banco de dados
-        $errorInfo = $stmt->errorInfo();
-        return json_encode(['status' => 'error', 'message' => 'Erro ao realizar o cadastro: ' . $errorInfo[2]]);
-    }
-}
-
-    
 
     public function autenticar() {
+        // Validação de e-mail
+        if (!filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
+            return json_encode(['status' => 'error', 'message' => 'Email inválido.']);
+        }
+
         $query = "SELECT senha, tipo_usuario FROM " . $this->table_name . " WHERE email = :email LIMIT 1";
         $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(':email', $this->email);
+        $stmt->bindParam(':email', $this->email, PDO::PARAM_STR);
         $stmt->execute();
-    
+
         if ($stmt->rowCount() == 1) {
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
             // Verifica se a senha fornecida corresponde ao hash armazenado
@@ -98,73 +106,79 @@ class Usuario {
         }
         return json_encode(['status' => 'error', 'message' => 'Login falhou.']);
     }
-    
+
     public function editarUsuario($idAtual, $idNovo, $tipo_usuario, $nome, $telefone, $email, $senha = null) {
-    // Verifica se o novo email já existe
-    if ($this->emailExistente($email, $idAtual)) {
-        return json_encode(['status' => 'error', 'message' => 'Erro: O email já está em uso.']);
+        // Validação de e-mail
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            return json_encode(['status' => 'error', 'message' => 'Email inválido.']);
+        }
+
+        // Verifica se o novo email já existe
+        if ($this->emailExistente($email, $idAtual)) {
+            return json_encode(['status' => 'error', 'message' => 'Erro: O email já está em uso.']);
+        }
+
+        // Verifica se o novo ID já existe
+        if ($this->idExistente($idNovo, $idAtual)) {
+            return json_encode(['status' => 'error', 'message' => 'Erro: O ID já está em uso.']);
+        }
+
+        // Prepara a query de atualização
+        $query = "UPDATE " . $this->table_name . " SET id = :idNovo, tipo_usuario = :tipo_usuario, nome = :nome, telefone = :telefone, email = :email";
+
+        // Se uma nova senha for fornecida, criptografa e adiciona à query
+        if (!empty($senha)) {
+            $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
+            $query .= ", senha = :senha";
+        }
+
+        $query .= " WHERE id = :idAtual";
+
+        $stmt = $this->conn->prepare($query);
+
+        // Bind dos parâmetros
+        $stmt->bindParam(':idAtual', $idAtual, PDO::PARAM_INT);
+        $stmt->bindParam(':idNovo', $idNovo, PDO::PARAM_INT);
+        $stmt->bindParam(':tipo_usuario', $tipo_usuario, PDO::PARAM_STR);
+        $stmt->bindParam(':nome', $nome, PDO::PARAM_STR);
+        $stmt->bindParam(':telefone', $telefone, PDO::PARAM_STR);
+        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+
+        // Se uma nova senha for fornecida, faz o bind dela
+        if (!empty($senha)) {
+            $stmt->bindParam(':senha', $senhaHash, PDO::PARAM_STR);
+        }
+
+        // Executa a query
+        if ($stmt->execute()) {
+            return json_encode(['status' => 'success', 'message' => 'Usuário atualizado com sucesso!']);
+        } else {
+            return json_encode(['status' => 'error', 'message' => 'Erro ao atualizar usuário.']);
+        }
     }
-
-    // Verifica se o novo ID já existe
-    if ($this->idExistente($idNovo, $idAtual)) {
-        return json_encode(['status' => 'error', 'message' => 'Erro: O ID já está em uso.']);
-    }
-
-    // Prepara a query de atualização
-    $query = "UPDATE " . $this->table_name . " SET id = :idNovo, tipo_usuario = :tipo_usuario, nome = :nome, telefone = :telefone, email = :email";
-
-    // Se uma nova senha for fornecida, criptografa e adiciona à query
-    if (!empty($senha)) {
-        $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
-        $query .= ", senha = :senha";
-    }
-
-    $query .= " WHERE id = :idAtual";
-
-    $stmt = $this->conn->prepare($query);
-
-    // Bind dos parâmetros
-    $stmt->bindParam(':idAtual', $idAtual);
-    $stmt->bindParam(':idNovo', $idNovo);
-    $stmt->bindParam(':tipo_usuario', $tipo_usuario);
-    $stmt->bindParam(':nome', $nome);
-    $stmt->bindParam(':telefone', $telefone);
-    $stmt->bindParam(':email', $email);
-
-    // Se uma nova senha for fornecida, faz o bind dela
-    if (!empty($senha)) {
-        $stmt->bindParam(':senha', $senhaHash);
-    }
-
-    // Executa a query
-    if ($stmt->execute()) {
-        return json_encode(['status' => 'success', 'message' => 'Usuário atualizado com sucesso!']);
-    } else {
-        return json_encode(['status' => 'error', 'message' => 'Erro ao atualizar usuário.']);
-    }
-}
-
-	
 
     public function apagarUsuario($id) {
+        // Certifique-se de que $id é um número
+        if (!is_numeric($id)) {
+            return ['status' => 'error', 'message' => 'ID inválido.'];
+        }
+
         $query = "DELETE FROM " . $this->table_name . " WHERE id = :id";
         $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(':id', $id);
-    
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+
         if ($stmt->execute()) {
             return ['status' => 'success', 'message' => 'Usuário apagado com sucesso!'];
         } else {
             return ['status' => 'error', 'message' => 'Erro ao apagar usuário.'];
         }
     }
-    
-	
 
     public function emailExistente($email, $idAtual) {
         $query = "SELECT COUNT(*) FROM " . $this->table_name . " WHERE email = :email AND id <> :idAtual";
         $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':idAtual', $idAtual);
+        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+        $stmt->bindParam(':idAtual', $idAtual, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetchColumn() > 0; // Retorna true se o email já existe
     }
@@ -172,8 +186,8 @@ class Usuario {
     public function idExistente($idNovo, $idAtual) {
         $query = "SELECT COUNT(*) FROM " . $this->table_name . " WHERE id = :idNovo AND id <> :idAtual";
         $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(':idNovo', $idNovo);
-        $stmt->bindParam(':idAtual', $idAtual);
+        $stmt->bindParam(':idNovo', $idNovo, PDO::PARAM_INT);
+        $stmt->bindParam(':idAtual', $idAtual, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetchColumn() > 0; // Retorna true se o ID já existe
     }
@@ -194,38 +208,30 @@ class Usuario {
 
         // Prepara o termo de pesquisa
         $likeTerm = "%" . $term . "%"; // Para busca parcial
-        $stmt->bindParam(':term', $likeTerm);
+        $stmt->bindParam(':term', $likeTerm, PDO::PARAM_STR);
 
         // Para a pesquisa por ID
         if (is_numeric($term)) {
-            $stmt->bindParam(':id', $likeTerm); // Usa o mesmo LIKE
+            $stmt->bindParam(':id', $term, PDO::PARAM_INT);
         }
 
         $stmt->execute();
-
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $stmt;
     }
 
-    public function listarUsuarios($pagina = 1, $limite = 15) {
-        $offset = ($pagina - 1) * $limite;
-        $query = "SELECT * FROM " . $this->table_name . " LIMIT :limite OFFSET :offset";
+    public function listarUsuarios($page = 1, $perPage = 10) {
+        // Protege contra SQL Injection
+        $offset = ($page - 1) * $perPage;
+
+        $query = "SELECT * FROM " . $this->table_name . " LIMIT :limit OFFSET :offset";
         $stmt = $this->conn->prepare($query);
 
-        $stmt->bindParam(':limite', $limite, PDO::PARAM_INT);
+        $stmt->bindParam(':limit', $perPage, PDO::PARAM_INT);
         $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
 
         $stmt->execute();
-
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
-
-    public function contarUsuarios() {
-        $query = "SELECT COUNT(*) as total FROM " . $this->table_name;
-        $stmt = $this->conn->prepare($query);
-        $stmt->execute();
-
-        $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $resultado['total'];
+        return $stmt;
     }
 }
+
 ?>
