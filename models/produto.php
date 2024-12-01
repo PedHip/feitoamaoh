@@ -76,28 +76,28 @@ class Produto {
         $this->preco_prod = $preco_prod;
     }
 
-    // Função para validar e processar a imagem
     public function validarImagem($img_prod) {
-        $allowed_types = ['image/jpeg', 'image/png', 'image/gif'];  // Tipos de imagem permitidos
-        $max_size = 5 * 1024 * 1024;  // Limite de 5MB
+    $allowed_types = ['image/jpeg', 'image/png', 'image/gif'];  // Tipos de imagem permitidos
+    $max_size = 20 * 2048 * 2048;  // Limite de 20MB
 
-        // Verifica se a imagem foi enviada e se não há erros
-        if (isset($img_prod['error']) && $img_prod['error'] !== UPLOAD_ERR_OK) {
-            return 'Erro ao enviar a imagem.';
-        }
-
-        // Verifica o tipo de arquivo da imagem
-        if (!in_array($img_prod['type'], $allowed_types)) {
-            return 'Formato de imagem inválido. Apenas JPEG, PNG ou GIF são permitidos.';
-        }
-
-        // Verifica o tamanho da imagem
-        if ($img_prod['size'] > $max_size) {
-            return 'A imagem é muito grande. O tamanho máximo permitido é 5MB.';
-        }
-
-        return true;  // Imagem válida
+    // Verifica se a imagem foi enviada e se não há erros
+    if (isset($img_prod['error']) && $img_prod['error'] !== UPLOAD_ERR_OK) {
+        return 'Erro ao enviar a imagem. Código do erro: ' . $img_prod['error']; // Exibe o erro do PHP
     }
+
+    // Verifica o tipo de arquivo da imagem
+    if (!in_array($img_prod['type'], $allowed_types)) {
+        return 'Formato de imagem inválido. Apenas JPEG, PNG ou GIF são permitidos.';
+    }
+
+    // Verifica o tamanho da imagem
+    if ($img_prod['size'] > $max_size) {
+        return 'A imagem é muito grande. O tamanho máximo permitido é 20MB.';
+    }
+
+    return true;  // Imagem válida
+}
+
 
     public function cadastrar() {
         // Validação de imagem
