@@ -14,10 +14,10 @@ $produto = new produto($db);
 $pedido = new pedido($db);
 
 // Dados do usuário logado
-$usuario_pedido = $_SESSION['nome'];
-$usuario_contato = ($_SESSION['email']) . ' ' . ($_SESSION['telefone']);
+$usuario_pedido = $_SESSION['nome'] ?? null;  // Garantir que 'nome' esteja disponível na sessão
+$usuario_contato = ($_SESSION['email'] ?? null) . ' ' . ($_SESSION['telefone'] ?? null);
 
-// Verificação de login primeiro
+// **Verificação de login primeiro**
 if (empty($usuario_pedido) || empty($usuario_contato)) {
     echo json_encode(['status' => 'error', 'message' => 'Faça Login para pedir.']);
     exit(); // Interrompe a execução se o login não for validado
