@@ -17,6 +17,12 @@ $pedido = new pedido($db);
 $usuario_pedido = $_SESSION['nome'];
 $usuario_contato = ($_SESSION['email']) . ' ' . ($_SESSION['telefone']);
 
+// Verificação de login primeiro
+if (empty($usuario_pedido) || empty($usuario_contato)) {
+    echo json_encode(['status' => 'error', 'message' => 'Faça Login para pedir.']);
+    exit(); // Interrompe a execução se o login não for validado
+}
+
 // Verifica se 'produtos' foi enviado como uma string JSON ou já como um array
 if (isset($_POST['produtos'])) {
     if (is_string($_POST['produtos'])) {
@@ -32,16 +38,10 @@ if (isset($_POST['produtos'])) {
     $produtosSelecionados = [];
 }
 
-// Verificação de login
-if (empty($usuario_pedido) || empty($usuario_contato)) {
-    echo json_encode(['status' => 'error', 'message' => 'Faça Login para pedir.']);
-    exit();
-}
-
 // Verificação de produtos selecionados
 if (empty($produtosSelecionados)) {
     echo json_encode(['status' => 'error', 'message' => 'Nenhum produto selecionado.']);
-    exit();
+    exit(); // Interrompe a execução se não houver produtos selecionados
 }
 
 $produtosInfo = [];
@@ -70,14 +70,14 @@ foreach ($produtosSelecionados as $produtoSelecionado) {
         $precoTotal += (float)$produtoInfo['preco_prod'] * $quantidade;
     } else {
         echo json_encode(['status' => 'error', 'message' => 'Produto não encontrado no banco de dados.']);
-        exit();
+        exit(); // Interrompe a execução se o produto não for encontrado
     }
 }
 
 // Garantir que o preço total seja válido
 if ($precoTotal <= 0) {
     echo json_encode(['status' => 'error', 'message' => 'Preço total inválido.']);
-    exit();
+    exit(); // Interrompe a execução se o preço total for inválido
 }
 
 // Formatar a lista de produtos selecionados para o formato final
