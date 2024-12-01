@@ -76,50 +76,13 @@ class Produto {
         $this->preco_prod = $preco_prod;
     }
 
-    public function validarImagem($img_prod) {
-    $allowed_types = ['image/jpeg', 'image/png', 'image/gif'];  // Tipos de imagem permitidos
-    $max_size = 50 * 10000 * 10000;  // Limite de 20MB
-
-    // Verifica se a imagem foi enviada e se não há erros
-    if (isset($img_prod['error']) && $img_prod['error'] !== UPLOAD_ERR_OK) {
-        return 'Erro ao enviar a imagem. Código do erro: ' . $img_prod['error']; // Exibe o erro do PHP
-    }
-
-    // Verifica o tipo de arquivo da imagem
-    if (!in_array($img_prod['type'], $allowed_types)) {
-        return 'Formato de imagem inválido. Apenas JPEG, PNG ou GIF são permitidos.';
-    }
-
-    // Verifica o tamanho da imagem
-    if ($img_prod['size'] > $max_size) {
-        return 'A imagem é muito grande. O tamanho máximo permitido é 20MB.';
-    }
-
-    return true;  // Imagem válida
-}
-
-
     public function cadastrar() {
-        // Validação de imagem
-        $imagem_validation = $this->validarImagem($_FILES['img_prod']);
-        if ($imagem_validation !== true) {
-            return $imagem_validation; // Retorna erro caso a imagem não seja válida
-        }
-
-        // Processa a imagem
-        $img_prod_path = '../uploads/' . basename($_FILES['img_prod']['name']);
-        if (!move_uploaded_file($_FILES['img_prod']['tmp_name'], $img_prod_path)) {
-            return 'Erro ao salvar a imagem no servidor.';
-        }
-
-        // Inserção do produto
-        $query = "INSERT INTO " . $this->table_name . " (nome_prod, desc_prod, img_prod, tipo_prod, preco_prod) 
-                  VALUES (:nome_prod, :desc_prod, :img_prod, :tipo_prod, :preco_prod)";
-
+        $query = "INSERT INTO " . $this->table_name . " (nome_prod, desc_prod, img_prod, tipo_prod, preco_prod) VALUES (:nome_prod, :desc_prod, :img_prod, :tipo_prod, :preco_prod)";
+        
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(':nome_prod', $this->nome_prod);
         $stmt->bindParam(':desc_prod', $this->desc_prod);
-        $stmt->bindParam(':img_prod', $img_prod_path);  // Caminho da imagem
+        $stmt->bindParam(':img_prod', $this->img_prod);
         $stmt->bindParam(':tipo_prod', $this->tipo_prod);
         $stmt->bindParam(':preco_prod', $this->preco_prod);
 
@@ -131,11 +94,7 @@ class Produto {
     }
 
     public function atualizarProduto() {
-        $query = "UPDATE " . $this->table_name . " 
-                  SET id_prod = :id_novo, nome_prod = :nome_prod, desc_prod = :desc_prod, 
-                      preco_prod = :preco_prod, img_prod = :img_prod, tipo_prod = :tipo_prod 
-                  WHERE id_prod = :id_atual";
-
+        $query = "UPDATE " . $this->table_name . " SET id_prod = :id_novo, nome_prod = :nome_prod, desc_prod = :desc_prod, preco_prod = :preco_prod, img_prod = :img_prod, tipo_prod = :tipo_prod WHERE id_prod = :id_atual";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(':id_novo', $this->id_novo);
         $stmt->bindParam(':nome_prod', $this->nome_prod);
@@ -148,7 +107,6 @@ class Produto {
         return $stmt->execute();
     }
 
-    // Função para verificar se o produto já existe no banco (SQL Injection protegido)
     public function idExistente($id_novo) {
         $query = "SELECT COUNT(*) FROM " . $this->table_name . " WHERE id_prod = :id_novo";
         $stmt = $this->conn->prepare($query);
@@ -166,6 +124,7 @@ class Produto {
         return $result['img_prod']; // Mantém a imagem atual
     }
 
+    // Função para buscar produtos
     public function buscarProdutos($term) {
         $query = "SELECT * FROM " . $this->table_name . " 
                   WHERE id_prod LIKE :termo OR 
@@ -230,6 +189,8 @@ class Produto {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+
+    // Método para buscar a imagem do produto pelo id_prod
     public function buscarImagemProduto($id_prod) {
         $query = "SELECT img_prod FROM " . $this->table_name . " WHERE id_prod = :id_prod LIMIT 1";
         $stmt = $this->conn->prepare($query);
@@ -238,6 +199,12 @@ class Produto {
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         return $result['img_prod']; // Retorna o caminho da imagem do produto
     }
+        
 }
 
 ?>
+
+
+
+
+
