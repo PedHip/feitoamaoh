@@ -59,56 +59,56 @@
 
 	<script>
 		$(document).ready(function() {
-			// Verificação de email ao sair do campo
-			$('#email').on('blur', function() {
-				const email = $(this).val();
-				$.ajax({
-					url: '../controllers/verificar_email.php',
-					method: 'POST',
-					data: {
-						email: email
-					},
-					success: function(response) {
-						if (response.exists) {
-							$('#emailError').show();
-						} else {
-							$('#emailError').hide();
-						}
-					},
-					error: function() {
-						$('#mensagem').html('<div style="color:red;">Erro ao verificar email.</div>');
-					}
-				});
-			});
+    // Verificação de email ao sair do campo
+    $('#email').on('blur', function() {
+        const email = $(this).val();
+        $.ajax({
+            url: '../controllers/verificar_email.php',  // Script para verificar e-mail
+            method: 'POST',
+            data: { email: email },
+            success: function(response) {
+                if (response.status === 'error') {
+                    $('#emailError').text(response.message).show();  // Exibe mensagem de erro
+                } else {
+                    $('#emailError').hide();  // Esconde mensagem de erro se e-mail for válido
+                }
+            },
+            error: function() {
+                $('#mensagem').html('<div style="color:red;">Erro ao verificar e-mail.</div>');
+            }
+        });
+    });
 
-			// Processamento do formulário
-			$('#formCadastro').on('submit', function(event) {
-				event.preventDefault();
+    // Processamento do formulário
+    $('#formCadastro').on('submit', function(event) {
+        event.preventDefault();
 
-				if ($('#emailError').is(':visible')) {
-					return; // Não envia o formulário se o email já está em uso
-				}
+        if ($('#emailError').is(':visible')) {
+            return; // Não envia o formulário se o e-mail já estiver em uso
+        }
 
-				$.ajax({
-					url: '../controllers/cadastrar.php',
-					type: 'POST',
-					data: $(this).serialize(),
-					dataType: 'json', // Adicione esta linha para esperar uma resposta JSON
-					success: function(response) {
-						if (response.status === 'success') {
-							$('#mensagem').html('<div style="color:green;">Usuario cadastrado com sucesso!.</div>');
-							setTimeout(function() {
-								window.location.href = 'login.php'; // Redireciona após 2 segundos
-							}, 1000);
-						}
-					},
-					error: function() {
-						$('#mensagem').html('<div style="color:red;">Erro ao realizar cadastro.</div>');
-					}
-				});
-			});
+        $.ajax({
+            url: '../controllers/cadastrar.php',
+            type: 'POST',
+            data: $(this).serialize(),
+            dataType: 'json',
+            success: function(response) {
+                if (response.status === 'success') {
+                    $('#mensagem').html('<div style="color:green;">Usuário cadastrado com sucesso!</div>');
+                    setTimeout(function() {
+                        window.location.href = 'login.php'; // Redireciona após 2 segundos
+                    }, 1000);
+                } else {
+                    $('#mensagem').html('<div style="color:red;">' + response.message + '</div>');
+                }
+            },
+            error: function() {
+                $('#mensagem').html('<div style="color:red;">Erro ao realizar o cadastro.</div>');
+            }
+        });
+    });
+});
 
-		});
 	</script>
 </body>
 
