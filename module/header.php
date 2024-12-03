@@ -1,6 +1,7 @@
-<script src="../src/js/verificarusuario.js"></script>
+
 
 <header>
+        <script src="../src/js/verificarusuario.js"></script>
         </div>
 
         <div id="logo">
