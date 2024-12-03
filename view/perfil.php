@@ -20,13 +20,14 @@ if (isset($_SESSION['nome'])) {
 	<link rel="stylesheet" href="../src/styles/styles.css">
 	<link rel="stylesheet" href="../src/styles/backend.css">
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    	<script src="../src/js/verificarusuario.js"></script>
 </head>
 
 <body>
 
    <?php
     include '../module/header.php';
-    include '../module/javascript_view.php';
+
     ?>
 	<main>
 		<div class="secaoregistros">
