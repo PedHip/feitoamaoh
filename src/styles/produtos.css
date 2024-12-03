@@ -338,7 +338,7 @@ p {
     background-position: top;
 }
 
-#pcbubble{
+.pcbubble{
     background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url(../imagens/website/BUBBLE\ MÉDIO\ DE\ MESA.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
