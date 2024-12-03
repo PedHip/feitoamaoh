@@ -7,11 +7,7 @@ if (isset($_SESSION['nome'])) {
     $nome_usuario = 'logar';
 }
 ?>
-    <script>
-            var nomeUsuario = "<?php echo $nome_usuario; ?>";
 
-            document.getElementById("mensagemnome").innerHTML = nomeUsuario;
-    </script>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -83,6 +79,11 @@ if (isset($_SESSION['nome'])) {
     </main>
 
     <script>
+
+            var nomeUsuario = "<?php echo $nome_usuario; ?>";
+
+            document.getElementById("mensagemnome").innerHTML = nomeUsuario;
+
         $(document).ready(function() {
             // Função para listar os produtos do tipo "natal"
             function listarProdutosNatal() {
@@ -397,6 +398,7 @@ if (isset($_SESSION['nome'])) {
 
         });
     </script>
+
 
     <?php
     include '../module/footer.php';
