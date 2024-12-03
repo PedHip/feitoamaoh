@@ -34,12 +34,12 @@ $usuarios = $usuario->listarUsuarios();
     <link rel="stylesheet" href="../src/styles/backend.css">
     <link rel="stylesheet" href="../src/styles/styles.css">
     <title>Registros de Usuários</title>
+    <script src="../src/js/verificarusuario.js"></script>
 </head>
 
 <body>
     <?php
     include '../module/header.php';
-    include '../module/javascript_view.php';
     ?>
     <main>
         <div class="secaoregistros">
