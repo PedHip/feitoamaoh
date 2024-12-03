@@ -1,4 +1,7 @@
+$(document).ready(function () {
+    var nomeUsuario = "<?php echo $nome_usuario; ?>";
 
+    document.getElementById("mensagemnome").innerHTML = nomeUsuario;
 
     document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("mensagemnome").addEventListener("click", function () {
@@ -37,81 +40,72 @@
         }
     });
 
-    $(document).ready(function () {
-        $('#logoutButton, #logoutButtonMobile').on('click', function () {
-            $.ajax({
-                url: '../controllers/logout.php',
-                type: 'POST',
-                success: function (response) {
-                    $('#mensagem').html('<div style="color:green;">' + response.message + '</div>');
-                    setTimeout(function () {
-                        window.location.href = 'index.php';
-                    }, 0);
-                },
-                error: function () {
-                    $('#mensagem').html('<div style="color:red;">Erro ao realizar logout.</div>');
-                }
-            });
-        });
-
-        
-
+    $('#logoutButton, #logoutButtonMobile').on('click', function () {
         $.ajax({
-            url: '../controllers/verificar_usuario.php',
-            method: 'GET',
-            dataType: 'json',
+            url: '../controllers/logout.php',
+            type: 'POST',
             success: function (response) {
-                const usuarioLogado = response.logado;
-                const tipoUsuario = response.tipo;
-
-                if (!usuarioLogado) {
-                    $('#linkLogin').show();
-                    $('#linkCadastro').show();
-                    $('#logoutButton').hide();
-                    $('#linkProd').hide();
-                    $('#linkUser').hide();
-                    $('#linkPedidos').hide();
-                    $('#linkPerfil').hide();
-                    $('#linkLoginMobile').show();
-                    $('#linkCadastroMobile').show();
-                    $('#logoutButtonMobile').hide();
-                    $('#linkProdMobile').hide();
-                    $('#linkUserMobile').hide();
-                    $('#linkPedidosMobile').hide();
-                    $('#linkPerfilMobile').hide();
-                } else {
-                    $('#logoutButton').show();
-                    $('#linkPerfil').show();
-                    $('#linkCadastro').hide();
-                    $('#linkLogin').hide();
-                    $('#logoutButtonMobile').show();
-                    $('#linkPerfilMobile').show();
-                    $('#linkCadastroMobile').hide();
-                    $('#linkLoginMobile').hide();
-                    $('#linkUser').hide();
-                    $('#linkProd').hide();
-                    $('#linkPedidos').hide();
-                    $('#linkUserMobile').hide();
-                    $('#linkProdMobile').hide();
-                    $('#linkPedidosMobile').hide();
-                    if (tipoUsuario === 'administrador') {
-                        $('#linkUser').show();
-                        $('#linkProd').show();
-                        $('#linkPedidos').show();
-                        $('#linkUserMobile').show();
-                        $('#linkProdMobile').show();
-                        $('#linkPedidosMobile').show();
-                    }
-                }
+                $('#mensagem').html('<div style="color:green;">' + response.message + '</div>');
+                setTimeout(function () {
+                    window.location.href = 'index.php';
+                }, 0);
             },
             error: function () {
-                $('#navLinks').append('<span style="color:red;">Erro ao verificar estado do usuário.</span>');
+                $('#mensagem').html('<div style="color:red;">Erro ao realizar logout.</div>');
             }
         });
-
-        
-
-
-
-        
     });
+
+    $.ajax({
+        url: '../controllers/verificar_usuario.php',
+        method: 'GET',
+        dataType: 'json',
+        success: function (response) {
+            const usuarioLogado = response.logado;
+            const tipoUsuario = response.tipo;
+
+            if (!usuarioLogado) {
+                $('#linkLogin').show();
+                $('#linkCadastro').show();
+                $('#logoutButton').hide();
+                $('#linkProd').hide();
+                $('#linkUser').hide();
+                $('#linkPedidos').hide();
+                $('#linkPerfil').hide();
+                $('#linkLoginMobile').show();
+                $('#linkCadastroMobile').show();
+                $('#logoutButtonMobile').hide();
+                $('#linkProdMobile').hide();
+                $('#linkUserMobile').hide();
+                $('#linkPedidosMobile').hide();
+                $('#linkPerfilMobile').hide();
+            } else {
+                $('#logoutButton').show();
+                $('#linkPerfil').show();
+                $('#linkCadastro').hide();
+                $('#linkLogin').hide();
+                $('#logoutButtonMobile').show();
+                $('#linkPerfilMobile').show();
+                $('#linkCadastroMobile').hide();
+                $('#linkLoginMobile').hide();
+                $('#linkUser').hide();
+                $('#linkProd').hide();
+                $('#linkPedidos').hide();
+                $('#linkUserMobile').hide();
+                $('#linkProdMobile').hide();
+                $('#linkPedidosMobile').hide();
+                if (tipoUsuario === 'administrador') {
+                    $('#linkUser').show();
+                    $('#linkProd').show();
+                    $('#linkPedidos').show();
+                    $('#linkUserMobile').show();
+                    $('#linkProdMobile').show();
+                    $('#linkPedidosMobile').show();
+                }
+            }
+        },
+        error: function () {
+            $('#navLinks').append('<span style="color:red;">Erro ao verificar estado do usuário.</span>');
+        }
+    });
+});
