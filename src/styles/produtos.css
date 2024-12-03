@@ -319,11 +319,10 @@ p {
 
 #headerMobileBox, #headerMobileBubbles, #headerMobileCaneca, #headerMobileAniv, #headerMobile,
 #headerMobileMaes, #headerMobileNatal, #headerMobileBBox, #headerMobileBAc {
-    height: 50svh;
-    background-attachment: fixed;
+    display: none;
 }
 
-#headerMobileCaneca{
+#pccaneca{
     background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url(../imagens/website/caneca\ personalizada\ e\ mini\ panetone.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -331,7 +330,7 @@ p {
     background-position: top;
 }
 
-#headerMobileBox{
+#pcbox{
     background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url(../imagens/website/BOX\ LUXO\ CACAU\ SHOW.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -339,7 +338,7 @@ p {
     background-position: top;
 }
 
-#headerMobileBubbles{
+#pcbubble{
     background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url(../imagens/website/BUBBLE\ MÉDIO\ DE\ MESA.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -348,7 +347,7 @@ p {
 
 }
 
-#headerMobileMaes{
+#pcmaes{
     background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url(../imagens/website/diadasmaes.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -356,7 +355,7 @@ p {
     background-position: top;
 }
 
-#headerMobileNatal{
+#pcnatal{
     background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url(../imagens/website/natalFAM.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -364,7 +363,7 @@ p {
     background-position: top;
 }
 
-#headerMobileAniv{
+#pcaniv{
     background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url(../imagens/website/anivFAM.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -372,7 +371,7 @@ p {
     background-position: top;
 }
 
-#headerMobileBBox{
+#pcbbox{
     background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url(../imagens/website/BUBBLE\ PELUCIA\ AZUL.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -380,7 +379,7 @@ p {
     background-position: top;
 }
 
-#headerMobileBAc{
+#pcbac{
     background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url(../imagens/website/BOX\ BUBBLE\ ACRILIC.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
