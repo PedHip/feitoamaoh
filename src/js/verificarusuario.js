@@ -1,20 +1,16 @@
-
     var nomeUsuario = "<?php echo $nome_usuario; ?>";
-
-    console.log("Arquivo JavaScript conectado com sucesso!");
-
 
     document.getElementById("mensagemnome").innerHTML = nomeUsuario;
 
     document.addEventListener("DOMContentLoaded", function () {
-        document.getElementById("perfil").addEventListener("click", function () {
+        document.getElementById("mensagemnome").addEventListener("click", function () {
             var dropdownContent = document.getElementById("dropdownContent");
             dropdownContent.style.display = dropdownContent.style.display === "block" ? "none" : "block";
         });
     });
 
     window.onclick = function (event) {
-        if (!event.target.matches('#perfil') && !event.target.matches('.dropdown-content') && !event.target.matches('.dropdown-content a')) {
+        if (!event.target.matches('#mensagemnome') && !event.target.matches('.dropdown-content') && !event.target.matches('.dropdown-content a')) {
             var dropdownContent = document.getElementById("dropdownContent");
             dropdownContent.style.display = "none";
         }
@@ -46,7 +42,7 @@
     $(document).ready(function () {
         $('#logoutButton, #logoutButtonMobile').on('click', function () {
             $.ajax({
-                url: '../../controllers/logout.php',
+                url: '../controllers/logout.php',
                 type: 'POST',
                 success: function (response) {
                     $('#mensagem').html('<div style="color:green;">' + response.message + '</div>');
@@ -63,7 +59,7 @@
         
 
         $.ajax({
-            url: '../../controllers/verificar_usuario.php',
+            url: '../controllers/verificar_usuario.php',
             method: 'GET',
             dataType: 'json',
             success: function (response) {
@@ -117,24 +113,7 @@
 
         
 
-        $('#email').on('blur', function () {
-            const email = $(this).val();
-            $.ajax({
-                url: '../../controllers/verificar_email.php',
-                method: 'POST',
-                data: { email: email },
-                success: function (response) {
-                    if (response.exists) {
-                        $('#emailError').show();
-                    } else {
-                        $('#emailError').hide();
-                    }
-                },
-                error: function () {
-                    $('#mensagem').html('<div style="color:red;">Erro ao verificar email.</div>');
-                }
-            });
-        });
+
 
         
     });
