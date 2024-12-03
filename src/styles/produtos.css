@@ -315,10 +315,78 @@ p {
 
 
 @media screen and (min-width: 1200px) {
-    #headerMobileBox, #headerMobileBubbles, #headerMobileCaneca, #headerMobileAniv, #headerMobile,
-    #headerMobileMaes, #headerMobileNatal, #headerMobileBBox, #headerMobileBAc {
-        display: none;
-    }
+
+
+#headerMobileBox, #headerMobileBubbles, #headerMobileCaneca, #headerMobileAniv, #headerMobile,
+#headerMobileMaes, #headerMobileNatal, #headerMobileBBox, #headerMobileBAc {
+    height: 50svh;
+    background-attachment: fixed;
+}
+
+#headerMobileCaneca{
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url(../imagens/website/caneca\ personalizada\ e\ mini\ panetone.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top;
+}
+
+#headerMobileBox{
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url(../imagens/website/BOX\ LUXO\ CACAU\ SHOW.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top;
+}
+
+#headerMobileBubbles{
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url(../imagens/website/BUBBLE\ MÉDIO\ DE\ MESA.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top;
+
+}
+
+#headerMobileMaes{
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url(../imagens/website/diadasmaes.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top;
+}
+
+#headerMobileNatal{
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url(../imagens/website/natalFAM.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top;
+}
+
+#headerMobileAniv{
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url(../imagens/website/anivFAM.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top;
+}
+
+#headerMobileBBox{
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url(../imagens/website/BUBBLE\ PELUCIA\ AZUL.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top;
+}
+
+#headerMobileBAc{
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url(../imagens/website/BOX\ BUBBLE\ ACRILIC.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top;
+}
 
     header {
         display: block;
