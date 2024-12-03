@@ -50,7 +50,9 @@ if (isset($_SESSION['nome'])) {
 			<div id="product-list"></div>
 	
 			<!-- Contêiner para mensagens de sucesso ou erro -->
-			<div id="message-container" class="mt-3"></div>
+			<div class="containerselect">
+				<div id="message-container" class="mt-3"></div>
+			</div>
 		</div>
 	<div class="sumary">
 		<div id="summary-container" class="mt-5" style="display: none;">
