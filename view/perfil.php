@@ -79,6 +79,9 @@ if (isset($_SESSION['nome'])) {
 	?>
 </body>
 	<script>
+var nomeUsuario = "<?php echo $nome_usuario; ?>";
+        document.getElementById("mensagemnome").innerHTML = nomeUsuario;
+        
 
 		$(document).ready(function() {
 			// Função para buscar os pedidos do usuário logado
