@@ -7,14 +7,14 @@
     document.getElementById("mensagemnome").innerHTML = nomeUsuario;
 
     document.addEventListener("DOMContentLoaded", function () {
-        document.getElementById("mensagemnome").addEventListener("click", function () {
+        document.getElementById("perfil").addEventListener("click", function () {
             var dropdownContent = document.getElementById("dropdownContent");
             dropdownContent.style.display = dropdownContent.style.display === "block" ? "none" : "block";
         });
     });
 
     window.onclick = function (event) {
-        if (!event.target.matches('#mensagemnome') && !event.target.matches('.dropdown-content') && !event.target.matches('.dropdown-content a')) {
+        if (!event.target.matches('#perfil') && !event.target.matches('.dropdown-content') && !event.target.matches('.dropdown-content a')) {
             var dropdownContent = document.getElementById("dropdownContent");
             dropdownContent.style.display = "none";
         }
