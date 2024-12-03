@@ -83,6 +83,9 @@ $usuarios = $usuario->listarUsuarios();
 </body>
 
     <script>
+        var nomeUsuario = "<?php echo $nome_usuario; ?>";
+        document.getElementById("mensagemnome").innerHTML = nomeUsuario;
+        
         $(document).ready(function() {
             let timer; // Variável para armazenar o timer
             let paginaAtual = 1; // Variável para acompanhar a página atual
