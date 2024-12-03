@@ -1,4 +1,8 @@
+    <script>
+            var nomeUsuario = "<?php echo $nome_usuario; ?>";
 
+            document.getElementById("mensagemnome").innerHTML = nomeUsuario;
+    </script>
 
 <header>
         </div>
