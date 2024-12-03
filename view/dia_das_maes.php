@@ -187,7 +187,7 @@ if (isset($_SESSION['nome'])) {
                     precoTotal += precoProduto;
 
                     const resumoItem = `
-            <div class="summary-item d-flex align-items-center mb-2">
+            <div class="summary-item d-flex mb-2">
                 <img src="${imgSrc}" alt="${nomeProduto}" class="img-sumary mr-2" style="width: 5rem; height: 5rem;">
                 <div>
                     <strong>${nomeProduto}</strong><br>
