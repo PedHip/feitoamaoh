@@ -42,7 +42,7 @@ var nomeUsuario = "<?php echo $nome_usuario; ?>";
     $(document).ready(function () {
         $('#logoutButton, #logoutButtonMobile').on('click', function () {
             $.ajax({
-                url: '../controllers/logout.php',
+                url: '../../controllers/logout.php',
                 type: 'POST',
                 success: function (response) {
                     $('#mensagem').html('<div style="color:green;">' + response.message + '</div>');
@@ -59,7 +59,7 @@ var nomeUsuario = "<?php echo $nome_usuario; ?>";
         
 
         $.ajax({
-            url: '../controllers/verificar_usuario.php',
+            url: '../../controllers/verificar_usuario.php',
             method: 'GET',
             dataType: 'json',
             success: function (response) {
