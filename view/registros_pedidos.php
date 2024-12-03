@@ -1,6 +1,11 @@
 <?php
 session_start();
 
+if (isset($_SESSION['nome'])) {
+    $nome_usuario = $_SESSION['nome'];
+} else {
+    $nome_usuario = 'logar';
+}
 // Verifica se o usuário está logado e se é um administrador
 if (!isset($_SESSION['tipo_usuario']) || $_SESSION['tipo_usuario'] !== 'administrador') {
     header("Location: ../view/index.php");
