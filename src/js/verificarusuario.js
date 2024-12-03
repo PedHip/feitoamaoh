@@ -1,6 +1,4 @@
-var nomeUsuario = "<?php echo $nome_usuario; ?>";
 
-    document.getElementById("mensagemnome").innerHTML = nomeUsuario;
 
     document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("mensagemnome").addEventListener("click", function () {
@@ -112,8 +110,9 @@ var nomeUsuario = "<?php echo $nome_usuario; ?>";
         });
 
         
-
-  
-
         
     });
+
+var nomeUsuario = "<?php echo $nome_usuario; ?>";
+
+    document.getElementById("mensagemnome").innerHTML = nomeUsuario;
