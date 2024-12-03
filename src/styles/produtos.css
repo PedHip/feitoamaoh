@@ -478,7 +478,7 @@ p {
     }
 
     #apresentacao {
-        background: linear-gradient(to bottom, #ff3333, #373737);
+ background: linear-gradient(180deg, rgba(0,0,0,0.5242471988795518) 0%, rgba(0,0,0,0.3701855742296919) 15%, rgba(0,0,0,0.2861519607843137) 32%, rgba(0,0,0,0.29735644257703087) 41%, rgba(0,0,0,0.196516106442577) 74%, rgba(0,0,0,0.14609593837535018) 100%);
         padding: 3.5rem 7rem;
         display: flex;
         gap: 15rem;
