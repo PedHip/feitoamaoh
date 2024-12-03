@@ -69,6 +69,9 @@ if (isset($_SESSION['nome'])) {
     ?>
 
 	<script>
+		var nomeUsuario = "<?php echo $nome_usuario; ?>";
+        document.getElementById("mensagemnome").innerHTML = nomeUsuario;
+        
 		$(document).ready(function() {
     // Verificação de email ao sair do campo
     $('#email').on('blur', function() {
