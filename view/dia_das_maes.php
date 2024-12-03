@@ -41,7 +41,7 @@ if (isset($_SESSION['nome'])) {
     <main>
         <section id="headerMobileMaes"></section>
         <div class="padding">
-            <section id="apresentacao">
+            <section id="apresentacao" class="pcmaes">
                 <div id="bannerAp">
                     <div id="apresentacaoText">
                         <h1>Dia das mães</h1>
