@@ -7,6 +7,7 @@ if (isset($_SESSION['nome'])) {
     $nome_usuario = 'logar';
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -25,7 +26,7 @@ if (isset($_SESSION['nome'])) {
         @import url('https://fonts.googleapis.com/css2?family=Style+Script&display=swap');
     </style>
 
-    <script src="../src/js/verificarusuario.js" defer></script>
+    <script src="../src/js/verificarusuario.js"></script>
 </head>
 
 <body>
@@ -246,7 +247,11 @@ if (isset($_SESSION['nome'])) {
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+            var nomeUsuario = "<?php echo $nome_usuario; ?>";
 
+            document.getElementById("mensagemnome").innerHTML = nomeUsuario;
+    </script>
 
 </body>
 
