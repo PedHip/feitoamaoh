@@ -25,12 +25,13 @@ if (isset($_SESSION['nome'])) {
 		integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 	<title>cadastra-se</title>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../src/js/verificarusuario.js"></script>
 </head>
 
 <body>
 	<?php 
     include '../module/header.php';
-    include '../module/javascript_view.php'; 
+
     ?>
 	<main>
 		<section id="card2">
