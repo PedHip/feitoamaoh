@@ -24,17 +24,17 @@ $usuarios = $usuario->listarUsuarios();
 <!DOCTYPE html>
 <html lang="pt-BR">
 
-<head>
+<<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registros de Pedidos</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Incluindo jQuery -->
-    <link rel="shortcut icon" type="imagex/png" href="../src/imagens/website/balloon.png">
-    <link rel="stylesheet" href="../src/styles/backend.css"> 
-     <link rel="stylesheet" href="../src/styles/styles.css">
-    <link rel="stylesheet" href="../src/styles/index.css"> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="shortcut icon" type="imagex/png" href="../src/imagens/website/balloon.png">
+    <link rel="stylesheet" href="../src/styles/backend.css">
+    <link rel="stylesheet" href="../src/styles/styles.css">
+    <link rel="stylesheet" href="../src/styles/index.css"> 
+    <title>Registros de Usuários</title>
     <script src="../src/js/verificarusuario.js"></script>
 <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
