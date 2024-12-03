@@ -144,6 +144,7 @@ h1 {
     border: 1px solid #ddd;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     display: none;
+	padding: 1rem 2rem;
 }
 
 .summary-container {
@@ -257,9 +258,7 @@ button:disabled {
     color: #155724;
 }
 
-.resumopedido{
-    padding: 2rem 8rem;
-}
+
 
 .botao{
     background-color: #ba1a1a !important;
@@ -397,6 +396,14 @@ button:disabled {
         grid-template-columns: repeat(3, 1fr);
         gap: 30px;
     }
+	.resumopedido {
+    background-color: #fff;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: none;
+	padding: 2rem 8rem;
+}
 
     .product-card {
         border-radius: 8px;
