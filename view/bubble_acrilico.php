@@ -52,13 +52,13 @@ if (isset($_SESSION['nome'])) {
                     <a href="bubble.php">
                         <button class="bttnBubble">
                             <span>bubbles</span>
-                            <img src="../imagens/website/Forward.png" alt="">
+                            <img src="../src/imagens/website/Forward.png" alt="">
                         </button>
                     </a>
                     <a href="bubble_box.php">
                         <button class="bttnBubble">
                             <span>bubbles na box</span>
-                            <img src="../imagens/website/Forward.png" alt="">
+                            <img src="../src/imagens/website/Forward.png" alt="">
                         </button>
                     </a>
                 </div>
