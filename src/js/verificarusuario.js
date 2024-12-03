@@ -43,7 +43,7 @@
     $(document).ready(function () {
         $('#logoutButton, #logoutButtonMobile').on('click', function () {
             $.ajax({
-                url: '../controllers/logout.php',
+                url: '../../controllers/logout.php',
                 type: 'POST',
                 success: function (response) {
                     $('#mensagem').html('<div style="color:green;">' + response.message + '</div>');
@@ -60,7 +60,7 @@
         
 
         $.ajax({
-            url: '../controllers/verificar_usuario.php',
+            url: '../../controllers/verificar_usuario.php',
             method: 'GET',
             dataType: 'json',
             success: function (response) {
@@ -112,28 +112,8 @@
             }
         });
 
-        
-
-        $('#email').on('blur', function () {
-            const email = $(this).val();
-            $.ajax({
-                url: '../controllers/verificar_email.php',
-                method: 'POST',
-                data: { email: email },
-                success: function (response) {
-                    if (response.exists) {
-                        $('#emailError').show();
-                    } else {
-                        $('#emailError').hide();
-                    }
-                },
-                error: function () {
-                    $('#mensagem').html('<div style="color:red;">Erro ao verificar email.</div>');
-                }
-            });
-        });
-
-        
     });
+
+        
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
