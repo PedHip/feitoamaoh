@@ -8,6 +8,12 @@ if (isset($_SESSION['nome'])) {
 }
 ?>
 
+        <script>
+            var nomeUsuario = "<?php echo $nome_usuario; ?>";
+
+            document.getElementById("mensagemnome").innerHTML = nomeUsuario;
+    </script>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
