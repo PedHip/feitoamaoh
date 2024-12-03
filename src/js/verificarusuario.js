@@ -1,6 +1,4 @@
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<script>
     var nomeUsuario = "<?php echo $nome_usuario; ?>";
 
     document.getElementById("mensagemnome").innerHTML = nomeUsuario;
@@ -116,5 +114,4 @@
 
     });
 
-        
-</script>
+
