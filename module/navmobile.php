@@ -4,10 +4,10 @@
 			<a href="../view/index.php"><img src="../src/imagens/website/house.svg" alt="" /></a>
 		</li>
 		<li class="navMobileLink">
-			<a href="../view/index.php#convencionais"><img src="../src/imagens/website/house-heart.svg" alt="" /></a>
+			<a href="../view/index.php#convencionais"><img src="../src/imagens/website/ballon.png" alt="" /></a>
 		</li>
 		<li class="navMobileLink">
-			<a href="../view/index.php#especiais"><img src="../src/imagens/website/search-heart-fill.svg" alt="" /></a>
+			<a href="../view/index.php#especiais"><img src="../src/imagens/website/presente.png" alt="" /></a>
 		</li>
 		<li class="navMobileLink">
 			<img src="../src/imagens/website/person.svg" alt="" id="mensagemnomemobile" />
