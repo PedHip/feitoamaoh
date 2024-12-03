@@ -7,11 +7,7 @@ if (isset($_SESSION['nome'])) {
     $nome_usuario = 'logar';
 }
 ?>
-    <script>
-            var nomeUsuario = "<?php echo $nome_usuario; ?>";
 
-            document.getElementById("mensagemnome").innerHTML = nomeUsuario;
-    </script>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -36,6 +32,11 @@ if (isset($_SESSION['nome'])) {
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script src="../src/js/verificarusuario.js"></script>
+    <script>
+            var nomeUsuario = "<?php echo $nome_usuario; ?>";
+
+            document.getElementById("mensagemnome").innerHTML = nomeUsuario;
+    </script>
 </head>
 
 <body>
