@@ -312,10 +312,7 @@ p {
     text-align: center;
 }
 
-@media screen and (max-width: 1200px) {
-    #apresentacao p{
-        font-size: 0.9rem !important;
-}
+
 
 @media screen and (min-width: 1200px) {
     #headerMobileBox, #headerMobileBubbles, #headerMobileCaneca, #headerMobileAniv, #headerMobile,
