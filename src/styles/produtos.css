@@ -565,3 +565,9 @@ p {
         margin-bottom: 0;
     }
 }
+
+@media screen and (max-width: 1440){
+      #bannerAp {
+        font-size: 1rem;
+    }
+}
