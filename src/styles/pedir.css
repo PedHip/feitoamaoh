@@ -137,18 +137,18 @@ h1 {
     align-items: center;
 }
 
-/* Resumo do pedido */
+
 .resumopedido {
     background-color: #fff;
     border-radius: 8px;
-    padding: 20px;
     border: 1px solid #ddd;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     display: none;
 }
 
 .summary-container {
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
+	gap: 1rem !important;
 }
 
 .summary-container h3 {
