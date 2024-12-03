@@ -1,6 +1,9 @@
 
     var nomeUsuario = "<?php echo $nome_usuario; ?>";
 
+    console.log("Arquivo JavaScript conectado com sucesso!");
+
+
     document.getElementById("mensagemnome").innerHTML = nomeUsuario;
 
     document.addEventListener("DOMContentLoaded", function () {
