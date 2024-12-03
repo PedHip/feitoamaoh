@@ -274,6 +274,11 @@ body {
     align-items: center;
   }
 
+  .alert {
+
+  width: 300px !important;
+}
+  
   .product-description {
     text-align: center !important;
   }
