@@ -322,19 +322,19 @@ p {
     display: none;
 }
 
-#pccaneca{
+.pccaneca{
     background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url(../imagens/website/caneca\ personalizada\ e\ mini\ panetone.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     background-position: top;
 }
 
-#pcbox{
+.pcbox{
     background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url(../imagens/website/BOX\ LUXO\ CACAU\ SHOW.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     background-position: top;
 }
 
@@ -342,48 +342,48 @@ p {
     background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url(../imagens/website/BUBBLE\ MÉDIO\ DE\ MESA.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     background-position: top;
 
 }
 
-#pcmaes{
+.pcmaes{
     background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url(../imagens/website/diadasmaes.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     background-position: top;
 }
 
-#pcnatal{
+.pcnatal{
     background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url(../imagens/website/natalFAM.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     background-position: top;
 }
 
-#pcaniv{
+.pcaniv{
     background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url(../imagens/website/anivFAM.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     background-position: top;
 }
 
-#pcbbox{
+.pcbbox{
     background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url(../imagens/website/BUBBLE\ PELUCIA\ AZUL.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     background-position: top;
 }
 
-#pcbac{
+.pcbac{
     background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)), url(../imagens/website/BOX\ BUBBLE\ ACRILIC.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     background-position: top;
 }
 
