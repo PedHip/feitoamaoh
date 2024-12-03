@@ -21,6 +21,7 @@ if (isset($_SESSION['nome'])) {
 	<link rel="stylesheet" href="../src/styles/perfil.css">
 	<link rel="stylesheet" href="../src/styles/styles.css">
 	<link rel="stylesheet" href="../src/styles/backend.css">
+    	<link rel="stylesheet" href="../src/styles/index.css"> 
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     	<script src="../src/js/verificarusuario.js"></script>
 </head>
