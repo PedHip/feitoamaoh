@@ -67,14 +67,18 @@ h1 {
     margin-bottom: 10px;
 }
 
-.product-info .desc_prod {
+.product-info{
     margin-bottom: 0 !important;
     font-size: 0.75rem;
     color: #666;
     margin-bottom: 10px;
     line-height: 1.4;
-    height: 130px;
+    height: auto;
     text-align: justify;
+}
+
+.desc_prod{
+	heigth: 200px;
 }
 
 .desc_prod h5{
@@ -265,6 +269,7 @@ button:disabled {
 
 .nome_prod{
     font-size: 1.5rem !important;
+	heigth: 80px;
 }
 
 
@@ -302,6 +307,7 @@ button:disabled {
 
     .quantity-control {
         padding: 8px;
+	    margin-top: auto;
     }
 
     .quantity {
