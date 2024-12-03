@@ -78,7 +78,7 @@ h1 {
 }
 
 .desc_prod{
-	heigth: 200px;
+	heigth: 200px !important;
 }
 
 .desc_prod h5{
