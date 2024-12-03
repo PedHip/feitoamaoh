@@ -32,14 +32,14 @@ if (isset($_SESSION['nome'])) {
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script src="../src/js/verificarusuario.js"></script>
-    <script>
+</head>
+
+<body>
+        <script>
             var nomeUsuario = "<?php echo $nome_usuario; ?>";
 
             document.getElementById("mensagemnome").innerHTML = nomeUsuario;
     </script>
-</head>
-
-<body>
    <?php
     include '../module/header.php';
     ?>
