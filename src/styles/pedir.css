@@ -68,17 +68,22 @@ h1 {
 }
 
 .product-info{
+	display: flex;
+	flex-direction: column;
     margin-bottom: 0 !important;
     font-size: 0.75rem;
     color: #666;
     margin-bottom: 10px;
     line-height: 1.4;
-    height: auto;
     text-align: justify;
 }
 
 .desc_prod{
 	heigth: 200px !important;
+}
+
+.price{
+	margin-bottom: auto !important;
 }
 
 .desc_prod h5{
