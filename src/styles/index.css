@@ -15,32 +15,24 @@
 
 }
 
-/* Remove a borda e o contorno do botão de perfil e do dropdown */
+
 .perfilBttn, 
 .dropdown {
-  border: none;       /* Remove a borda */
-  outline: none;      /* Remove o contorno padrão de foco */
+  border: none;      
+  outline: none;    
 }
 
 .perfilBttn:focus,
 .dropdown:focus {
-  outline: none;      /* Remove o contorno quando em foco */
+  outline: none;     
 }
 
 .dropdown-content {
-  border: none;       /* Remove borda do conteúdo do dropdown */
+  border: none;      
 }
 
 #dropdownContent a {
-  border: none;       /* Remove a borda dos itens do dropdown */
-}
-
-/* Caso você precise de um estilo diferente para indicar o foco visualmente, pode adicionar um efeito de hover ou foco, como */
-.perfilBttn:hover,
-.dropdown:hover {
-  /* Estilo do hover, se necessário */
-  background-color: #f0f0f0;
-  cursor: pointer;
+  border: none;    
 }
 
 
