@@ -15,6 +15,10 @@
 
 }
 
+.dropdown:focus {
+    border: none; /* Remove a borda ao focar */
+}
+
 .dropdown-content {
     display: none;
     position: absolute;
