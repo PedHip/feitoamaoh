@@ -33,6 +33,7 @@ $usuarios = $usuario->listarUsuarios();
     <link rel="shortcut icon" type="imagex/png" href="../src/imagens/website/balloon.png">
     <link rel="stylesheet" href="../src/styles/backend.css">
     <link rel="stylesheet" href="../src/styles/styles.css">
+    <link rel="stylesheet" href="../src/styles/index.css"> 
     <title>Registros de Usuários</title>
     <script src="../src/js/verificarusuario.js"></script>
 </head>
