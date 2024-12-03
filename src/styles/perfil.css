@@ -136,6 +136,7 @@ body {
   padding: 15px;
   font-size: 1rem;
   border-radius: 5px;
+  width: 300px !important;
 }
 
 .alert-warning {
