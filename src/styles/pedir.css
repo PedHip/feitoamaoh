@@ -79,7 +79,7 @@ h1 {
 }
 
 .desc_prod{
-	heigth: 200px !important;
+	height: 200px !important;
 }
 
 .price{
@@ -274,7 +274,7 @@ button:disabled {
 
 .nome_prod{
     font-size: 1.5rem !important;
-	heigth: 80px;
+	height: 80px;
 }
 
 
