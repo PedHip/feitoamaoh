@@ -40,8 +40,8 @@ if (isset($_SESSION['nome'])) {
     ?>
     <main>
         <section id="headerMobileMaes"></section>
-        <div class="padding" id="pcbubble">
-            <section id="apresentacao">
+        <div class="padding"">
+            <section id="apresentacao pcbubble>
                 <div id="bannerAp">
                     <div id="apresentacaoText">
                         <h1>Bubbles</h1>
