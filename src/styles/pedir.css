@@ -75,12 +75,10 @@ h1 {
     color: #666;
     margin-bottom: 10px;
     line-height: 1.4;
+	height: 300px;
     text-align: justify;
 }
 
-.desc_prod{
-	height: 180px !important;
-}
 
 .price{
 	margin-bottom: auto !important;
@@ -274,7 +272,6 @@ button:disabled {
 
 .nome_prod{
     font-size: 1.5rem !important;
-	height: 50px;
 }
 
 
