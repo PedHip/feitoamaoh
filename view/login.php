@@ -52,13 +52,10 @@ if (isset($_SESSION['nome'])) {
                     <input class="input" type="password" id="senha" name="senha" placeholder="senha" required>
                 </div>
                 <div id="dataDivBttn">
-                    <button type="submit" class="dataBttn">sign in</button>
+                    <button type="submit" id="btnLogin" class="dataBttn">sign in</button>
                 </div>
                 <br>
-                <div id="mensagem"></div>
-            </div>
-            </form>
-            <button id="btnAbrirModal">Recuperar Senha</button>
+                  <button id="btnAbrirModal">Recuperar Senha</button>
                 
                 <!-- Modal -->
                 <div id="modalRecuperarSenha" style="display: none;">
@@ -67,51 +64,48 @@ if (isset($_SESSION['nome'])) {
                         <form id="formRecuperarSenha">
                             <label for="email">E-mail:</label>
                             <input type="email" id="email" name="email" required>
-                            <button type="submit">Enviar</button>
+                            <button type="submit" id="btnRecuperarSenha">Enviar</button>
                             <button type="button" id="btnFecharModal">Fechar</button>
                         </form>
                     </div>
                 </div>
+                <div id="mensagem"></div>
+                
+            </div>
+            </form>
         </section>
 
         <script>
             var nomeUsuario = "<?php echo $nome_usuario; ?>";
         document.getElementById("mensagemnome").innerHTML = nomeUsuario;
         
-            $(document).ready(function() {
-                $('#formLogin').on('submit', function(event) {
-                    event.preventDefault();
+           $(document).ready(function () {
+    // Lidar com o envio do formulário de login
+    $('#formLogin').on('submit', function (event) {
+        event.preventDefault(); // Impede o envio padrão
 
-                    $.ajax({
-                        url: '../controllers/login.php',
-                        type: 'POST',
-                        data: $(this).serialize(),
-                        dataType: 'json', // Esperando uma resposta JSON
-                        success: function(response) {
-                            if (response.status === 'success') {
-                                $('#mensagem').html('<div style="color:green;">' + response.message + '</div>');
-                                // Redireciona após 1 segundo
-                                setTimeout(function() {
-                                    window.location.href = 'index.php'; // Mude para o caminho correto se necessário
-                                }, 1000);
-                            } else {
-                                $('#mensagem').html('<div style="color:red;">' + response.message + '</div>');
-                            }
-                        },
-                        error: function() {
-                            $('#mensagem').html('<div style="color:red;">Erro ao realizar login.</div>');
-                        }
-                    });
-                });
-
-
-                $('#lembrarSenha').on('click', function(event) {
-                    event.preventDefault();
-                    alert("Função de lembrar senha não implementada.");
-                });
-            });
-
-$("#btnAbrirModal").on("click", function () {
+        $.ajax({
+            url: '../controllers/login.php',
+            type: 'POST',
+            data: $(this).serialize(),
+            dataType: 'json', // Esperando uma resposta JSON
+            success: function (response) {
+                if (response.status === 'success') {
+                    $('#mensagem').html('<div style="color:green;">' + response.message + '</div>');
+                    // Redireciona após 1 segundo
+                    setTimeout(function () {
+                        window.location.href = 'index.php'; // Mude para o caminho correto se necessário
+                    }, 1000);
+                } else {
+                    $('#mensagem').html('<div style="color:red;">' + response.message + '</div>');
+                }
+            },
+            error: function () {
+                $('#mensagem').html('<div style="color:red;">Erro ao realizar login.</div>');
+            }
+        });
+    });
+               $("#btnAbrirModal").on("click", function () {
         $("#modalRecuperarSenha").fadeIn();
     });
 
@@ -120,13 +114,12 @@ $("#btnAbrirModal").on("click", function () {
         $("#modalRecuperarSenha").fadeOut();
     });
 
-    // Submete o formulário via AJAX
+    // Lidar com o envio do formulário de recuperação de senha
     $("#formRecuperarSenha").on("submit", function (e) {
-        e.preventDefault();
+        e.preventDefault(); // Impede o envio padrão
 
-        const email = $("#email").val();
+        const email = $("#formRecuperarSenha #email").val();
 
-        // Envia a requisição via AJAX
         $.ajax({
             url: "../controllers/processa_redefinir_senha.php",
             type: "POST",
@@ -143,6 +136,9 @@ $("#btnAbrirModal").on("click", function () {
             },
         });
     });
+});
+
+
         </script>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
