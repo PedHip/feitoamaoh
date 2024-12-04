@@ -1,6 +1,6 @@
 <?php
 require_once '../config/db.php';
-require_once 'Usuario.php';
+require_once '../models/usuario.php';
 
 // Configura o cabeçalho para JSON
 header('Content-Type: application/json');
