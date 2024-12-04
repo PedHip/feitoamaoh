@@ -55,6 +55,7 @@ if (isset($_SESSION['nome'])) {
                     </div>
                     <button id="btnAbrirModal" type="button">Recuperar Senha</button>
                 </div>
+                <div id="mensagem"></div>
             </form>
             <div id="modalRecuperarSenha">
                 <div>
@@ -67,7 +68,6 @@ if (isset($_SESSION['nome'])) {
                     </form>
                 </div>
             </div>
-            <div id="mensagem"></div>
         </section>
     </main>
 
