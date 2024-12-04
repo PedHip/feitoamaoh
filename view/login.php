@@ -54,9 +54,9 @@ if (isset($_SESSION['nome'])) {
                     </div>
                     <div id="dataDivBttn">
                         <button type="submit" id="btnLogin" class="dataBttn">sign in</button>
-                        <div id="mensagem"></div>
                     </div>
                     <button id="btnAbrirModal" type="button">Recuperar Senha</button>
+                    <div id="mensagem"></div>
                 </div>
             </form>
             <div id="modalRecuperarSenha">
