@@ -3,6 +3,8 @@ session_start();
 
 if (isset($_SESSION['nome'])) {
     $nome_usuario = $_SESSION['nome'];
+    header("Location: ../view/index.php");
+    exit; // Certifique-se de usar exit após o redirecionamento
 } else {
     $nome_usuario = 'logar';
 }
@@ -52,10 +54,10 @@ if (isset($_SESSION['nome'])) {
                     </div>
                     <div id="dataDivBttn">
                         <button type="submit" id="btnLogin" class="dataBttn">sign in</button>
+                        <div id="mensagem"></div>
                     </div>
                     <button id="btnAbrirModal" type="button">Recuperar Senha</button>
                 </div>
-                <div id="mensagem"></div>
             </form>
             <div id="modalRecuperarSenha">
                 <div>
