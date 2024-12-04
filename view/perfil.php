@@ -63,6 +63,9 @@ if (isset($_SESSION['nome'])) {
 			<div id="total-summary" class="mt-3">
 				<span>Total: R$ 0,00</span>
 			</div>
+			<div id="text-summary" class="mt-3">
+				<p>Ao fazer um pedido, ele será no nosso sistema. Em alguns dias entraremos em contato para dar continuidade ao pedido. Você pode acompanhar a situação do seu pedido na sua página de perfil.</p>
+			</div>
 			<div class="containerselect">
 			<!-- Botão para enviar pedido -->
 			<button id="sendOrderButton" class="btn btn-success mt-4" style="display: none;">Enviar Pedido</button>
