@@ -240,7 +240,7 @@
         text-transform: capitalize;
     }
 
-    @media screen and (max-width: 368px){
+    @media screen and (max-width: 1000px){
      .form-control2 {
         width: 100% !important;
         padding: 10px !important;
