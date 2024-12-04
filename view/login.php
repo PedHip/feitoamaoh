@@ -54,6 +54,20 @@ if (isset($_SESSION['nome'])) {
                 <div id="dataDivBttn">
                     <button type="submit" class="dataBttn">sign in</button>
                 </div>
+             
+                <button onclick="abrirModal()">Recuperar Senha</button>
+            
+                <div id="modalRecuperarSenha" style="display: none;">
+                    <div>
+                        <h2>Recuperar Senha</h2>
+                        <form id="formRecuperarSenha">
+                            <label for="email">E-mail:</label>
+                            <input type="email" id="email" name="email" required>
+                            <button type="submit">Enviar</button>
+                            <button type="button" onclick="fecharModal()">Fechar</button>
+                        </form>
+                    </div>
+                </div>
                 <br>
                 <div id="mensagem"></div>
             </div>
@@ -96,6 +110,28 @@ if (isset($_SESSION['nome'])) {
                     alert("Função de lembrar senha não implementada.");
                 });
             });
+            function abrirModal() {
+    document.getElementById("modalRecuperarSenha").style.display = "block";
+}
+
+function fecharModal() {
+    document.getElementById("modalRecuperarSenha").style.display = "none";
+}
+
+document.getElementById("formRecuperarSenha").addEventListener("submit", async function(event) {
+    event.preventDefault();
+    const email = document.getElementById("email").value;
+
+    const response = await fetch("processa_redefinir_senha.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email })
+    });
+
+    const data = await response.json();
+    alert(data.message);
+    if (data.status === "success") fecharModal();
+});
         </script>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
