@@ -78,8 +78,8 @@ if (isset($_SESSION['nome'])) {
 			        </div>
                 </div>
                 <div class="">
-                    <button id="sendButton" class="btn btn-primary botao rounded-pill">Enviar</button>
-                    <button id="addToCartButton" class="btn btn-primary botao rounded-pill">Adicionar ao Carrinho</button>
+                    <button id="sendButton" class="btn btn-primary botao ">Enviar</button>
+                    <button id="addToCartButton" class="btn btn-primary botao ">Adicionar ao Carrinho</button>
                     <div id="messageContainer"></div>
                 </div>
 
