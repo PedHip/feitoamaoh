@@ -3,6 +3,8 @@ session_start();
 
 if (isset($_SESSION['nome'])) {
     $nome_usuario = $_SESSION['nome'];
+    header("Location: ../view/index.php");
+    exit;
 } else {
     $nome_usuario = 'logar';
 }
