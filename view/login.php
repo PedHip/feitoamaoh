@@ -73,6 +73,10 @@ if (isset($_SESSION['nome'])) {
 
     <script>
         $(document).ready(function () {
+
+        var nomeUsuario = "<?php echo $nome_usuario; ?>";
+        document.getElementById("mensagemnome").innerHTML = nomeUsuario;
+            
             // Formulário de login
             $('#formLogin').on('submit', function (event) {
                 event.preventDefault();
