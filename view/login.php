@@ -32,119 +32,105 @@ if (isset($_SESSION['nome'])) {
 <body>
     <?php 
     include '../module/header.php';
-
     ?>
     <main>
         <section id="card">
             <div class="cadastre">
                 <h1>Cadastre-se</h1>
-                <p class="pLogin" >Não tem uma conta? Faça um cadastro para que possa realizar os seus pedidos</p>
-                <a href="cadastro.php"><button type="submit" class="cadastreBttn">criar conta</button></a>
+                <p class="pLogin">Não tem uma conta? Faça um cadastro para que possa realizar os seus pedidos</p>
+                <a href="cadastro.php"><button type="button" class="cadastreBttn">criar conta</button></a>
             </div>
             <form id="formLogin">
-            <div class="data">
-                <div id="display">
-                    <h1>Bem-vindo de volta!</h1>
-                    <p class="pLogin" >Faça login no nosso site para voltar a fazer seus pedidos</p>
-                </div>
-                <div id="dataDivInput">
-                    <input class="input" type="email" id="email" name="email" placeholder="email" required>
-                    <input class="input" type="password" id="senha" name="senha" placeholder="senha" required>
-                </div>
-                <div id="dataDivBttn">
-                    <button type="submit" id="btnLogin" class="dataBttn">sign in</button>
-                </div>
-                <br>
-                  <button id="btnAbrirModal">Recuperar Senha</button>
-                
-                <!-- Modal -->
-                <div id="modalRecuperarSenha" style="display: none;">
-                    <div>
-                        <h2>Recuperar Senha</h2>
-                        <form id="formRecuperarSenha">
-                            <label for="email">E-mail:</label>
-                            <input type="email" id="email" name="email" required>
-                            <button type="submit" id="btnRecuperarSenha">Enviar</button>
-                            <button type="button" id="btnFecharModal">Fechar</button>
-                        </form>
+                <div class="data">
+                    <div id="display">
+                        <h1>Bem-vindo de volta!</h1>
+                        <p class="pLogin">Faça login no nosso site para voltar a fazer seus pedidos</p>
                     </div>
+                    <div id="dataDivInput">
+                        <input class="input" type="email" id="loginEmail" name="email" placeholder="email" required>
+                        <input class="input" type="password" id="senha" name="senha" placeholder="senha" required>
+                    </div>
+                    <div id="dataDivBttn">
+                        <button type="submit" id="btnLogin" class="dataBttn">sign in</button>
+                    </div>
+                    <button id="btnAbrirModal" type="button">Recuperar Senha</button>
                 </div>
-                <div id="mensagem"></div>
-                
-            </div>
             </form>
+            <div id="modalRecuperarSenha">
+                <div>
+                    <h2>Recuperar Senha</h2>
+                    <form id="formRecuperarSenha">
+                        <label for="modalEmail">E-mail:</label>
+                        <input type="email" id="modalEmail" name="email" required>
+                        <button type="submit" id="btnRecuperarSenha">Enviar</button>
+                        <button type="button" id="btnFecharModal">Fechar</button>
+                    </form>
+                </div>
+            </div>
+            <div id="mensagem"></div>
         </section>
-
-        <script>
-            var nomeUsuario = "<?php echo $nome_usuario; ?>";
-        document.getElementById("mensagemnome").innerHTML = nomeUsuario;
-        
-           $(document).ready(function () {
-    // Lidar com o envio do formulário de login
-    $('#formLogin').on('submit', function (event) {
-        event.preventDefault(); // Impede o envio padrão
-
-        $.ajax({
-            url: '../controllers/login.php',
-            type: 'POST',
-            data: $(this).serialize(),
-            dataType: 'json', // Esperando uma resposta JSON
-            success: function (response) {
-                if (response.status === 'success') {
-                    $('#mensagem').html('<div style="color:green;">' + response.message + '</div>');
-                    // Redireciona após 1 segundo
-                    setTimeout(function () {
-                        window.location.href = 'index.php'; // Mude para o caminho correto se necessário
-                    }, 1000);
-                } else {
-                    $('#mensagem').html('<div style="color:red;">' + response.message + '</div>');
-                }
-            },
-            error: function () {
-                $('#mensagem').html('<div style="color:red;">Erro ao realizar login.</div>');
-            }
-        });
-    });
-               $("#btnAbrirModal").on("click", function () {
-        $("#modalRecuperarSenha").fadeIn();
-    });
-
-    // Fecha o modal
-    $("#btnFecharModal").on("click", function () {
-        $("#modalRecuperarSenha").fadeOut();
-    });
-
-    // Lidar com o envio do formulário de recuperação de senha
-    $("#formRecuperarSenha").on("submit", function (e) {
-        e.preventDefault(); // Impede o envio padrão
-
-        const email = $("#formRecuperarSenha #email").val();
-
-        $.ajax({
-            url: "../controllers/processa_redefinir_senha.php",
-            type: "POST",
-            dataType: "json",
-            data: { email: email },
-            success: function (response) {
-                alert(response.message); // Exibe a mensagem retornada
-                if (response.status === "success") {
-                    $("#modalRecuperarSenha").fadeOut();
-                }
-            },
-            error: function () {
-                alert("Ocorreu um erro ao processar a solicitação.");
-            },
-        });
-    });
-});
-
-
-        </script>
     </main>
+
+    <script>
+        $(document).ready(function () {
+            // Formulário de login
+            $('#formLogin').on('submit', function (event) {
+                event.preventDefault();
+                $.ajax({
+                    url: '../controllers/login.php',
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    dataType: 'json',
+                    success: function (response) {
+                        if (response.status === 'success') {
+                            $('#mensagem').html('<div style="color:green;">' + response.message + '</div>');
+                            setTimeout(function () {
+                                window.location.href = 'index.php';
+                            }, 1000);
+                        } else {
+                            $('#mensagem').html('<div style="color:red;">' + response.message + '</div>');
+                        }
+                    },
+                    error: function () {
+                        $('#mensagem').html('<div style="color:red;">Erro ao realizar login.</div>');
+                    }
+                });
+            });
+
+            // Modal de recuperação de senha
+            $('#btnAbrirModal').on('click', function () {
+                $('#modalRecuperarSenha').fadeIn();
+            });
+
+            $('#btnFecharModal').on('click', function () {
+                $('#modalRecuperarSenha').fadeOut();
+            });
+
+            $('#formRecuperarSenha').on('submit', function (e) {
+                e.preventDefault();
+                const email = $('#modalEmail').val();
+                $.ajax({
+                    url: '../controllers/processa_redefinir_senha.php',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: { email: email },
+                    success: function (response) {
+                        alert(response.message);
+                        if (response.status === 'success') {
+                            $('#modalRecuperarSenha').fadeOut();
+                        }
+                    },
+                    error: function () {
+                        alert('Ocorreu um erro ao processar a solicitação.');
+                    },
+                });
+            });
+        });
+    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    </main>
     <?php
     include '../module/footer.php';
     include '../module/navmobile.php';
