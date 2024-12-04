@@ -59,8 +59,8 @@ if (isset($_SESSION['nome'])) {
                     <div id="mensagem"></div>
                 </div>
             </form>
-            <div id="modalRecuperarSenha">
-                <div>
+            <div id="modalRecuperarSenha" class="modal-container" style="display: none;">
+                <div class="modal-content">
                     <h2>Recuperar Senha</h2>
                     <form id="formRecuperarSenha">
                         <label for="modalEmail">E-mail:</label>
@@ -103,34 +103,43 @@ if (isset($_SESSION['nome'])) {
                 });
             });
 
-            // Modal de recuperação de senha
-            $('#btnAbrirModal').on('click', function () {
-                $('#modalRecuperarSenha').fadeIn();
-            });
+            // Abre o modal
+    $('#btnAbrirModal').on('click', function () {
+        $('#modalRecuperarSenha').fadeIn();
+    });
 
-            $('#btnFecharModal').on('click', function () {
-                $('#modalRecuperarSenha').fadeOut();
-            });
+    // Fecha o modal ao clicar no botão de fechar
+    $('#btnFecharModal').on('click', function () {
+        $('#modalRecuperarSenha').fadeOut();
+    });
 
-            $('#formRecuperarSenha').on('submit', function (e) {
-                e.preventDefault();
-                const email = $('#modalEmail').val();
-                $.ajax({
-                    url: '../controllers/processa_redefinir_senha.php',
-                    type: 'POST',
-                    dataType: 'json',
-                    data: { email: email },
-                    success: function (response) {
-                        alert(response.message);
-                        if (response.status === 'success') {
-                            $('#modalRecuperarSenha').fadeOut();
-                        }
-                    },
-                    error: function () {
-                        alert('Ocorreu um erro ao processar a solicitação.');
-                    },
-                });
-            });
+    // Fecha o modal ao clicar fora do conteúdo
+    $('#modalRecuperarSenha').on('click', function (e) {
+        if ($(e.target).hasClass('modal-container')) {
+            $(this).fadeOut();
+        }
+    });
+
+    // Envia o formulário de recuperação de senha
+    $('#formRecuperarSenha').on('submit', function (e) {
+        e.preventDefault();
+        const email = $('#modalEmail').val();
+        $.ajax({
+            url: '../controllers/processa_redefinir_senha.php',
+            type: 'POST',
+            dataType: 'json',
+            data: { email: email },
+            success: function (response) {
+                alert(response.message);
+                if (response.status === 'success') {
+                    $('#modalRecuperarSenha').fadeOut();
+                }
+            },
+            error: function () {
+                alert('Ocorreu um erro ao processar a solicitação.');
+            },
+        });
+    });
         });
     </script>
 
