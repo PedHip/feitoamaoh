@@ -130,7 +130,7 @@ $("#btnAbrirModal").on("click", function () {
 
         // Envia a requisição via AJAX
         $.ajax({
-            url: "processa_redefinir_senha.php",
+            url: "../controllers/processa_redefinir_senha.php",
             type: "POST",
             dataType: "json",
             data: { email: email },
