@@ -55,8 +55,10 @@ if (isset($_SESSION['nome'])) {
                     <button type="submit" class="dataBttn">sign in</button>
                 </div>
              
-                <button onclick="abrirModal()">Recuperar Senha</button>
-            
+
+                <button id="btnAbrirModal">Recuperar Senha</button>
+                
+                <!-- Modal -->
                 <div id="modalRecuperarSenha" style="display: none;">
                     <div>
                         <h2>Recuperar Senha</h2>
@@ -64,7 +66,7 @@ if (isset($_SESSION['nome'])) {
                             <label for="email">E-mail:</label>
                             <input type="email" id="email" name="email" required>
                             <button type="submit">Enviar</button>
-                            <button type="button" onclick="fecharModal()">Fechar</button>
+                            <button type="button" id="btnFecharModal">Fechar</button>
                         </form>
                     </div>
                 </div>
@@ -110,28 +112,39 @@ if (isset($_SESSION['nome'])) {
                     alert("Função de lembrar senha não implementada.");
                 });
             });
-            function abrirModal() {
-    document.getElementById("modalRecuperarSenha").style.display = "block";
-}
 
-function fecharModal() {
-    document.getElementById("modalRecuperarSenha").style.display = "none";
-}
-
-document.getElementById("formRecuperarSenha").addEventListener("submit", async function(event) {
-    event.preventDefault();
-    const email = document.getElementById("email").value;
-
-    const response = await fetch("processa_redefinir_senha.php", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email })
+$("#btnAbrirModal").on("click", function () {
+        $("#modalRecuperarSenha").fadeIn();
     });
 
-    const data = await response.json();
-    alert(data.message);
-    if (data.status === "success") fecharModal();
-});
+    // Fecha o modal
+    $("#btnFecharModal").on("click", function () {
+        $("#modalRecuperarSenha").fadeOut();
+    });
+
+    // Submete o formulário via AJAX
+    $("#formRecuperarSenha").on("submit", function (e) {
+        e.preventDefault();
+
+        const email = $("#email").val();
+
+        // Envia a requisição via AJAX
+        $.ajax({
+            url: "processa_redefinir_senha.php",
+            type: "POST",
+            dataType: "json",
+            data: { email: email },
+            success: function (response) {
+                alert(response.message); // Exibe a mensagem retornada
+                if (response.status === "success") {
+                    $("#modalRecuperarSenha").fadeOut();
+                }
+            },
+            error: function () {
+                alert("Ocorreu um erro ao processar a solicitação.");
+            },
+        });
+    });
         </script>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
