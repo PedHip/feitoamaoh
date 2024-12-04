@@ -81,6 +81,40 @@ class Usuario {
     }
 }
 
+	public function redefinirSenha($email) {
+    // Verifica se o email existe
+    $query = "SELECT id FROM " . $this->table_name . " WHERE email = :email LIMIT 1";
+    $stmt = $this->conn->prepare($query);
+    $stmt->bindParam(':email', $email);
+    $stmt->execute();
+
+    if ($stmt->rowCount() > 0) {
+        // Gera uma nova senha aleatória
+        $novaSenha = bin2hex(random_bytes(4)); // Gera uma senha de 8 caracteres
+        $senhaHash = password_hash($novaSenha, PASSWORD_DEFAULT);
+
+        // Atualiza a senha no banco
+        $updateQuery = "UPDATE " . $this->table_name . " SET senha = :senha WHERE email = :email";
+        $updateStmt = $this->conn->prepare($updateQuery);
+        $updateStmt->bindParam(':senha', $senhaHash);
+        $updateStmt->bindParam(':email', $email);
+
+        if ($updateStmt->execute()) {
+            // Envia a nova senha por e-mail
+            $assunto = "Recuperação de Senha";
+            $mensagem = "Sua nova senha é: " . $novaSenha;
+            $headers = "From: no-reply@seusite.com";
+
+            if (mail($email, $assunto, $mensagem, $headers)) {
+                return ['status' => 'success', 'message' => 'Nova senha enviada para o e-mail.'];
+            } else {
+                return ['status' => 'error', 'message' => 'Erro ao enviar o e-mail.'];
+            }
+        }
+    }
+    return ['status' => 'error', 'message' => 'E-mail não encontrado.'];
+}
+
     
 
     public function autenticar() {
